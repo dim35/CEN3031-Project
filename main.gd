@@ -10,6 +10,7 @@ onready var loading_thread = Thread.new()
 var next_scene_instance = null
 
 func _ready():
+	print (get_node("/node"))
 	print ("Started")
 	# Load Data...
 	loading_thread.start(self, "load_data")

@@ -14,6 +14,13 @@ config/name="dim35"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/stretch/shrink="1"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
