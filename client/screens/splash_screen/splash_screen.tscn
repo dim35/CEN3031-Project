@@ -85,6 +85,5 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/fade_in_out = SubResource( 1 )
 blend_times = [  ]
-autoplay = ""
 
 
