@@ -12,9 +12,9 @@ func _ready():
 # This has been connected from Button
 func _on_Button_button_up():
 	print("Button Pressed!")
-	print(username_field.get_line(0))
-	print(password_field.get_line(0))
-	print(address_field.get_line(0))
+	print(username_field.text)
+	print(password_field.text)
+	print(address_field.text)
 
 	# do authentication here
 	
