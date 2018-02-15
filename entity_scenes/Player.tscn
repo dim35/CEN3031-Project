@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://entity_scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/1.png" type="Texture" id=2]
+[ext_resource path="res://assets/0.png" type="Texture" id=3]
+[ext_resource path="res://assets/2.png" type="Texture" id=4]
+[ext_resource path="res://assets/3.png" type="Texture" id=5]
+[ext_resource path="res://assets/4.png" type="Texture" id=6]
+[ext_resource path="res://assets/5.png" type="Texture" id=7]
+[ext_resource path="res://assets/6.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.82278
+height = 3.32126
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking",
+"speed": 15.0
+} ]
+
+[node name="Player" type="Area2D" index="0"]
+
+position = Vector2( 437, 352 )
+scale = Vector2( 2, 2 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+SPEED = 200
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Animations" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 2 )
+animation = "idle"
+frame = 5
+playing = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+
