@@ -37,7 +37,7 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 864, 128 )
 scale = Vector2( 2, 2 )
@@ -61,7 +61,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 4
+frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
