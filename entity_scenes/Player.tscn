@@ -31,10 +31,10 @@ animations = [ {
 
 [node name="Player" type="KinematicBody2D" index="0"]
 
-position = Vector2( 431.029, 364.605 )
+position = Vector2( 864, 128 )
 scale = Vector2( 2, 2 )
 input_pickable = true
-collision_layer = 1
+collision_layer = 0
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
@@ -53,7 +53,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 5
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 

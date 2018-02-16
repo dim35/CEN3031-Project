@@ -15,7 +15,7 @@ func _physics_process(delta):
 	
 	# Reset velocity to blank slate
 	velocity.x = 0
-	velocity.y = 0	
+	velocity.y += 10	
 	
 	# Player is moving to the right
 	if Input.is_action_pressed("ui_right"):
@@ -38,4 +38,4 @@ func _physics_process(delta):
 		$Animations.flip_h = velocity.x < 0		
 	
 	# Move the player
-	position += velocity * delta
+	move_and_slide(velocity)
