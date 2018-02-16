@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Knight - Sprite Sheet.png-3a6a01f462f9de28890e3515f455b713.stex"
+path="res://.import/tile_castle.png-d10886222ce24390de37f5812b0a35cd.stex"
 
 [deps]
 
-source_file="res://assets/Knight - Sprite Sheet.png"
-source_md5="5346d4e36b17228f857b7fee9bb9e8cc"
+source_file="res://assets/spritesheets/tile_castle.png"
+source_md5="2ce31052853c33977046b296c5649d1f"
 
-dest_files=[ "res://.import/Knight - Sprite Sheet.png-3a6a01f462f9de28890e3515f455b713.stex" ]
-dest_md5="c26563c1625172b8655656ce4fb04626"
+dest_files=[ "res://.import/tile_castle.png-d10886222ce24390de37f5812b0a35cd.stex" ]
+dest_md5="58a1ec82a3586bfac2735156775d2456"
 
 [params]
 

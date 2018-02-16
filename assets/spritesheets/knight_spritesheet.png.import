@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_48x48.png-aabefa814b583d354d5635ebf53382b5.stex"
+path="res://.import/knight_spritesheet.png-885c26d6cc2858ebe04937e532ceafa9.stex"
 
 [deps]
 
-source_file="res://assets/grass_48x48.png"
-source_md5="9393508d30038590e90ee3e33d0f8344"
+source_file="res://assets/spritesheets/knight_spritesheet.png"
+source_md5="5346d4e36b17228f857b7fee9bb9e8cc"
 
-dest_files=[ "res://.import/grass_48x48.png-aabefa814b583d354d5635ebf53382b5.stex" ]
-dest_md5="744f5a4cfbf9d7423b15683cf1cc98a1"
+dest_files=[ "res://.import/knight_spritesheet.png-885c26d6cc2858ebe04937e532ceafa9.stex" ]
+dest_md5="c26563c1625172b8655656ce4fb04626"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

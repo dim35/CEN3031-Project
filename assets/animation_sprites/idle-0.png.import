@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_castle.png-a061aa24e3fba9c407c882cae0a286e2.stex"
+path="res://.import/idle-0.png-c55bbe32a4d48af7b63d7bdb4f02c54a.stex"
 
 [deps]
 
-source_file="res://assets/tile_castle.png"
-source_md5="2ce31052853c33977046b296c5649d1f"
+source_file="res://assets/animation_sprites/idle-0.png"
+source_md5="81adb1dbae16a16856228723626146a8"
 
-dest_files=[ "res://.import/tile_castle.png-a061aa24e3fba9c407c882cae0a286e2.stex" ]
-dest_md5="e7a073a017a659a3c92737bbad616678"
+dest_files=[ "res://.import/idle-0.png-c55bbe32a4d48af7b63d7bdb4f02c54a.stex" ]
+dest_md5="6fa60aa8047e6c3cdb426981eeea10a9"
 
 [params]
 

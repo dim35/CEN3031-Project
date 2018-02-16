@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0.png-1126c5ac2c0251a04c124cc3e80cc7be.stex"
+path="res://.import/walking-2.png-4c6cce382d6b3f82298b2b26a4092b25.stex"
 
 [deps]
 
-source_file="res://assets/0.png"
-source_md5="81adb1dbae16a16856228723626146a8"
+source_file="res://assets/animation_sprites/walking-2.png"
+source_md5="c007ff7fefe9cd1e067d40f3d8fa6e7d"
 
-dest_files=[ "res://.import/0.png-1126c5ac2c0251a04c124cc3e80cc7be.stex" ]
-dest_md5="3bade7adcb2927a860dea87e3960ecba"
+dest_files=[ "res://.import/walking-2.png-4c6cce382d6b3f82298b2b26a4092b25.stex" ]
+dest_md5="4da5f267ed6babfd318108f8aef16499"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

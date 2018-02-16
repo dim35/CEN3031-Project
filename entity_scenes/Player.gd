@@ -30,10 +30,16 @@ func _physics_process(delta):
 	# Player is moving to the right
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
+		# Pressing SHIFT - run 40% faster
+		if Input.is_key_pressed(16777237):
+			velocity.x = 1.4*speed
 		
 	# Player is moving to the left
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
+		# Pressing SHIFT - run 40% faster
+		if Input.is_key_pressed(16777237):
+			velocity.x = -1.4*speed
 	
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():

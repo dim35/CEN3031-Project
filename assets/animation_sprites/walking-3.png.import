@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/knight_spritesheet.png-2a04fce4065bee88a4d689a08b91d001.stex"
+path="res://.import/walking-3.png-32ab97260d781e1cb002e1924573b2f4.stex"
 
 [deps]
 
-source_file="res://assets/knight_spritesheet.png"
-source_md5="5346d4e36b17228f857b7fee9bb9e8cc"
+source_file="res://assets/animation_sprites/walking-3.png"
+source_md5="fafe7e57f254b98fe666d409c7a68448"
 
-dest_files=[ "res://.import/knight_spritesheet.png-2a04fce4065bee88a4d689a08b91d001.stex" ]
-dest_md5="c26563c1625172b8655656ce4fb04626"
+dest_files=[ "res://.import/walking-3.png-32ab97260d781e1cb002e1924573b2f4.stex" ]
+dest_md5="3818086d3e8b03d81e69cfe40c6b0224"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

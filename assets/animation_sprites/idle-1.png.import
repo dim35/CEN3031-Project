@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attack-0.png-3e83bfea63d669c58ec9635df665aa12.stex"
+path="res://.import/idle-1.png-3c424ef1f9d216532afe00fb75bbdf70.stex"
 
 [deps]
 
-source_file="res://assets/attack-0.png"
-source_md5="c48bdb57de7466ffe8af9d901b24e7c0"
+source_file="res://assets/animation_sprites/idle-1.png"
+source_md5="e48205e6824a975a90494a8983d8ce39"
 
-dest_files=[ "res://.import/attack-0.png-3e83bfea63d669c58ec9635df665aa12.stex" ]
-dest_md5="bf316b13a691a6606682faa691e517c1"
+dest_files=[ "res://.import/idle-1.png-3c424ef1f9d216532afe00fb75bbdf70.stex" ]
+dest_md5="7d1ac137a37a050e0dd01dc72938643b"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6.png-f9d63503950ce758a4468d886d9cbedc.stex"
+path="res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex"
 
 [deps]
 
-source_file="res://assets/6.png"
-source_md5="3d2552f529e9dd968af544414290a290"
+source_file="res://assets/animation_sprites/attacking-1.png"
+source_md5="faf2f276032804d99e60c37904cf0878"
 
-dest_files=[ "res://.import/6.png-f9d63503950ce758a4468d886d9cbedc.stex" ]
-dest_md5="a75793aa1a7b73217cc2359fd996cff5"
+dest_files=[ "res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex" ]
+dest_md5="6a2eb08cefab574f1a9ba99239664da0"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
