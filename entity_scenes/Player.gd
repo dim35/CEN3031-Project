@@ -1,41 +1,46 @@
 extends KinematicBody2D
 # The player's speed
-export (int) var SPEED
+export (int) var speed
+# The player's strength
+export (int) var strength
+# The player's health
+export (int) var health
+# The player's stamina
+export (int) var stamina
 # The player's velocity
 var velocity = Vector2()
-
 
 
 func _ready():	
 	pass
 
 
-
 func _physics_process(delta):
 	
 	# Reset velocity to blank slate
-	velocity.x = 0
 	velocity.y += 10	
 	
 	# Player is moving to the right
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
+		velocity.x += 5
 		
 	# Player is moving to the left
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
+		velocity.x -= 5
+		
+	elif Input.is_key_pressed(88):
+		$Animations.play("attacking")
 	
-	# If player moved
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * SPEED
-		$Animations.play()
+	# Player is not moving horizontally
 	else:
-		$Animations.animation = "idle"
-	
-	# Determine walking animation direction
+		velocity.x = 0
+		$Animations.play("idle")
+
+	# If player is moving horizontally
 	if velocity.x != 0:
-		$Animations.animation = "walking"
-		$Animations.flip_h = velocity.x < 0		
+		velocity = velocity.normalized() * speed
+		$Animations.flip_h = velocity.x < 0	
+		$Animations.play("walking")
 	
 	# Move the player
 	move_and_slide(velocity)
