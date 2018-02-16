@@ -41,13 +41,14 @@ func _physics_process(delta):
 	
 	if Input.is_key_pressed(88):
 		$Animations.play("attacking")
-
-	# If player is moving horizontally
-	if velocity.x != 0:
+		velocity = Vector2(0,0)
+		
+	elif velocity.x != 0:
 		$Animations.flip_h = velocity.x < 0	
 		$Animations.play("walking")
+	
 	else:
 		$Animations.play("idle")
 	
-	# Move the player
+	# Update player movement
 	velocity = move_and_slide(velocity, UP_DIRECTION)
