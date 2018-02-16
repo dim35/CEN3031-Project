@@ -10,7 +10,7 @@ source_file="res://assets/attack-1.png"
 source_md5="faf2f276032804d99e60c37904cf0878"
 
 dest_files=[ "res://.import/attack-1.png-ad01086baaa4463de8bf5ce304914eca.stex" ]
-dest_md5="95b22aa8dceb743736a436a9b1d23fb2"
+dest_md5="9e2fa4a6aa3580cd01e5f57966229311"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

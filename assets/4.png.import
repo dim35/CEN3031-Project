@@ -10,7 +10,7 @@ source_file="res://assets/4.png"
 source_md5="fafe7e57f254b98fe666d409c7a68448"
 
 dest_files=[ "res://.import/4.png-59f90d2603212c6302285cebb176551d.stex" ]
-dest_md5="7e3f8c98a5ad8b6a0f20d41ddbd299a4"
+dest_md5="e2537edff293ca764596143dcf9a37c1"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
