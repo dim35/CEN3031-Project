@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://entity_scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/attack-0.png" type="Texture" id=2]
+[ext_resource path="res://assets/attack-1.png" type="Texture" id=3]
+[ext_resource path="res://assets/attack-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/1.png" type="Texture" id=5]
+[ext_resource path="res://assets/2.png" type="Texture" id=6]
+[ext_resource path="res://assets/3.png" type="Texture" id=7]
+[ext_resource path="res://assets/4.png" type="Texture" id=8]
+[ext_resource path="res://assets/5.png" type="Texture" id=9]
+[ext_resource path="res://assets/6.png" type="Texture" id=10]
+[ext_resource path="res://assets/0.png" type="Texture" id=11]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.69403
+height = 0.558969
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walking",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 7.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( 864, 128 )
+scale = Vector2( 2, 2 )
+input_pickable = true
+collision_layer = 0
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+speed = 300
+strength = 10
+health = 15
+stamina = 8
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Animations" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 2 )
+animation = "idle"
+frame = 3
+playing = true
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+
