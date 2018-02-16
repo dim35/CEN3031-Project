@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_48x48.png-aabefa814b583d354d5635ebf53382b5.stex"
+path="res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex"
 
 [deps]
 
-source_file="res://assets/grass_48x48.png"
-source_md5="9393508d30038590e90ee3e33d0f8344"
+source_file="res://assets/animation_sprites/attacking-1.png"
+source_md5="faf2f276032804d99e60c37904cf0878"
 
-dest_files=[ "res://.import/grass_48x48.png-aabefa814b583d354d5635ebf53382b5.stex" ]
-dest_md5="744f5a4cfbf9d7423b15683cf1cc98a1"
+dest_files=[ "res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex" ]
+dest_md5="6a2eb08cefab574f1a9ba99239664da0"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

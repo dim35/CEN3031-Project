@@ -23,33 +23,38 @@ func _ready():
 func _physics_process(delta):
 	
 	# Update vertical velocity each frame with gravity
-	velocity.y += GRAVITY	
+	velocity.y += GRAVITY
+	# Reset horizontal velocity each frame
+	velocity.x = 0	
 	
 	# Player is moving to the right
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
+		# Pressing SHIFT - run 40% faster
+		if Input.is_key_pressed(16777237):
+			velocity.x = 1.4*speed
 		
 	# Player is moving to the left
-	elif Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
+		# Pressing SHIFT - run 40% faster
+		if Input.is_key_pressed(16777237):
+			velocity.x = -1.4*speed
 	
-	elif Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -1.5*speed
 	
-	elif Input.is_key_pressed(88):
+	if Input.is_key_pressed(88):
 		$Animations.play("attacking")
-	
-	# Player is not moving horizontally
-	else:
-		velocity.x = 0
-		$Animations.play("idle")
-	
-
-	# If player is moving horizontally
-	if velocity.x != 0:
+		velocity = Vector2(0,0)
+		
+	elif velocity.x != 0:
 		$Animations.flip_h = velocity.x < 0	
 		$Animations.play("walking")
 	
-	# Move the player
+	else:
+		$Animations.play("idle")
+	
+	# Update player movement
 	velocity = move_and_slide(velocity, UP_DIRECTION)
