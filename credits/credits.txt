@@ -1,3 +1,7 @@
-Knight Sprite: no attribution required; Author: Distrhron, https://opengameart.org/content/classic-knight-animated
+Knight Sprite: no attribution required; Author: Disthron, https://opengameart.org/content/classic-knight-animated
 
 Castle Tiles: no attribution required; Authors: OpenPixelProject, https://openpixelproject.itch.io/opp2017castle
+
+Ranger: attribution required; Author: Calciumtrice, https://opengameart.org/content/animated-ranger
+
+Necromancer: no attribution required; Author: Disthron, https://opengameart.org/users/disthron

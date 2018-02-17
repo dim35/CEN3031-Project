@@ -48,10 +48,6 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-speed = 300
-strength = 10
-health = 15
-stamina = 8
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
 
