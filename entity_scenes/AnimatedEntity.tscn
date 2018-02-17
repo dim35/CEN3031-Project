@@ -21,4 +21,6 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
 

@@ -13,7 +13,6 @@ speed = 150
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
 show_behind_parent = true
-position = Vector2( 2, 0 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
