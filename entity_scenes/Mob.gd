@@ -3,9 +3,10 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 
 
 func _ready():
-	$Animations.flip_h = true
-	$Animations.play("walking")
 	speed = 100
+	$Animations.flip_h = true
+	update_state("walking")
+	$Animations.play()
 
 
 

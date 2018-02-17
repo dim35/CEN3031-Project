@@ -1,17 +1,17 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://entity_scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/animation_sprites/attacking-0.png" type="Texture" id=2]
-[ext_resource path="res://assets/animation_sprites/attacking-1.png" type="Texture" id=3]
-[ext_resource path="res://assets/animation_sprites/attacking-2.png" type="Texture" id=4]
-[ext_resource path="res://assets/animation_sprites/walking-0.png" type="Texture" id=5]
-[ext_resource path="res://assets/animation_sprites/walking-1.png" type="Texture" id=6]
-[ext_resource path="res://assets/animation_sprites/walking-2.png" type="Texture" id=7]
-[ext_resource path="res://assets/animation_sprites/walking-3.png" type="Texture" id=8]
-[ext_resource path="res://assets/animation_sprites/walking-4.png" type="Texture" id=9]
-[ext_resource path="res://assets/animation_sprites/walking-5.png" type="Texture" id=10]
-[ext_resource path="res://assets/animation_sprites/idle-1.png" type="Texture" id=11]
-[ext_resource path="res://assets/animation_sprites/idle-0.png" type="Texture" id=12]
+[ext_resource path="res://assets/animation_sprites/idle-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/animation_sprites/idle-0.png" type="Texture" id=3]
+[ext_resource path="res://assets/animation_sprites/walking-0.png" type="Texture" id=4]
+[ext_resource path="res://assets/animation_sprites/walking-1.png" type="Texture" id=5]
+[ext_resource path="res://assets/animation_sprites/walking-2.png" type="Texture" id=6]
+[ext_resource path="res://assets/animation_sprites/walking-3.png" type="Texture" id=7]
+[ext_resource path="res://assets/animation_sprites/walking-4.png" type="Texture" id=8]
+[ext_resource path="res://assets/animation_sprites/walking-5.png" type="Texture" id=9]
+[ext_resource path="res://assets/animation_sprites/attacking-0.png" type="Texture" id=10]
+[ext_resource path="res://assets/animation_sprites/attacking-1.png" type="Texture" id=11]
+[ext_resource path="res://assets/animation_sprites/attacking-2.png" type="Texture" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -22,20 +22,20 @@ height = 0.558969
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "attacking",
-"speed": 6.0
+"name": "idle",
+"speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walking",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "idle",
-"speed": 5.0
+"name": "attacking",
+"speed": 6.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -48,7 +48,6 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-speed = 300
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
 

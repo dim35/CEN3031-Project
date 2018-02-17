@@ -1,33 +1,20 @@
-extends KinematicBody2D
-# The player's speed
-export (int) var speed
-# The player's strength
-var strength
-# The player's health
-var health
-# The player's stamina
-var stamina
-# The player's velocity
-var velocity = Vector2()
-
-# Defines the upward direction for the player as a unit vector
-const UP_DIRECTION = Vector2(0, -1)
-const GRAVITY = 10
+extends "res://entity_scenes/AnimatedEntity.gd"
 
 
+# Initialize the Player entity with attributes
 func _ready():	
+	speed = 200
+	health = 15
+	defense = 15
 	pass
+
 
 
 # Processed every frame
 func _physics_process(delta):
-	
-	# Update vertical velocity each frame with gravity
-	velocity.y += GRAVITY
-	
-	# Reset horizontal velocity each frame so it doesn't accumulate
-	velocity.x = 0	
-	
+
+	._physics_process(delta)
+
 	# Player is moving to the right
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
@@ -49,17 +36,21 @@ func _physics_process(delta):
 	
 	# Player is attacking via the X key
 	if Input.is_key_pressed(88):
-		$Animations.play("attacking")
+		update_state("attacking")
 		velocity = Vector2(0,0)
 	
-	# Elif because we assume a player does not attack while moving
+	# "Else if" because we assume a player does not attack while moving
 	elif velocity.x != 0:
+		update_state("walking")
 		$Animations.flip_h = velocity.x < 0	
-		$Animations.play("walking")
 	
 	# Default to idle animation if the player is not doing any of the above
 	else:
-		$Animations.play("idle")
+		update_state("idle")
+	
+	
+	# Play whatever animation was set	
+	$Animations.play()
 	
 	
 	# Prevents the player from walking off the edge of the screen
@@ -67,4 +58,6 @@ func _physics_process(delta):
 	
 	
 	# Updates player's movement based on their velocity
-	velocity = move_and_slide(velocity, UP_DIRECTION)
+	velocity = move(velocity)
+	
+	# print("Player") # for debugging purposes only
