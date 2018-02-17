@@ -1,13 +1,10 @@
 extends KinematicBody2D
-var velocity
-var health
-var defense
+var velocity = Vector2()
+var speed = 300
+var health = 10
+var defense = 10
 const UP_DIRECTION = Vector2(0, -1)
 const GRAVITY = 10
-
-
-func _ready():
-	pass
 
 
 
@@ -23,6 +20,6 @@ func update_state():
 	
 
 
-func move():
-	move_and_slide(velocity, UP_DIRECTION)
+func move(motion):
+	move_and_slide(motion, UP_DIRECTION)
 	pass
