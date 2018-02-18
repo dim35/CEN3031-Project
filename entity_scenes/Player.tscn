@@ -13,11 +13,10 @@
 [ext_resource path="res://assets/animation_sprites/attacking-1.png" type="Texture" id=11]
 [ext_resource path="res://assets/animation_sprites/attacking-2.png" type="Texture" id=12]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 9.69403
-height = 0.558969
+extents = Vector2( 6.43304, 9.01946 )
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -51,14 +50,14 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
 
-shape = SubResource( 1 )
+position = Vector2( 0, 0.5 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="Animations" type="AnimatedSprite" parent="." index="1"]
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
