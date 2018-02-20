@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://entity_scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://entity_scenes/Mob.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D" index="0"]
 
@@ -12,7 +13,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 32, 416 )
+position = Vector2( 64, 320 )
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -42,7 +43,15 @@ __meta__ = {
 [node name="Mob" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 1024, 352 )
-scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+
+[node name="Canvas" type="CanvasLayer" parent="." index="3"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="HUD" parent="Canvas" index="0" instance=ExtResource( 5 )]
 
 
