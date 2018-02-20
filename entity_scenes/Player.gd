@@ -56,4 +56,6 @@ func _physics_process(delta):
 	# Updates player's movement based on their velocity
 	velocity = move(velocity)
 	
+	
 	# print("Player") # for debugging purposes only
+

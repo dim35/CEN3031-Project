@@ -1,4 +1,5 @@
 extends KinematicBody2D
+signal under_attack
 
 # ----------- All attributes of an animated entity -----------
 var velocity = Vector2()
