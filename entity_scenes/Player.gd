@@ -1,10 +1,15 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
+const MAX_STAMINA = 150
+const MAX_HEALTH = 200
+var player_is_idle = true
 
 
-# Initialize the Player entity with attributes
+
+# Initialize the Player entity with its attributes
 func _ready():	
 	speed = 200
-	health = 15
+	health = 200
+	stamina = 150
 	defense = 15
 	pass
 
@@ -14,48 +19,52 @@ func _ready():
 func _physics_process(delta):
 
 	._physics_process(delta)
-
-	# Player is moving to the right
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = speed
-		# Pressing SHIFT - run 40% faster
-		if Input.is_key_pressed(16777237):
-			velocity.x = 1.4*speed
-		
-	# Player is moving to the left
-	if Input.is_action_pressed("ui_left"):
+	
+	# Player is moving left
+	if Input.is_action_pressed("move_left") and stamina > 0:
 		velocity.x = -speed
-		# Pressing SHIFT - run 40% faster
-		if Input.is_key_pressed(16777237):
-			velocity.x = -1.4*speed
+		stamina -= 0.3				
+	
+	# Player is moving right
+	if Input.is_action_pressed("move_right") and stamina > 0:
+		velocity.x = speed
+		stamina -= 0.3
 	
 	# Player is jumping
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump") and stamina > 0:
 		if is_on_floor():
 			velocity.y = -1.5*speed
+			stamina -= 10
 	
-	# Player is attacking via the X key
-	if Input.is_key_pressed(88):
+	# Player is attacking
+	if Input.is_action_pressed("attack") and stamina > 0:
 		update_state("attacking")
-		velocity = Vector2(0,0)
+		stamina -= 0.5
+		velocity.x = 0
 	
-	# "Else if" because we assume a player does not attack while moving
+	# Walking
 	elif velocity.x != 0:
 		update_state("walking")
-		$Animations.flip_h = velocity.x < 0	
+		$Animations.flip_h = velocity.x < 0
 	
-	# Default to idle animation if the player is not doing any of the above
+	# Player is idle
 	else:
-		update_state("idle")
+		velocity.x = 0
+		update_state("idle")	
+		stamina = min(stamina + 0.4, MAX_STAMINA)
 	
 	
-	# Play whatever animation was set	
+	
+	# Play whatever animation was set
 	$Animations.play()
-
 	
 	# Updates player's movement based on their velocity
 	velocity = move(velocity)
-	
-	
-	# print("Player") # for debugging purposes only
 
+
+
+
+
+
+
+	
