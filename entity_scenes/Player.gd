@@ -20,17 +20,19 @@ func _physics_process(delta):
 
 	._physics_process(delta)
 	
-	# TODO add "and stamina > 0" condition
+	# TODO add back the "and stamina > 0" condition
 	
 	# Player is moving left
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
-		stamina -= 0.3				
+		stamina -= 0.3		
+		$Animations.flip_h = velocity.x < 0		
 	
 	# Player is moving right
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
 		stamina -= 0.3
+		$Animations.flip_h = velocity.x < 0
 	
 	# Player is jumping
 	if Input.is_action_just_pressed("jump"):
@@ -43,11 +45,11 @@ func _physics_process(delta):
 		update_state("attacking")
 		stamina -= 0.5
 	
-	# Walking
-	elif velocity.x != 0:
+	# Player is walking
+	elif velocity.x != 0 and is_on_floor():
 		update_state("walking")
-		$Animations.flip_h = velocity.x < 0
 	
+	# Player is falling
 	elif !is_on_floor():
 		update_state("falling")
 	
@@ -56,8 +58,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		update_state("idle")	
 		stamina = min(stamina + 0.4, MAX_STAMINA)
-	
-	
+		
 	
 	
 	# Play whatever animation was set
