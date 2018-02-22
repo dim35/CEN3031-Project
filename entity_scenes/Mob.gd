@@ -11,6 +11,13 @@ func _ready():
 
 
 func _physics_process(delta):
-	velocity.x = -speed
+	
+	if $Animations.flip_h:
+		velocity.x = -speed
+	else:
+		velocity.x = speed
+	
+		
+	
 	move(velocity)
 	pass

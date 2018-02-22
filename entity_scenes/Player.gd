@@ -51,13 +51,11 @@ func _physics_process(delta):
 	
 	# Play whatever animation was set	
 	$Animations.play()
-	
-	
-	# Prevents the player from walking off the edge of the screen
-	position.x = clamp(position.x, 10, get_viewport_rect().size.x - 10)
-	
+
 	
 	# Updates player's movement based on their velocity
 	velocity = move(velocity)
 	
+	
 	# print("Player") # for debugging purposes only
+

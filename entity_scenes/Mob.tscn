@@ -17,12 +17,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7.47229, 7.61328 )
+radius = 12.1674
+height = 8.87408
 
-[node name="Mob" type="KinematicBody2D"]
+[node name="Mob" type="KinematicBody2D" index="0"]
 
 position = Vector2( 435.176, 232.29 )
 input_pickable = false
@@ -30,15 +31,19 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="Animations" type="AnimatedSprite" parent="." index="0"]
 
+position = Vector2( -13, 0 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "walking"
+_sections_unfolded = [ "Transform" ]
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 4.89545, 0.257034 )
+position = Vector2( -16.1045, -1.74297 )
 shape = SubResource( 2 )
 
 
