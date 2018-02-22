@@ -18,6 +18,7 @@
 custom_solver_bias = 0.0
 radius = 8.2
 height = 1.87106
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -49,7 +50,7 @@ position = Vector2( 864, 128 )
 scale = Vector2( 2, 2 )
 input_pickable = true
 collision_layer = 0
-collision_mask = 1
+collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
@@ -64,7 +65,6 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
