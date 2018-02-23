@@ -4,7 +4,8 @@ signal under_attack
 # ----------- All attributes of an animated entity -----------
 var velocity = Vector2()
 var speed = 300
-var health = 10
+var health = 100
+var stamina = 100
 var defense = 10
 const UP_DIRECTION = Vector2(0, -1)
 const GRAVITY = 10
@@ -12,7 +13,6 @@ const GRAVITY = 10
 
 
 func _physics_process(delta):
-	# print("Super") # For debugging purposes only
 	velocity.y += GRAVITY
 	velocity.x = 0
 	pass
