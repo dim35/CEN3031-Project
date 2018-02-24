@@ -29,7 +29,7 @@ custom_solver_bias = 0.0
 radius = 23.9393
 height = 5.06677
 
-[node name="Mob" type="KinematicBody2D" index="0"]
+[node name="Mob" type="KinematicBody2D"]
 
 position = Vector2( 435.176, 232.29 )
 input_pickable = false
@@ -65,7 +65,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( -22, -5.99028 )
+position = Vector2( -24, -5.99028 )
 shape = SubResource( 3 )
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
