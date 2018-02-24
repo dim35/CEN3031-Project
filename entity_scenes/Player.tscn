@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://entity_scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/animation_sprites/idle-1.png" type="Texture" id=2]
@@ -44,7 +44,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 8.11261
+height = 1.83669
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 864, 128 )
 scale = Vector2( 2, 2 )
@@ -93,5 +99,20 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
 
 
