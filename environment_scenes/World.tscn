@@ -1,25 +1,21 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
-[ext_resource path="res://entity_scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=3]
-[ext_resource path="res://entity_scenes/Mob.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entity_scenes/PlayerSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entity_scenes/MobSpawner.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
-
-position = Vector2( 64, 320 )
-
-[node name="TileMap" type="TileMap" parent="." index="1"]
+[node name="TileMap" type="TileMap" parent="." index="0"]
 
 show_behind_parent = true
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -40,11 +36,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Mob" parent="." index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 1024, 352 )
-
-[node name="Canvas" type="CanvasLayer" parent="." index="3"]
+[node name="Canvas" type="CanvasLayer" parent="." index="1"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -52,8 +44,12 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="HUD" parent="Canvas" index="0" instance=ExtResource( 5 )]
+[node name="HUD" parent="Canvas" index="0" instance=ExtResource( 3 )]
 
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="PlayerSpawner" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="MobSpawner" parent="." index="3" instance=ExtResource( 5 )]
 
 

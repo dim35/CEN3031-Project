@@ -23,7 +23,7 @@ custom_solver_bias = 0.0
 radius = 12.1674
 height = 8.87408
 
-[node name="Mob" type="KinematicBody2D" index="0"]
+[node name="Mob" type="KinematicBody2D"]
 
 position = Vector2( 435.176, 232.29 )
 input_pickable = false
