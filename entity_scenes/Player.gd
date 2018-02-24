@@ -35,8 +35,11 @@ func _ready():
 
 # Processed every frame
 func _physics_process(delta):
-
+	
 	._physics_process(delta)
+
+	if position.y >= 1200:
+		update_player_position(70, 350)
 	
 	# TODO add back the "and stamina > 0" condition
 	
@@ -83,5 +86,11 @@ func _physics_process(delta):
 	# Updates player's movement based on their velocity
 	velocity = move(velocity)
 
+
+
+# Sets the player's position to (x, y)
+func update_player_position(x, y):
+		position.x = x
+		position.y = y
 
 	

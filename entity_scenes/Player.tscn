@@ -72,6 +72,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
