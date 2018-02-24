@@ -18,7 +18,7 @@ var mana
 # Stamina depletion and regen constants
 const STAMINA_WALK_DEPLETION = 0.3
 const STAMINA_JUMP_DEPLETION = 8
-const STAMINA_ATTACK_DEPLETION = 0.5
+const STAMINA_ATTACK_DEPLETION = 0.6
 const STAMINA_IDLE_REGEN = 0.4
 
 
