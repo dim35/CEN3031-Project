@@ -5,7 +5,10 @@
 [node name="MobSpawner" type="Node"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="Container" type="Node" parent="." index="0"]
+
+_sections_unfolded = [ "Pause" ]
 
 

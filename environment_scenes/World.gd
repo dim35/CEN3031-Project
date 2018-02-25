@@ -8,7 +8,7 @@ func _ready():
 
 # Processed every frame
 func _process(delta):	
-  update_HUD_bars()
+	update_HUD_bars()
 	if $MobSpawner/Container.get_child_count() > 0:
 		for mob in $MobSpawner/Container.get_children():
 			if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
@@ -34,8 +34,8 @@ func update_mana_bar():
 	
 	
 func update_HUD_bars():
-	$Canvas/HUD/Stamina.max_value = $PlayerSpawner/Container.get_child(0).MAX_STAMINA
-	$Canvas/HUD/Stamina.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_STAMINA, 8)
+#	$Canvas/HUD/Stamina.max_value = $PlayerSpawner/Container.get_child(0).MAX_STAMINA
+#	$Canvas/HUD/Stamina.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_STAMINA, 8)
 	update_stamina_bar()	
 	$Canvas/HUD/Health.max_value = $PlayerSpawner/Container.get_child(0).MAX_HEALTH
 	$Canvas/HUD/Health.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_HEALTH, 8)
