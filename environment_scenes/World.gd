@@ -43,3 +43,12 @@ func update_HUD_bars():
 	$Canvas/HUD/Mana.max_value = $PlayerSpawner/Container.get_child(0).MAX_MANA
 	$Canvas/HUD/Mana.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_MANA, 8)
 	update_mana_bar()
+
+func _on_Door_body_entered( body ):
+	if body.get_parent() == $PlayerSpawner/Container:
+		level_complete()
+	
+func level_complete():
+	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
+	get_tree().change_scene_to(my_scene)
+
