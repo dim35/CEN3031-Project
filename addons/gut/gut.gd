@@ -296,9 +296,9 @@ func _parse_tests(script):
 		#Add a test
 		if(line.begins_with("func " + _test_prefix)):
 			var from = line.find(_test_prefix)
-			var len = line.find("(") - from
+			var leng = line.find("(") - from
 			var new_test = OneTest.new()
-			new_test.name = line.substr(from, len)
+			new_test.name = line.substr(from, leng)
 			new_test.line_number = line_count
 			_tests.append(new_test)
 

@@ -18,9 +18,8 @@ func _on_Button_button_up():
 
 	# do authentication here
 	
-	get_tree().change_scene_to(next_scene)
+	var my_scene = load("res://environment_scenes/World.tscn")
+	get_tree().change_scene_to(my_scene)
+	
 	queue_free()
-
-
-
 
