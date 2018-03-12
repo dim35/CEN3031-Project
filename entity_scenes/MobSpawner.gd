@@ -23,14 +23,19 @@ func _spawn():
 		randomize()
 		
 		var enemy = mob.instance()
-		var pos = Vector2()
+#		var pos = Vector2()
+#
+#		pos.x = rand_range(0, get_viewport().get_visible_rect().size.x)
+#		pos.y = rand_range(0, get_viewport().get_visible_rect().size.y * (3/4))
+#		enemy.set_position(pos)
+
+		for node in get_parent().get_children():
+			if node.get_name() == "MobSpawnPoints":
+				enemy.set_position(node.get_child(0).get_global_position())
+				$Container.add_child(enemy)
+				enemy_count = enemy_count + 1
+				break
 		
-		pos.x = rand_range(0, get_viewport().get_visible_rect().size.x)
-		pos.y = rand_range(0, get_viewport().get_visible_rect().size.y * (3/4))
-		enemy.set_position(pos)
-		
-		$Container.add_child(enemy)
-		enemy_count = enemy_count + 1
 		yield(get_tree().create_timer(spawn_freq), "timeout")
 
 
