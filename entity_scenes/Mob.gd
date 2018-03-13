@@ -14,8 +14,10 @@ func _ready():
 func _physics_process(delta):
 	if $Animations.flip_h:
 		velocity.x = -speed
+		$Animations.position.x = -20
 	else:
 		velocity.x = speed
+		$Animations.position.x = 0
 	move(velocity)
 	pass
 
