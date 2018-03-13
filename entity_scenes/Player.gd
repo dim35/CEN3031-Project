@@ -2,21 +2,13 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 
 
 
-# Var instead of const to allow player leveling
-var MAX_HEALTH = 200
-var MAX_MANA = 80
-var MAX_STAMINA = 150
-var MAX_DEFENSE = 300
-var MAX_SPEED = 200
-
-
 # Other attributes
 var current_xp
 var mana
 
 
 # Stamina depletion and regen constants
-const STAMINA_WALK_DEPLETION = 0.3
+const STAMINA_RUN_DEPLETION = 0.3
 const STAMINA_JUMP_DEPLETION = 8
 const STAMINA_ATTACK_DEPLETION = 0.6
 const STAMINA_IDLE_REGEN = 0.4
@@ -46,13 +38,17 @@ func _physics_process(delta):
 	# Player is moving left
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
-		stamina = max(stamina - STAMINA_WALK_DEPLETION, 0)		
+		if Input.is_action_pressed("ui_shift"):
+			velocity.x = -1.2*speed
+			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)		
 		$Animations.flip_h = velocity.x < 0		
 	
 	# Player is moving right
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
-		stamina = max(stamina - STAMINA_WALK_DEPLETION, 0)
+		if Input.is_action_pressed("ui_shift"):
+			velocity.x = 1.2*speed
+			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		$Animations.flip_h = velocity.x < 0
 	
 	# Player is jumping

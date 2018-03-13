@@ -1,12 +1,23 @@
 extends KinematicBody2D
 signal under_attack
 
-# ----------- All attributes of an animated entity -----------
+
+# Var instead of const to allow player leveling and mob scaling
+var MAX_HEALTH = 200
+var MAX_MANA = 80
+var MAX_STAMINA = 150
+var MAX_DEFENSE = 300
+var MAX_SPEED = 150
+
+# Current values as opposed to maxima
 var velocity = Vector2()
-var speed = 300
 var health = 100
+var mana = 100
 var stamina = 100
-var defense = 10
+var defense = 100
+var speed = 100
+
+
 const UP_DIRECTION = Vector2(0, -1)
 const GRAVITY = 10
 
