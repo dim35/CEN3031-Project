@@ -76,6 +76,6 @@ func _physics_process(delta):
 		update_state("idle")	
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 	
-	# Plays whatever animation is currently set
-	$Animations.play()
+	# Updates player's movement based on their velocity
+	velocity = move(velocity)
 	

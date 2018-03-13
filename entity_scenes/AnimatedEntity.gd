@@ -27,8 +27,8 @@ const GRAVITY = 10
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	velocity.x = 0
-	# Updates player's movement based on their velocity
-	velocity = move(velocity)
+	# Plays whatever animation is currently set
+	$Animations.play()
 	pass
 	
 	
