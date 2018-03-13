@@ -9,6 +9,7 @@ var MAX_STAMINA = 150
 var MAX_DEFENSE = 300
 var MAX_SPEED = 150
 
+
 # Current values as opposed to maxima
 var velocity = Vector2()
 var health = 100
@@ -22,20 +23,25 @@ const UP_DIRECTION = Vector2(0, -1)
 const GRAVITY = 10
 
 
-
+# Code processed every frame
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	velocity.x = 0
 	pass
 	
 	
-
+	
+# Updates the entity's animation state
 func update_state(state_name):
 	$Animations.animation = state_name
 	pass
 	
 
 
+# Moves the entity using a velocity vector and upward direction
 func move(motion):
 	return move_and_slide(motion, UP_DIRECTION)
 	pass
+	
+	
+	
