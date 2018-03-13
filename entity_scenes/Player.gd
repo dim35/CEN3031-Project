@@ -2,19 +2,23 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 
 
 
-# Other attributes
+# Stamina depletion and regen values
+var STAMINA_RUN_DEPLETION = 0.3
+var STAMINA_JUMP_DEPLETION = 8
+var STAMINA_ATTACK_DEPLETION = 0.6
+var STAMINA_IDLE_REGEN = 0.4
+
 var current_xp
-
-
-# Stamina depletion and regen constants
-const STAMINA_RUN_DEPLETION = 0.3
-const STAMINA_JUMP_DEPLETION = 8
-const STAMINA_ATTACK_DEPLETION = 0.6
-const STAMINA_IDLE_REGEN = 0.4
 
 
 # Initialize the Player entity with its attributes
 func _ready():	
+	MAX_HEALTH = 200
+	MAX_MANA = 80
+	MAX_STAMINA = 150
+	MAX_DEFENSE = 300
+	MAX_SPEED = 180
+	
 	health = MAX_HEALTH
 	stamina = MAX_STAMINA
 	speed = MAX_SPEED
@@ -71,10 +75,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		update_state("idle")	
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
-			
-	# Play whatever animation was set
-	$Animations.play()
 	
-	# Updates player's movement based on their velocity
-	velocity = move(velocity)
+	# Plays whatever animation is currently set
+	$Animations.play()
 	
