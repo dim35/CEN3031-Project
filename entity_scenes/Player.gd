@@ -4,7 +4,6 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 
 # Other attributes
 var current_xp
-var mana
 
 
 # Stamina depletion and regen constants
