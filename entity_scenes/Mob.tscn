@@ -27,8 +27,8 @@ height = 13.4696
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 13.3613
+radius = 14.0928
+height = 6.07889
 
 [node name="Mob" instance=ExtResource( 1 )]
 
@@ -41,7 +41,7 @@ _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform"
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "walking"
-frame = 5
+frame = 2
 playing = true
 offset = Vector2( 5, 0 )
 flip_h = true
@@ -60,5 +60,7 @@ position = Vector2( -0.735107, 61.0128 )
 
 position = Vector2( -0.973633, -62.2777 )
 shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 
