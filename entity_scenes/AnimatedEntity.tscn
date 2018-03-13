@@ -14,16 +14,16 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+radius = 7.07825
+height = 5.25938
 
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+radius = 8.40509
+height = 1.37794
 
-[node name="AnimatedEntity" type="KinematicBody2D" index="0"]
+[node name="AnimatedEntity" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
