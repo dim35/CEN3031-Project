@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex"
+path="res://.import/knight-attacking-1.png-c5443b687108dd322732c3620bdb7782.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/attacking-1.png"
-source_md5="faf2f276032804d99e60c37904cf0878"
+source_file="res://assets/animation_sprites/knight-attacking-1.png"
+source_md5="be50651e25d844aace517c9d5b2d50ea"
 
-dest_files=[ "res://.import/attacking-1.png-361fb9dcb1359b318aac2a2daaa04a65.stex" ]
-dest_md5="6a2eb08cefab574f1a9ba99239664da0"
+dest_files=[ "res://.import/knight-attacking-1.png-c5443b687108dd322732c3620bdb7782.stex" ]
+dest_md5="1a6b9a446fecd516a3860f48340677f1"
 
 [params]
 
