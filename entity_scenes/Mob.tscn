@@ -30,7 +30,7 @@ custom_solver_bias = 0.0
 radius = 14.0928
 height = 6.07889
 
-[node name="Mob" instance=ExtResource( 1 )]
+[node name="Mob" index="0" instance=ExtResource( 1 )]
 
 collision_layer = 2
 script = ExtResource( 2 )
@@ -41,10 +41,9 @@ _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform"
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "walking"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 5, 0 )
-flip_h = true
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="Hitbox" parent="." index="1"]
