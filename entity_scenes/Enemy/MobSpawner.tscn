@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entity_scenes/Enemy/MobSpawner.gd" type="Script" id=1]
+
+
+[node name="MobSpawner" type="Node"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Container" type="Node" parent="." index="0"]
+
+_sections_unfolded = [ "Pause" ]
+
+
