@@ -19,30 +19,26 @@ func _spawn():
 	for entity in range(num_players):
 		
 		var new_player = player.instance()
-		var pos = Vector2()
-		
-		pos.x = get_viewport().get_visible_rect().size.x / 2
-		pos.y = get_viewport().get_visible_rect().size.y * (7 / 8)
-		new_player.set_position(pos)
-		
-		$Container.add_child(new_player)
+		for node in get_parent().get_children():
+			if node.get_name() == "PlayerSpawnPoints":
+				new_player.set_position(node.get_child(0).get_global_position())
+				$Container.add_child(new_player)
+				break
+	
 
 
 # special case after initial death has occured
 func _respawn():
 	var new_player = player.instance()
-	var pos = Vector2()
-		
-	pos.x = get_viewport().get_visible_rect().size.x / 2
-	pos.y = get_viewport().get_visible_rect().size.y * (7 / 8)
-	new_player.set_position(pos)
-	
-	$Container.add_child(new_player)
+	for node in get_parent().get_children():
+		if node.get_name() == "PlayerSpawnPoints":
+			new_player.set_position(node.get_child(0).get_global_position())
+			$Container.add_child(new_player)
+			break
 
 
 # despawn player if fallen off play area
 func _check_position(entity):
 	if entity.get_position().y > 650:
 		entity.queue_free()
-		#print("Player died")
 		_respawn()

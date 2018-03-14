@@ -8,7 +8,6 @@ func _ready():
 	speed = 100
 	$Animations.flip_h = true
 	update_state("walking")
-	$Animations.play()
 
 
 
