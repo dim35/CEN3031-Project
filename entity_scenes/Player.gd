@@ -8,7 +8,7 @@ func _ready():
 	MAX_MANA = 80
 	MAX_STAMINA = 150
 	MAX_DEFENSE = 300
-	MAX_SPEED = 180
+	MAX_SPEED = 150
 	
 	health = MAX_HEALTH
 	stamina = MAX_STAMINA
