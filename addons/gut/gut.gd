@@ -154,7 +154,7 @@ func _ready():
 	set_it_up()
 	set_process_input(true)
 	_connect_controls()
-	set_pos(get_pos() + Vector2(0, 20))
+	set_position(get_position() + Vector2(0, 20))
 
 	add_child(_wait_timer)
 	_wait_timer.set_wait_time(1)
@@ -296,9 +296,9 @@ func _parse_tests(script):
 		#Add a test
 		if(line.begins_with("func " + _test_prefix)):
 			var from = line.find(_test_prefix)
-			var leng = line.find("(") - from
+			var line_len = line.find("(") - from
 			var new_test = OneTest.new()
-			new_test.name = line.substr(from, leng)
+			new_test.name = line.substr(from, line_len)
 			new_test.line_number = line_count
 			_tests.append(new_test)
 
@@ -400,6 +400,14 @@ func _end_run():
 
 	p(_get_summary_text(), 0)
 
+	# For some reason the text edit control isn't scrolling to the bottom after
+	# the summary is printed.  As a workaround, yield for a short time and
+	# then move the cursor.  I found this workaround through trial and error.
+	_yield_between.timer.set_wait_time(0.001)
+	_yield_between.timer.start()
+	yield(_yield_between.timer, 'timeout')
+	_ctrls.text_box.cursor_set_line(_ctrls.text_box.get_line_count())
+
 	_runtime_timer.stop()
 	_is_running = false
 	update()
@@ -414,8 +422,7 @@ func _end_run():
 func _is_function_state(script_result):
 	return script_result != null and \
 	       typeof(script_result) == TYPE_OBJECT and \
-	       script_result.get_type() == 'GDFunctionState'
-
+	       script_result is GDScriptFunctionState
 
 # ------------------------------------------------------------------------------
 # Print out the heading for a new script
@@ -654,7 +661,7 @@ func add_script(script, select_this_one=false):
 	_ctrls.scripts_drop_down.add_item(script)
 	# Move the run_button in case the size of the path of the script caused the
 	# drop down to resize.
-	_ctrls.run_button.set_pos(_ctrls.scripts_drop_down.get_pos() + \
+	_ctrls.run_button.set_position(_ctrls.scripts_drop_down.get_position() + \
 	                           Vector2(_ctrls.scripts_drop_down.get_size().x + 5, 0))
 
 	if(select_this_one):
