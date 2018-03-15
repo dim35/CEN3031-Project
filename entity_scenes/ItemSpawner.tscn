@@ -7,8 +7,10 @@
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Container" type="Node" parent="." index="0"]
+[node name="OnMapContainer" type="Node" parent="." index="0"]
 
 _sections_unfolded = [ "Pause" ]
+
+[node name="MobDropContainer" type="Node" parent="." index="1"]
 
 

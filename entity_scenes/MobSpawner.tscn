@@ -2,7 +2,7 @@
 
 [ext_resource path="res://entity_scenes/MobSpawner.gd" type="Script" id=1]
 
-[node name="MobSpawner" type="Node"]
+[node name="MobSpawner" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
