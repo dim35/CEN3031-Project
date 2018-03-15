@@ -12,7 +12,7 @@ func _physics_process(delta):
 		velocity.x = -speed
 	else:
 		velocity.x = speed
-	move(velocity)
+	velocity = move(velocity)
 	pass
 
 
@@ -28,4 +28,4 @@ func _on_Area2D_body_exited( body ):
 	if body.collision_layer == 4:
 		update_state("walking")
 	elif body.collision_layer == 1:
-		velocity.y = 1.3*speed
+		print("Collided with a wall")

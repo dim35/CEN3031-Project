@@ -7,6 +7,7 @@
 [node name="Mob" instance=ExtResource( 1 )]
 
 collision_layer = 2
+collision_mask = 5
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
