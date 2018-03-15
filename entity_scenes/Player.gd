@@ -15,14 +15,4 @@ func _ready():
 	speed = MAX_SPEED
 	defense = MAX_DEFENSE
 	mana = MAX_MANA
-	pass
-
-
-
-# Processed every frame
-func _physics_process(delta):
-	# TODO add back the "and stamina > 0" condition
-	pass
-	
-	
-	
+	pass	
