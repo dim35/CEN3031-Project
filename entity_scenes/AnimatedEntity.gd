@@ -19,8 +19,9 @@ var defense = MAX_DEFENSE
 var speed = MAX_SPEED
 
 
+# Other constants that apply to all animated entities
 const UP_DIRECTION = Vector2(0, -1)
-const GRAVITY = 10
+const GRAVITY = 12
 
 
 # Code processed every frame
