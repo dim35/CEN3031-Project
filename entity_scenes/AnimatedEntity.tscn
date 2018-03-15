@@ -1,6 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entity_scenes/AnimatedEntity.gd" type="Script" id=1]
+[ext_resource path="res://entity_scenes/entity_resources/AnimatedEntityHitbox.tres" type="Shape2D" id=2]
+[ext_resource path="res://entity_scenes/entity_resources/AnimatedEntityAreaDetector.tres" type="Shape2D" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -10,18 +12,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 7.07825
-height = 5.25938
-
-[sub_resource type="CapsuleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 8.40509
-height = 1.37794
 
 [node name="AnimatedEntity" type="KinematicBody2D"]
 
@@ -38,7 +28,7 @@ animation = "default"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 2 )
+shape = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
@@ -53,6 +43,6 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-shape = SubResource( 3 )
+shape = ExtResource( 3 )
 
 
