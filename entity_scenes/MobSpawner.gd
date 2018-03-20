@@ -19,19 +19,19 @@ func _process(delta):
 func _spawn():
 	
 	# TODO: make 'while' an infinite loop and find way to pause spawning
-	while enemy_count != 5:
+	while enemy_count != 10:
 		randomize()
 		
 		var enemy = mob.instance()
-#		var pos = Vector2()
-#
-#		pos.x = rand_range(0, get_viewport().get_visible_rect().size.x)
-#		pos.y = rand_range(0, get_viewport().get_visible_rect().size.y * (3/4))
-#		enemy.set_position(pos)
+		
+		# random index will be used to choose spawn point for mob
+		var spawn_index = 0
 
 		for node in get_parent().get_children():
-			if node.get_name() == "MobSpawnPoints":
-				enemy.set_position(node.get_child(0).get_global_position())
+			if node.get_name() == "MobSpawnPoints" && node.get_child_count() > 0:
+				spawn_index = randi()%(node.get_child_count())
+				
+				enemy.set_position(node.get_child(spawn_index).get_global_position())
 				$Container.add_child(enemy)
 				enemy_count = enemy_count + 1
 				break

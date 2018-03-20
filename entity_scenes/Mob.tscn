@@ -28,7 +28,7 @@ position = Vector2( -0.735107, 61.0128 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( -0.500672, -59.9601 )
+position = Vector2( -0.500672, -62.9601 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
