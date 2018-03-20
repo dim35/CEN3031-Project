@@ -2,13 +2,15 @@
 
 [ext_resource path="res://entity_scenes/ItemSpawner.gd" type="Script" id=1]
 
-[node name="ItemSpawner" type="Node" index="0"]
+[node name="ItemSpawner" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Container" type="Node" parent="." index="0"]
+[node name="OnMapContainer" type="Node" parent="." index="0"]
 
 _sections_unfolded = [ "Pause" ]
+
+[node name="MobDropContainer" type="Node" parent="." index="1"]
 
 
