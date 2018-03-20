@@ -29,7 +29,7 @@ func _physics_process(delta):
 	# Player is jumping
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
-			velocity.y = -1.3*speed
+			velocity.y = -1.5*speed
 			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0)			
 	
 	# Player is attacking
