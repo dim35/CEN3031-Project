@@ -20,7 +20,6 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.collision_layer == 4:
-		print("Collided with a player!")
 		update_state("attacking")
 	elif body.collision_layer == 1:
 		velocity.y = -2 * speed
