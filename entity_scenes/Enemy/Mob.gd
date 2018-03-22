@@ -1,14 +1,9 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
 
-# For testing collisions
-var i = 0
 
 
 func _ready():
-	speed = 100
-	$Animations.flip_h = true
-	update_state("walking")
-	$Animations.play()
+	update_state("walking")	
 
 
 
@@ -17,12 +12,19 @@ func _physics_process(delta):
 		velocity.x = -speed
 	else:
 		velocity.x = speed
-	move(velocity)
+	velocity = move(velocity)
 	pass
 
 
 
-func _on_Area2D_body_entered( body ):
-	print(i)
-	i+=1
-	pass
+func _on_Area2D_body_entered(body):
+	if body.collision_layer == 4:
+		update_state("attacking")
+	elif body.collision_layer == 1:
+		velocity.y = -2 * speed
+		
+
+
+func _on_Area2D_body_exited( body ):
+	if body.collision_layer == 4:
+		update_state("walking")

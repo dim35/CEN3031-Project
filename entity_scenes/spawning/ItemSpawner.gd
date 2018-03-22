@@ -1,6 +1,6 @@
 extends Node
 
-const item = preload("res://entity_scenes/testItem.tscn")
+const item = preload("res://entity_scenes/Item/Item.tscn")
 var spawn_freq = rand_range(1, 8)
 var item_count = 0
 

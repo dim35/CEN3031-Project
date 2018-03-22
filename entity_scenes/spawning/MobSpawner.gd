@@ -1,6 +1,6 @@
 extends Node
 
-const mob = preload("res://entity_scenes/Mob.tscn")
+const mob = preload("res://entity_scenes/Enemy/Mob.tscn")
 var spawn_freq = rand_range(1, 8)
 var enemy_count = 0
 
