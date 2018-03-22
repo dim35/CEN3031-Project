@@ -39,9 +39,9 @@ func _spawn():
 		yield(get_tree().create_timer(spawn_freq), "timeout")
 
 
-# despawn enemy if fallen off play area
+# despawn enemy if fallen off play area or health reached zero
 func _check_position(entity):
-	if entity.get_position().y > 650:
+	if entity.get_position().y > 650 or entity.health == 0:
 		#print("Mob died")
 		entity.queue_free()
 		enemy_count = enemy_count - 1
