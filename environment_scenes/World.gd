@@ -1,11 +1,6 @@
 extends Node2D
 
 
-# Sets up the world scene
-func _ready():
-	set_process(true)
-	set_process_input(true)
-
 
 
 # Processed every frame
@@ -13,6 +8,9 @@ func _process(delta):
 	update_HUD_bars()
 	if $MobSpawner/Container.get_child_count() > 0:
 		for mob in $MobSpawner/Container.get_children():
+			
+			mob.get_node("Health").update(mob.health)
+			
 			if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
 				mob.get_node("Animations").flip_h = false
 			else:
@@ -20,44 +18,43 @@ func _process(delta):
 
 
 
-# Updates the on-screen HUD stamina bar to reflect player's current stamina
-func update_stamina_bar():
-	$Canvas/HUD/Stamina.value = $PlayerSpawner/Container.get_child(0).stamina
+# Updates all player HUD bar maxima, dimensions, and current values
+func update_HUD_bars():	
+	var player = $PlayerSpawner/Container.get_child(0)
+	var healthBar = $PlayerHUD/Stats/Health
+	var manaBar = $PlayerHUD/Stats/Mana
+	var staminaBar = $PlayerHUD/Stats/Stamina
 	
+	healthBar.set_max_value(player.MAX_HEALTH)
+	healthBar.set_dimensions(player.MAX_HEALTH)
+	healthBar.update(player.health)
 	
+	manaBar.set_max_value(player.MAX_MANA)
+	manaBar.set_dimensions(player.MAX_MANA)
+	manaBar.update(player.mana)
 	
-# Updates the on-screen HUD health bar to reflect player's current health
-func update_health_bar():
-	$Canvas/HUD/Health.value = $PlayerSpawner/Container.get_child(0).health	
-
-
-	
-# Updates the on-screen HUD mana bar to reflect player's current mana
-func update_mana_bar():
-	$Canvas/HUD/Mana.value = $PlayerSpawner/Container.get_child(0).mana
-	
-	
-	
-func update_HUD_bars():
-	$Canvas/HUD/Stamina.max_value = $PlayerSpawner/Container.get_child(0).MAX_STAMINA
-	$Canvas/HUD/Stamina.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_STAMINA, 8)
-	update_stamina_bar()	
-	$Canvas/HUD/Health.max_value = $PlayerSpawner/Container.get_child(0).MAX_HEALTH
-	$Canvas/HUD/Health.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_HEALTH, 8)
-	update_health_bar()	
-	$Canvas/HUD/Mana.max_value = $PlayerSpawner/Container.get_child(0).MAX_MANA
-	$Canvas/HUD/Mana.rect_size = Vector2($PlayerSpawner/Container.get_child(0).MAX_MANA, 8)
-	update_mana_bar()
+	staminaBar.set_max_value(player.MAX_STAMINA)
+	staminaBar.set_dimensions(player.MAX_STAMINA)
+	staminaBar.update(player.stamina)		
 
 
 
-func _on_Door_body_entered( body ):
-	if body.get_parent() == $PlayerSpawner/Container:
-		level_complete()
+# Triggered upon body entering the area. Used mainly for player entry. Triggers level end.
+func _on_GateArea_body_entered(body):
+	if body.collision_layer == 4:
+		$Gate.set_texture(load("res://assets/animation_sprites/environment/closed_gate.png"))
+		$PlayerSpawner/Container.get_child(0).visible = false
+		$LevelEndTimer.start()
 
 
-	
+
+# Changes to splash screen
 func level_complete():
 	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 
+
+
+# When the timer reaches 0, trigger the end of the level
+func _on_LevelEndTimer_timeout():
+	level_complete()
