@@ -20,7 +20,6 @@ func _process(delta):
 
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():	
-	
 	var player = $PlayerSpawner/Container.get_child(0)
 	var healthBar = $PlayerHUD/Stats/Health
 	var manaBar = $PlayerHUD/Stats/Mana
