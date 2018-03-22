@@ -1,0 +1,5 @@
+extends Node
+
+const TILE_COLLISION_LAYER = 1
+const MOB_COLLISION_LAYER = 2
+const PLAYER_COLLISION_LAYER = 4
