@@ -3,7 +3,6 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 
 
 func _ready():
-	speed = 100
 	update_state("walking")	
 
 

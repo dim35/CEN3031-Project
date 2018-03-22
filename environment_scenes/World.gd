@@ -1,11 +1,6 @@
 extends Node2D
 
 
-# Sets up the world scene
-func _ready():
-	set_process(true)
-	set_process_input(true)
-
 
 
 # Processed every frame
@@ -13,6 +8,9 @@ func _process(delta):
 	update_HUD_bars()
 	if $MobSpawner/Container.get_child_count() > 0:
 		for mob in $MobSpawner/Container.get_children():
+			
+			mob.get_node("Health").update(mob.health)
+			
 			if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
 				mob.get_node("Animations").flip_h = false
 			else:
@@ -38,7 +36,7 @@ func update_HUD_bars():
 	
 	staminaBar.set_max_value(player.MAX_STAMINA)
 	staminaBar.set_dimensions(player.MAX_STAMINA)
-	staminaBar.update(player.stamina)
+	staminaBar.update(player.stamina)		
 
 
 
