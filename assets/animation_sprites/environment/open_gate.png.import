@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_castle_grey.png-84c022af3f2e0db1d22bb26ece27625c.stex"
+path="res://.import/open_gate.png-885d82bc711912aa65570755473bfbea.stex"
 
 [deps]
 
-source_file="res://assets/spritesheets/tile_castle_grey.png"
-source_md5="92dea365578e338d7e68179d12887afb"
+source_file="res://assets/animation_sprites/environment/open_gate.png"
+source_md5="2d03e5737e6c8d223357406fa0b6bd81"
 
-dest_files=[ "res://.import/tile_castle_grey.png-84c022af3f2e0db1d22bb26ece27625c.stex" ]
-dest_md5="1c15d8392aedea1cab230f81d18df7a7"
+dest_files=[ "res://.import/open_gate.png-885d82bc711912aa65570755473bfbea.stex" ]
+dest_md5="31e142510e8a44081ee9c9cb5688abe1"
 
 [params]
 

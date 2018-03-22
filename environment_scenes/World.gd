@@ -51,9 +51,11 @@ func update_HUD_bars():
 
 
 
-func _on_Door_body_entered( body ):
-	if body.get_parent() == $PlayerSpawner/Container:
-		level_complete()
+func _on_GateArea_body_entered(body):
+	if body.collision_layer == 4:
+		$Gate.set_texture(load("res://assets/animation_sprites/environment/closed_gate.png"))
+		$PlayerSpawner/Container.get_child(0).visible = false
+		$LevelEndTimer.start()
 
 
 	
@@ -61,3 +63,7 @@ func level_complete():
 	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 
+
+
+func _on_LevelEndTimer_timeout():
+	level_complete()
