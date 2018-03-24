@@ -3,7 +3,7 @@
 [ext_resource path="res://screens/login_screen/login_screen.gd" type="Script" id=1]
 [ext_resource path="res://screens/login_screen/load.tscn" type="PackedScene" id=2]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,9 +28,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 7.0
-margin_top = 7.0
+margin_top = 5.0
 margin_right = 293.0
-margin_bottom = 27.0
+margin_bottom = 29.0
 rect_min_size = Vector2( 200, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
@@ -90,7 +90,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "localhost"
+text = "ec2-34-238-117-47.compute-1.amazonaws.com"
 focus_mode = 2
 context_menu_enabled = true
 placeholder_alpha = 0.6
@@ -123,6 +123,35 @@ text = "Login"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
+
+[node name="text_result" type="RichTextLabel" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = -16.0
+margin_right = 290.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode" ]
 
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 
