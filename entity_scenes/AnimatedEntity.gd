@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://Base.gd"
 
 
 # Var instead of const to allow player leveling and mob scaling
