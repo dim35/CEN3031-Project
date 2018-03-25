@@ -10,6 +10,7 @@ extends "res://Base.gd"
 onready var entities = get_node("/root/World/entities")
 
 func _ready():
+	global_player.connect("player_disconnect", self, "player_disconnect")
 	var player_scene = preload("res://entity_scenes/Player.tscn")
 	for p_id in global_player.player_info:
 		var player = player_scene.instance()
@@ -25,6 +26,12 @@ func _ready():
 		#	player.set_player_name(global_player.player_info[p_id]["username"])
 		entities.add_child(player)
 	# $PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
+
+func player_disconnect(id):
+	for e in entities.get_children():
+		if e.get_name() == str(id):
+			e.free()
+			break
 
 # Processed every frame
 func _process(delta):

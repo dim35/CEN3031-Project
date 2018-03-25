@@ -9,6 +9,7 @@ var player_info = {}
 
 signal player_list_changed()
 signal post_configure()
+signal player_disconnect(id)
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -29,6 +30,7 @@ func _connected_ok():
 func _player_disconnected(id):
 	player_info.erase(id)
 	emit_signal("player_list_changed")
+	emit_signal("player_disconnect", id)
 
 remote func register_player(id, info):
 	player_info[id] = info
