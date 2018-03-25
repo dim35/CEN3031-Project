@@ -7,14 +7,15 @@ extends "res://Base.gd"
 #		player.set_name(str(p))
 #		get_node("/root/World/").add_child(player)
 
+onready var entities = get_node("/root/World/entities")
+
 func _ready():
 	var player_scene = preload("res://entity_scenes/Player.tscn")
 	for p_id in global_player.player_info:
-		if p_id != get_network_master():
-			var player = player_scene.instance()
+		var player = player_scene.instance()
 
-			player.set_name(str(p_id)) # Use unique ID as node name
-			player.set_network_master(p_id) #set unique id as master
+		player.set_name(str(p_id)) # Use unique ID as node name
+		player.set_network_master(p_id) #set unique id as master
 
 		#if (p_id == get_tree().get_network_unique_id()):
 			# If node for this peer id, set name
@@ -22,43 +23,45 @@ func _ready():
 		#else:
 			# Otherwise set name from peer
 		#	player.set_player_name(global_player.player_info[p_id]["username"])
-
-			get_node("/root/World/").add_child(player)
-	$PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
+		entities.add_child(player)
+	# $PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
 
 # Processed every frame
-func _process(delta):	
+func _process(delta):
+	for n in entities.get_children():
+		n.move()
 	update_HUD_bars()
-	if $MobSpawner/Container.get_child_count() > 0:
-		for mob in $MobSpawner/Container.get_children():
+	# if $MobSpawner/Container.get_child_count() > 0:
+	# 	for mob in $MobSpawner/Container.get_children():
 			
-			mob.get_node("Health").update(mob.health)
+	# 		mob.get_node("Health").update(mob.health)
 			
-			if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
-				mob.get_node("Animations").flip_h = false
-			else:
-				mob.get_node("Animations").flip_h = true
+	# 		if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
+	# 			mob.get_node("Animations").flip_h = false
+	# 		else:
+	# 			mob.get_node("Animations").flip_h = true
 
 
 
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():	
-	var player = $PlayerSpawner/Container.get_child(0)
-	var healthBar = $PlayerHUD/Stats/Health
-	var manaBar = $PlayerHUD/Stats/Mana
-	var staminaBar = $PlayerHUD/Stats/Stamina
+	pass
+# 	var player = $PlayerSpawner/Container.get_child(0)
+# 	var healthBar = $PlayerHUD/Stats/Health
+# 	var manaBar = $PlayerHUD/Stats/Mana
+# 	var staminaBar = $PlayerHUD/Stats/Stamina
 	
-	healthBar.set_max_value(player.MAX_HEALTH)
-	healthBar.set_dimensions(player.MAX_HEALTH)
-	healthBar.update(player.health)
+# 	healthBar.set_max_value(player.MAX_HEALTH)
+# 	healthBar.set_dimensions(player.MAX_HEALTH)
+# 	healthBar.update(player.health)
 	
-	manaBar.set_max_value(player.MAX_MANA)
-	manaBar.set_dimensions(player.MAX_MANA)
-	manaBar.update(player.mana)
+# 	manaBar.set_max_value(player.MAX_MANA)
+# 	manaBar.set_dimensions(player.MAX_MANA)
+# 	manaBar.update(player.mana)
 	
-	staminaBar.set_max_value(player.MAX_STAMINA)
-	staminaBar.set_dimensions(player.MAX_STAMINA)
-	staminaBar.update(player.stamina)		
+# 	staminaBar.set_max_value(player.MAX_STAMINA)
+# 	staminaBar.set_dimensions(player.MAX_STAMINA)
+# 	staminaBar.update(player.stamina)		
 
 
 
@@ -66,7 +69,7 @@ func update_HUD_bars():
 func _on_GateArea_body_entered(body):
 	if body.collision_layer == PLAYER_COLLISION_LAYER:
 		$Gate.set_texture(load("res://assets/animation_sprites/environment/closed_gate.png"))
-		$PlayerSpawner/Container.get_child(0).visible = false
+		# $PlayerSpawner/Container.get_child(0).visible = false
 		$LevelEndTimer.start()
 
 

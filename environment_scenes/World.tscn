@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
@@ -8,11 +8,7 @@
 [ext_resource path="res://gui/ManaForeground.tres" type="StyleBox" id=6]
 [ext_resource path="res://gui/ManaBackground.tres" type="StyleBox" id=7]
 [ext_resource path="res://gui/StaminaForeground.tres" type="StyleBox" id=8]
-[ext_resource path="res://entity_scenes/MobSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://entity_scenes/PlayerSpawner.gd" type="Script" id=10]
-[ext_resource path="res://entity_scenes/ItemSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://entity_scenes/SpawnPoint.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=13]
+[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -100,67 +96,11 @@ margin_right = 116.0
 margin_bottom = 41.0
 custom_styles/fg = ExtResource( 8 )
 
-[node name="PlayerSpawner" parent="." index="2" instance=ExtResource( 9 )]
-
-script = ExtResource( 10 )
-
-[node name="MobSpawner" parent="." index="3" instance=ExtResource( 9 )]
-
-[node name="ItemSpawner" parent="." index="4" instance=ExtResource( 11 )]
-
-[node name="PlayerSpawnPoints" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
-
-[node name="SpawnPoint" parent="PlayerSpawnPoints" index="0" instance=ExtResource( 12 )]
-
-position = Vector2( 96, 480 )
-
-[node name="MobSpawnPoints" type="Node2D" parent="." index="6"]
-
-editor/display_folded = true
-
-[node name="SpawnPoint" parent="MobSpawnPoints" index="0" instance=ExtResource( 12 )]
-
-position = Vector2( 320, 448 )
-
-[node name="SpawnPoint2" parent="MobSpawnPoints" index="1" instance=ExtResource( 12 )]
-
-position = Vector2( 608, 480 )
-
-[node name="SpawnPoint3" parent="MobSpawnPoints" index="2" instance=ExtResource( 12 )]
-
-position = Vector2( 928, 448 )
-
-[node name="ItemSpawnPoints" type="Node2D" parent="." index="7"]
-
-editor/display_folded = true
-
-[node name="SpawnPoint" parent="ItemSpawnPoints" index="0" instance=ExtResource( 12 )]
-
-position = Vector2( 352, 448 )
-
-[node name="SpawnPoint2" parent="ItemSpawnPoints" index="1" instance=ExtResource( 12 )]
-
-position = Vector2( 480, 480 )
-
-[node name="SpawnPoint3" parent="ItemSpawnPoints" index="2" instance=ExtResource( 12 )]
-
-position = Vector2( 640, 480 )
-
-[node name="SpawnPoint4" parent="ItemSpawnPoints" index="3" instance=ExtResource( 12 )]
-
-position = Vector2( 800, 480 )
-
-[node name="SpawnPoint5" parent="ItemSpawnPoints" index="4" instance=ExtResource( 12 )]
-
-position = Vector2( 928, 448 )
-
-[node name="Gate" type="Sprite" parent="." index="8"]
+[node name="Gate" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
 position = Vector2( 1101.91, 472.051 )
-texture = ExtResource( 13 )
+texture = ExtResource( 9 )
 
 [node name="GateArea" type="Area2D" parent="Gate" index="0"]
 
@@ -178,12 +118,14 @@ audio_bus_name = "Master"
 position = Vector2( 0.785278, -0.785339 )
 shape = SubResource( 1 )
 
-[node name="LevelEndTimer" type="Timer" parent="." index="9"]
+[node name="LevelEndTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="entities" type="Node" parent="." index="4"]
 
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
 
