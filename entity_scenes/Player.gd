@@ -3,24 +3,9 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 # Represents all enemies within the range of the player
 var enemies_in_range = Dictionary()
 
-var speed = 200
-
 
 # Initialize the Player entity with its attributes
 # func _ready():	
-# 	MAX_HEALTH = 200
-# 	MAX_MANA = 80
-# 	MAX_STAMINA = 150
-# 	MAX_DEFENSE = 300
-# 	MAX_SPEED = 150
-# 	MAX_DAMAGE = 1
-	
-# 	health = MAX_HEALTH
-# 	stamina = MAX_STAMINA
-# 	speed = MAX_SPEED
-# 	defense = MAX_DEFENSE
-# 	mana = MAX_MANA
-# 	damage = MAX_DAMAGE
 # 	pass	
 
 slave var slave_pos = Vector2()
@@ -30,6 +15,19 @@ slave var is_attacking = false
 var last_direction = 0
 
 func _ready():
+	MAX_HEALTH = 200
+	MAX_MANA = 80
+	MAX_STAMINA = 150
+	MAX_DEFENSE = 300
+	MAX_SPEED = 150
+	MAX_DAMAGE = 1
+	
+	health = MAX_HEALTH
+	stamina = MAX_STAMINA
+	speed = MAX_SPEED
+	defense = MAX_DEFENSE
+	mana = MAX_MANA
+	damage = MAX_DAMAGE
 	if is_network_master():
 		get_node("Camera").current = true;
 	who = "player"

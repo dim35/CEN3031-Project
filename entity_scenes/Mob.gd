@@ -1,9 +1,9 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
 
-var speed = 100
 onready var entities = get_node("/root/World/entities")
 
 func _ready():
+	speed = 100
 	update_state("walking")	
 	who = "mob"
 

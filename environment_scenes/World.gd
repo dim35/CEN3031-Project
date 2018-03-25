@@ -1,16 +1,14 @@
 extends "res://Base.gd"
 
 
-#func _ready():
-#	for p in global_player.player_info:
-#		var player = preload("res://entity_scenes/Player.tscn").instance()
-#		player.set_name(str(p))
-#		get_node("/root/World/").add_child(player)
 
 onready var entities = get_node("/root/World/entities")
+var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
+	
+	# load all player and networked players
 	var player_scene = preload("res://entity_scenes/Player.tscn")
 	for p_id in global_player.player_info:
 		var player = player_scene.instance()
@@ -18,17 +16,13 @@ func _ready():
 		player.set_name(str(p_id)) # Use unique ID as node name
 		player.set_network_master(p_id) #set unique id as master
 
-		#if (p_id == get_tree().get_network_unique_id()):
-			# If node for this peer id, set name
-		#	player.set_player_name(global_player.username)
-		#else:
-			# Otherwise set name from peer
-		#	player.set_player_name(global_player.player_info[p_id]["username"])
 		entities.add_child(player)
 		
+	# obtain the player that is local
+	local_player_instance = get_node("/root/World/entities/" + str(get_tree().get_network_unique_id()))
+	
 	var mob = preload("res://entity_scenes/Mob.tscn")
 	entities.add_child(mob.instance())
-	# $PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
 
 func player_disconnect(id):
 	for e in entities.get_children():
@@ -63,23 +57,21 @@ func check_position(entity):
 
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():	
-	pass
-# 	var player = $PlayerSpawner/Container.get_child(0)
-# 	var healthBar = $PlayerHUD/Stats/Health
-# 	var manaBar = $PlayerHUD/Stats/Mana
-# 	var staminaBar = $PlayerHUD/Stats/Stamina
+	var healthBar = $PlayerHUD/Stats/Health
+	var manaBar = $PlayerHUD/Stats/Mana
+	var staminaBar = $PlayerHUD/Stats/Stamina
 	
-# 	healthBar.set_max_value(player.MAX_HEALTH)
-# 	healthBar.set_dimensions(player.MAX_HEALTH)
-# 	healthBar.update(player.health)
+	healthBar.set_max_value(local_player_instance.MAX_HEALTH)
+	healthBar.set_dimensions(local_player_instance.MAX_HEALTH)
+	healthBar.update(local_player_instance.health)
 	
-# 	manaBar.set_max_value(player.MAX_MANA)
-# 	manaBar.set_dimensions(player.MAX_MANA)
-# 	manaBar.update(player.mana)
+	manaBar.set_max_value(local_player_instance.MAX_MANA)
+	manaBar.set_dimensions(local_player_instance.MAX_MANA)
+	manaBar.update(local_player_instance.mana)
 	
-# 	staminaBar.set_max_value(player.MAX_STAMINA)
-# 	staminaBar.set_dimensions(player.MAX_STAMINA)
-# 	staminaBar.update(player.stamina)		
+	staminaBar.set_max_value(local_player_instance.MAX_STAMINA)
+	staminaBar.set_dimensions(local_player_instance.MAX_STAMINA)
+	staminaBar.update(local_player_instance.stamina)		
 
 
 
