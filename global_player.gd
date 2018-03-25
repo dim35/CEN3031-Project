@@ -8,6 +8,7 @@ var server_port = 5555
 var player_info = {}
 
 signal player_list_changed()
+signal post_configure()
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -32,3 +33,9 @@ func _player_disconnected(id):
 remote func register_player(id, info):
 	player_info[id] = info
 	emit_signal("player_list_changed")
+	
+func done_preconfiguring():
+	rpc_id(1, "done_preconfiguring", get_tree().get_network_unique_id())
+	
+remote func post_configure_game():
+	emit_signal("post_configure")
