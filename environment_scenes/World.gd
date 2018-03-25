@@ -25,6 +25,9 @@ func _ready():
 			# Otherwise set name from peer
 		#	player.set_player_name(global_player.player_info[p_id]["username"])
 		entities.add_child(player)
+		
+	var mob = preload("res://entity_scenes/Mob.tscn")
+	entities.add_child(mob.instance())
 	# $PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
 
 func player_disconnect(id):
@@ -33,10 +36,12 @@ func player_disconnect(id):
 			e.free()
 			break
 
+
 # Processed every frame
 func _process(delta):
 	for n in entities.get_children():
 		n.move()
+		check_position(n)
 	update_HUD_bars()
 	# if $MobSpawner/Container.get_child_count() > 0:
 	# 	for mob in $MobSpawner/Container.get_children():
@@ -47,7 +52,13 @@ func _process(delta):
 	# 			mob.get_node("Animations").flip_h = false
 	# 		else:
 	# 			mob.get_node("Animations").flip_h = true
-
+func check_position(entity):
+	if entity.get_position().y > 650:
+		if entity.who == "player":
+			entity.position = Vector2(0,0)
+		elif entity.who == "mob":
+			entity.free()
+	
 
 
 # Updates all player HUD bar maxima, dimensions, and current values

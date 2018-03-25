@@ -32,6 +32,7 @@ var last_direction = 0
 func _ready():
 	if is_network_master():
 		get_node("Camera").current = true;
+	who = "player"
 	#position = Vector2(0,-100)
 	pass
 func move():
@@ -48,7 +49,8 @@ func move():
 				velocity = Vector2(0, -1.5*speed)
 		if Input.is_action_pressed("attack"):
 			is_attacking_ = true;
-		apply_gravity()
+		if !is_on_floor():
+			apply_gravity()
 		for i in global_player.player_info:
 			if i != get_network_master():
 				rset_id(i, "slave_velocity", velocity)

@@ -1,10 +1,15 @@
 # extends "res://Base.gd"
 extends KinematicBody2D
 
+const TILE_COLLISION_LAYER = 1
+const MOB_COLLISION_LAYER = 2
+const PLAYER_COLLISION_LAYER = 4
 
 var UP_DIRECTION = Vector2(0, -1)
 var velocity = Vector2()
 var GRAVITY = 12
+
+var who = "none"
 # Var instead of const to allow player leveling and mob scaling
 # var MAX_HEALTH = 100
 # var MAX_MANA = 100
