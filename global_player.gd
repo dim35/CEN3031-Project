@@ -2,8 +2,8 @@ extends Node
 var username = "Default"
 var classtype = "Knight"
 
-var SERVER_IP = "192.168.1.123"
-var SERVER_PORT = 5555
+var server_ip = "ec2-54-175-123-188.compute-1.amazonaws.com" # this will be overridden by login
+var server_port = 5555
 
 var player_info = {}
 
@@ -11,7 +11,7 @@ signal player_list_changed()
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client(SERVER_IP, SERVER_PORT)
+	peer.create_client(server_ip, server_port)
 	get_tree().set_network_peer(peer)
 	get_tree().set_meta("network_peer", peer)
 
