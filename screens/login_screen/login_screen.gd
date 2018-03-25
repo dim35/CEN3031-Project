@@ -33,9 +33,10 @@ func _on_Button_button_up():
 			return
 
 	# figure out how to getresponse message when code is 200
-	
-	var my_scene = load("res://environment_scenes/World.tscn")
-	get_tree().change_scene_to(my_scene)
+	global_player.username = username_field.text
+	global_player.server_ip = address_field.text
+
+	get_tree().change_scene_to(next_scene)
 	
 	queue_free()
 	
