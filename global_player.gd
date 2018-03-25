@@ -2,7 +2,7 @@ extends Node
 var username = "Default"
 var classtype = "Knight"
 
-var server_ip = "ec2-54-175-123-188.compute-1.amazonaws.com" # this will be overridden by login
+var server_ip = "192.168.1.123" # this will be overridden by login
 var server_port = 5555
 
 var player_info = {}

@@ -1,7 +1,30 @@
 extends "res://Base.gd"
 
 
+#func _ready():
+#	for p in global_player.player_info:
+#		var player = preload("res://entity_scenes/Player.tscn").instance()
+#		player.set_name(str(p))
+#		get_node("/root/World/").add_child(player)
 
+func _ready():
+	var player_scene = preload("res://entity_scenes/Player.tscn")
+	for p_id in global_player.player_info:
+		if p_id != get_network_master():
+			var player = player_scene.instance()
+
+			player.set_name(str(p_id)) # Use unique ID as node name
+			player.set_network_master(p_id) #set unique id as master
+
+		#if (p_id == get_tree().get_network_unique_id()):
+			# If node for this peer id, set name
+		#	player.set_player_name(global_player.username)
+		#else:
+			# Otherwise set name from peer
+		#	player.set_player_name(global_player.player_info[p_id]["username"])
+
+			get_node("/root/World/").add_child(player)
+	$PlayerSpawner/Container.get_child(0).set_network_master(get_network_master())
 
 # Processed every frame
 func _process(delta):	

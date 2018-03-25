@@ -19,7 +19,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 20.6948, 32.4157 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -69,7 +69,6 @@ margin_top = 58.0
 margin_right = 42.0
 margin_bottom = 98.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
