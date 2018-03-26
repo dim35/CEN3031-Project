@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Base.gd"
 
 
 
@@ -41,7 +41,7 @@ func update_HUD_bars():
 
 # Triggered upon body entering the area. Used mainly for player entry. Triggers level end.
 func _on_GateArea_body_entered(body):
-	if body.collision_layer == 4:
+	if body.collision_layer == PLAYER_COLLISION_LAYER:
 		$Gate.set_texture(load("res://assets/animation_sprites/environment/closed_gate.png"))
 		$PlayerSpawner/Container.get_child(0).visible = false
 		$LevelEndTimer.start()

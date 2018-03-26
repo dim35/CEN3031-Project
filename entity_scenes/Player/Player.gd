@@ -35,7 +35,7 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	# If the body is an enemy, add it to the dictionary
-	if body.collision_layer == 2:	
+	if body.collision_layer == MOB_COLLISION_LAYER:	
 		enemies_in_range[body] = true
 	pass
 
@@ -43,6 +43,6 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	# If the body that left is an enemy, it is no longer a potential target for attacking
-	if body.collision_layer == 2:	
+	if body.collision_layer == MOB_COLLISION_LAYER:	
 		enemies_in_range.erase(body)
 	pass # replace with function body

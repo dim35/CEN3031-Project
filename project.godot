@@ -14,6 +14,10 @@ config/name="dim35"
 run/main_scene="res://screens/login_screen/login_screen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global_player="*res://global_player.gd"
+
 [display]
 
 window/dpi/allow_hidpi=true
