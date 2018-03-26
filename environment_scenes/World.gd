@@ -44,6 +44,7 @@ func check_position(entity):
 	if entity.get_position().y > 650:
 		if entity.who == "player":
 			entity.position = Vector2(0,0)
+			entity.velocity.y = 0
 		elif entity.who == "mob":
 			entity.free()
 	

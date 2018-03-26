@@ -44,6 +44,10 @@ func move():
 	is_attacking = false
 	if is_network_master():
 		velocity.x = 0
+		if !is_on_floor() and !test_move(transform, Vector2(0,1)):
+			apply_gravity()
+		elif is_on_floor() and test_move(transform, Vector2(0,1)) and velocity.y > 0:
+			velocity.y = 0
 		if Input.is_action_pressed("move_left"):
 			velocity += Vector2(-speed, 0)
 			if Input.is_action_pressed("ui_shift"):
@@ -55,16 +59,14 @@ func move():
 				velocity.x += 1.2*speed
 				stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		if Input.is_action_just_pressed("jump"):
-			if is_on_floor():
+			if test_move(transform, Vector2(0,1)) or is_on_floor():
 				velocity = Vector2(0, -1.5*speed)
 				stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
 		if Input.is_action_pressed("attack"):
 			is_attacking = true;
 			stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
-		if !is_on_floor():
-			apply_gravity()
-		if(velocity.x == 0):
-			stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
+		if velocity.x == 0:
+			 stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA) 
 		for i in global_player.player_info:
 			if i != get_network_master():
 				rset_id(i, "slave_velocity", velocity)
@@ -82,9 +84,9 @@ func move():
 		new_anim = "attacking"
 		for enemy in enemies_in_range:
  			enemy.take_damage(damage)	
-	elif velocity.x != 0 and is_on_floor():
+	elif velocity.x != 0 and test_move(transform, Vector2(0,1)):
 		new_anim = "walking"
-	elif !is_on_floor():
+	elif !test_move(transform, Vector2(0,1)):
 		new_anim = "falling"
 
 	flip_state(last_direction)
