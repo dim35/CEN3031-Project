@@ -20,7 +20,7 @@ func update_list():
 	var players = global_player.player_info
 	for p in players:
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
-	if len(players) > 1 or !check:
+	if len(players) > 0 or !check:
 		get_node("Button").disabled = false
 	else:
 		get_node("Button").disabled = true

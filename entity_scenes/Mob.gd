@@ -35,7 +35,8 @@ func move():
 	update()
 	pass
 
-
+remote func remote_move(p):
+	position = p
 func _on_Area2D_body_entered(body):
 	if body.collision_layer == Base.PLAYER_COLLISION_LAYER:
 		update_state("attacking")

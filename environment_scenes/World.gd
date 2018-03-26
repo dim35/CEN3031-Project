@@ -3,6 +3,11 @@ extends "res://Base.gd"
 
 
 onready var entities = get_node("/root/World/entities")
+onready var players = get_node("/root/World/entities/players")
+onready var mobs = get_node("/root/World/entities/mobs")
+onready var items = get_node("/root/World/entities/items")
+
+onready var mob = preload("res://entity_scenes/Mob.tscn")
 var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
@@ -16,13 +21,17 @@ func _ready():
 		player.set_name(str(p_id)) # Use unique ID as node name
 		player.set_network_master(p_id) #set unique id as master
 
-		entities.add_child(player)
+		players.add_child(player)
 		
 	# obtain the player that is local
-	local_player_instance = get_node("/root/World/entities/" + str(get_tree().get_network_unique_id()))
+	local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
 	
-	var mob = preload("res://entity_scenes/Mob.tscn")
-	entities.add_child(mob.instance())
+
+remote func spawn(who, id):
+	print("spawn! " + who + " " + str(id))
+	var m = mob.instance()
+	m.set_name(str(id))
+	mobs.add_child(m)
 
 func player_disconnect(id):
 	for e in entities.get_children():
@@ -33,10 +42,14 @@ func player_disconnect(id):
 
 # Processed every frame
 func _physics_process(delta):
-	for n in entities.get_children():
-		n.move()
-		n.check_health()
-		check_position(n)
+	for p in players.get_children():
+		# ssshhhh
+		p.move()
+		p.check_health()
+		check_position(p)
+		
+		#TODO: server use player nodes
+		rpc_id(1, "player_position", p.get_name(), p.position)
 	update_HUD_bars()
 
 
