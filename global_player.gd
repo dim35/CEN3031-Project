@@ -1,5 +1,5 @@
 extends Node
-var username = "Default"
+var username = "Nameless"
 var classtype = "Knight"
 
 var server_ip = "ec2-54-175-123-188.compute-1.amazonaws.com" # this will be overridden by login
@@ -8,6 +8,8 @@ var server_port = 5555
 var player_info = {}
 
 signal player_list_changed()
+signal post_configure()
+signal player_disconnect(id)
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -28,7 +30,18 @@ func _connected_ok():
 func _player_disconnected(id):
 	player_info.erase(id)
 	emit_signal("player_list_changed")
+	emit_signal("player_disconnect", id)
 
 remote func register_player(id, info):
 	player_info[id] = info
 	emit_signal("player_list_changed")
+	
+func done_preconfiguring():
+	rpc_id(1, "done_preconfiguring", get_tree().get_network_unique_id())
+	
+remote func post_configure_game():
+	emit_signal("post_configure")
+	
+func fake_register_player():
+	var my_info = { username = username, classtype = classtype }
+	player_info[get_tree().get_network_unique_id()] = my_info
