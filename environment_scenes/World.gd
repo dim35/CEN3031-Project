@@ -34,7 +34,7 @@ remote func spawn(who, id):
 	mobs.add_child(m)
 
 func player_disconnect(id):
-	for e in entities.get_children():
+	for e in players.get_children():
 		if e.get_name() == str(id):
 			e.free()
 			break

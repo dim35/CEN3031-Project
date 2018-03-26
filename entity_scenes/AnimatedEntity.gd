@@ -27,6 +27,8 @@ func apply_gravity():
 	
 func update():
 	move_and_slide(velocity, UP_DIRECTION)
+	
+func _process(delta):
 	$Animations.play()
 	
 	
