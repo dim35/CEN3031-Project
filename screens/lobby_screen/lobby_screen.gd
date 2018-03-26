@@ -1,6 +1,6 @@
 extends Node2D
 
-var check = false # set to false to not check for players connected
+var check = true # set to false to not check for players connected
 
 export (PackedScene) var next_scene
 onready var connected_players = get_node("connected_players")
