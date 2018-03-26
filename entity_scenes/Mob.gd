@@ -28,7 +28,8 @@ func move():
 	if !is_on_floor():
 		apply_gravity()
 	var player = find_nearest_player()
-	velocity.x = (2 * int(player.position > position) - 1)* speed
+	if (player != null):
+		velocity.x = (2 * int(player.position > position) - 1)* speed
 	
 	flip_state(velocity.x < 0)
 	update()

@@ -1,5 +1,5 @@
 extends Node
-var username = "Default"
+var username = "Nameless"
 var classtype = "Knight"
 
 var server_ip = "192.168.1.123" # this will be overridden by login
@@ -41,3 +41,7 @@ func done_preconfiguring():
 	
 remote func post_configure_game():
 	emit_signal("post_configure")
+	
+func fake_register_player():
+	var my_info = { username = username, classtype = classtype }
+	player_info[get_tree().get_network_unique_id()] = my_info

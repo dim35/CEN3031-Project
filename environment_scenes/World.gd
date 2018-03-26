@@ -38,15 +38,8 @@ func _process(delta):
 		n.check_health()
 		check_position(n)
 	update_HUD_bars()
-	# if $MobSpawner/Container.get_child_count() > 0:
-	# 	for mob in $MobSpawner/Container.get_children():
-			
-	# 		mob.get_node("Health").update(mob.health)
-			
-	# 		if mob.position.x < $PlayerSpawner/Container.get_child(0).position.x:
-	# 			mob.get_node("Animations").flip_h = false
-	# 		else:
-	# 			mob.get_node("Animations").flip_h = true
+
+
 func check_position(entity):
 	if entity.get_position().y > 650:
 		if entity.who == "player":
