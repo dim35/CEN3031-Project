@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entity_scenes/ControllableEntity.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entity_scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://entity_scenes/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://entity_scenes/entity_resources/KnightAnimationFrames.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://entity_scenes/entity_resources/PlayerHitbox.tres" type="Shape2D" id=4]
 [ext_resource path="res://entity_scenes/entity_resources/PlayerAreaDetector.tres" type="Shape2D" id=5]
@@ -19,6 +19,7 @@ _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform"
 
 frames = ExtResource( 3 )
 animation = "attacking"
+frame = 2
 
 [node name="Hitbox" parent="." index="1"]
 
@@ -27,6 +28,8 @@ shape = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 13.4319, 3.9528 )
+scale = Vector2( 0.696767, 1 )
 shape = ExtResource( 5 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

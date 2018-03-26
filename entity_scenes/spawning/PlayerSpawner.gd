@@ -1,6 +1,6 @@
 extends Node
 
-const player = preload("res://entity_scenes/Player.tscn")
+const player = preload("res://entity_scenes/Player/Player.tscn")
 var num_players = 1
 
 func _ready():
