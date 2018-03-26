@@ -14,6 +14,12 @@ slave var slave_is_attacking = false
 
 var last_direction = 0
 
+var STAMINA_RUN_DEPLETION = 0.3
+var STAMINA_JUMP_DEPLETION = 8
+var STAMINA_ATTACK_DEPLETION = 0.6
+var STAMINA_IDLE_REGEN = 0.4
+var current_xp
+
 func _ready():
 	MAX_HEALTH = 200
 	MAX_MANA = 80
@@ -40,15 +46,25 @@ func move():
 		velocity.x = 0
 		if Input.is_action_pressed("move_left"):
 			velocity += Vector2(-speed, 0)
+			if Input.is_action_pressed("ui_shift"):
+				velocity.x -= 1.2*speed
+				stamina = max(stamina - STAMINA_RUN_DEPLETION, 0) 
 		if Input.is_action_pressed("move_right"):
 			velocity += Vector2(speed, 0)
+			if Input.is_action_pressed("ui_shift"):
+				velocity.x += 1.2*speed
+				stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
 				velocity = Vector2(0, -1.5*speed)
+				stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
 		if Input.is_action_pressed("attack"):
 			is_attacking = true;
+			stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
 		if !is_on_floor():
 			apply_gravity()
+		if(velocity.x == 0):
+			stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 		for i in global_player.player_info:
 			if i != get_network_master():
 				rset_id(i, "slave_velocity", velocity)

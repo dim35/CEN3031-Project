@@ -32,7 +32,7 @@ func player_disconnect(id):
 
 
 # Processed every frame
-func _process(delta):
+func _physics_process(delta):
 	for n in entities.get_children():
 		n.move()
 		n.check_health()
