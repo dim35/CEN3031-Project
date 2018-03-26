@@ -49,14 +49,7 @@ func apply_gravity():
 	
 func update():
 	move_and_slide(velocity, UP_DIRECTION)
-
-
-# Code processed every frame
-func _physics_process(delta):
-	# Plays whatever animation is currently set
 	$Animations.play()
-	pass
-	
 	
 	
 # Updates the entity's animation state

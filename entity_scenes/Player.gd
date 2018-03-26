@@ -9,8 +9,8 @@ var enemies_in_range = Dictionary()
 # 	pass	
 
 slave var slave_pos = Vector2()
-slave var slave_motion = Vector2()
-slave var is_attacking = false
+slave var slave_velocity = Vector2()
+slave var slave_is_attacking = false
 
 var last_direction = 0
 
@@ -33,9 +33,9 @@ func _ready():
 	who = "player"
 	#position = Vector2(0,-100)
 	pass
+var is_attacking = false
 func move():
 	is_attacking = false
-	var is_attacking_ = false
 	if is_network_master():
 		velocity.x = 0
 		if Input.is_action_pressed("move_left"):
@@ -46,34 +46,33 @@ func move():
 			if is_on_floor():
 				velocity = Vector2(0, -1.5*speed)
 		if Input.is_action_pressed("attack"):
-			is_attacking_ = true;
+			is_attacking = true;
 		if !is_on_floor():
 			apply_gravity()
 		for i in global_player.player_info:
 			if i != get_network_master():
 				rset_id(i, "slave_velocity", velocity)
 				rset_id(i, "slave_pos", position)
-				rset_id(i, "is_attacking", is_attacking)
+				rset_id(i, "slave_is_attacking", is_attacking)
 	else:
 		position = slave_pos
-		velocity = slave_motion
-		is_attacking_ = is_attacking
+		velocity = slave_velocity
+		is_attacking = slave_is_attacking
 	
 	var new_anim = "idle"
 	if (velocity.x != 0):
 		last_direction = velocity.x < 0
-	if (is_attacking_):
+	if (is_attacking):
 		new_anim = "attacking"
 	elif velocity.x != 0 and is_on_floor():
 		new_anim = "walking"
 	elif !is_on_floor():
 		new_anim = "falling"
-	
+
 	flip_state(last_direction)
 	
 	update_state(new_anim)
-		
-	
+
 	if (not is_network_master()):
 		slave_pos = position
 	update()
