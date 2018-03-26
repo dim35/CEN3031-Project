@@ -35,6 +35,7 @@ func player_disconnect(id):
 func _process(delta):
 	for n in entities.get_children():
 		n.move()
+		n.check_health()
 		check_position(n)
 	update_HUD_bars()
 	# if $MobSpawner/Container.get_child_count() > 0:

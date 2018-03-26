@@ -64,6 +64,8 @@ func move():
 		last_direction = velocity.x < 0
 	if (is_attacking):
 		new_anim = "attacking"
+		for enemy in enemies_in_range:
+ 			enemy.take_damage(damage)	
 	elif velocity.x != 0 and is_on_floor():
 		new_anim = "walking"
 	elif !is_on_floor():
@@ -77,25 +79,18 @@ func move():
 		slave_pos = position
 	update()
 
-# func _process(delta):	
-# 	if $Animations.animation == "attacking":
-# 		for enemy in enemies_in_range:
-# 			enemy.take_damage(damage)			
-# 	pass
-
-
-
 
 func _on_Area2D_body_entered(body):
 # 	# If the body is an enemy, add it to the dictionary
-# 	if body.collision_layer == MOB_COLLISION_LAYER:	
-# 		enemies_in_range[body] = true
- 	pass
+ 	if body.collision_layer == Base.MOB_COLLISION_LAYER:	
+ 		enemies_in_range[body] = true
 
 
 
 func _on_Area2D_body_exited(body):
 # 	# If the body that left is an enemy, it is no longer a potential target for attacking
-# 	if body.collision_layer == MOB_COLLISION_LAYER:	
-# 		enemies_in_range.erase(body)
- 	pass # replace with function body
+ 	if body.collision_layer == Base.MOB_COLLISION_LAYER:	
+ 		enemies_in_range.erase(body)
+
+func check_health():
+	pass
