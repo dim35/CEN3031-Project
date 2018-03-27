@@ -43,7 +43,7 @@ func _on_Button_button_up():
 func connect():
 	
 	# connect to ip address
-	http.connect_to_host(address_field.text, HTTP_PORT)
+	http.connect_to_host(address_field.text, HTTP_PORT, true, false)
 	
 	# wait until connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
@@ -70,7 +70,7 @@ func connect():
 		OS.delay_msec(300)
 		
 	# if failed return
-	if(http.get_status() != HTTPClient.STATUS_BODY or http.get_status() != HTTPClient.STATUS_CONNECTED):
+	if(http.get_status() != HTTPClient.STATUS_BODY and http.get_status() != HTTPClient.STATUS_CONNECTED):
 		return -2
 		
 	# verify error
