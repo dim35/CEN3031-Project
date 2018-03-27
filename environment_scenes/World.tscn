@@ -127,6 +127,12 @@ autostart = false
 
 [node name="entities" type="Node" parent="." index="4"]
 
+[node name="players" type="Node" parent="entities" index="0"]
+
+[node name="mobs" type="Node" parent="entities" index="1"]
+
+[node name="items" type="Node" parent="entities" index="2"]
+
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
 
 [connection signal="timeout" from="LevelEndTimer" to="." method="_on_LevelEndTimer_timeout"]
