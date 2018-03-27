@@ -3,7 +3,7 @@
 [ext_resource path="res://screens/lobby_screen/lobby_screen.gd" type="Script" id=1]
 [ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=2]
 
-[node name="lobby_node" type="Node2D" index="0"]
+[node name="lobby_node" type="Node2D"]
 
 script = ExtResource( 1 )
 next_scene = ExtResource( 2 )
@@ -47,6 +47,7 @@ margin_top = 476.0
 margin_right = 583.0
 margin_bottom = 517.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0

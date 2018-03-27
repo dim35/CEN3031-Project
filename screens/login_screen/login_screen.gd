@@ -78,5 +78,5 @@ func connect():
 	if code == 200:
 		return 200
 	else:
-		return -1
+		return -2
 
