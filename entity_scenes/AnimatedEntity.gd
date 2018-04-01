@@ -22,6 +22,8 @@ var defense = 0
 var speed = 0
 var damage = 0
 
+var state = "idle"
+
 func apply_gravity():
 	velocity.y += GRAVITY
 	

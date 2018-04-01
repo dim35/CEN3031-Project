@@ -35,17 +35,4 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 position = Vector2( -2.17889, 5.20529 )
 
-[node name="Area2D" parent="." index="3"]
-
-position = Vector2( -0.735107, 61.0128 )
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-
-position = Vector2( -0.500672, -62.9601 )
-_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-
 
