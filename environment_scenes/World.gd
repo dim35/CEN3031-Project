@@ -53,16 +53,7 @@ func player_disconnect(id):
 func _physics_process(delta):
 	if local_player_instance != null:
 		local_player_instance.move()
-	pass
-	#for p in players.get_children():
-		# ssshhhh
-	#	p.move()
-	#	p.check_health()
-	#	check_position(p)
-		
-		#TODO: server use player nodes
-	#	rpc_id(1, "player_position", p.get_name(), p.position)
-	#update_HUD_bars()
+	update_HUD_bars()
 
 
 func check_position(entity):
@@ -76,7 +67,9 @@ func check_position(entity):
 
 
 # Updates all player HUD bar maxima, dimensions, and current values
-func update_HUD_bars():	
+func update_HUD_bars():
+	if local_player_instance == null:
+		return
 	var healthBar = $PlayerHUD/Stats/Health
 	var manaBar = $PlayerHUD/Stats/Mana
 	var staminaBar = $PlayerHUD/Stats/Stamina
