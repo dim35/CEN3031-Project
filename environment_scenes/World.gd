@@ -8,30 +8,42 @@ onready var mobs = get_node("/root/World/entities/mobs")
 onready var items = get_node("/root/World/entities/items")
 
 onready var mob = preload("res://entity_scenes/Mob.tscn")
+onready var player = preload("res://entity_scenes/Player.tscn")
 var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	
 	# load all player and networked players
-	var player_scene = preload("res://entity_scenes/Player.tscn")
-	for p_id in global_player.player_info:
-		var player = player_scene.instance()
+	#var player_scene = preload("res://entity_scenes/Player.tscn")
+	#for p_id in global_player.player_info:
+	#	var player = player_scene.instance()
 
-		player.set_name(str(p_id)) # Use unique ID as node name
-		player.set_network_master(p_id) #set unique id as master
+	#	player.set_name(str(p_id)) # Use unique ID as node name
+	#	player.set_network_master(p_id) #set unique id as master
 
-		players.add_child(player)
+	#	players.add_child(player)
 		
 	# obtain the player that is local
-	local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
+	#local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
+	#local_player_instance = player.instance()
+	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
 	
 
 remote func spawn(who, id):
 	print("spawn! " + who + " " + str(id))
-	var m = mob.instance()
-	m.set_name(str(id))
-	mobs.add_child(m)
+	if who == "mob":
+		var m = mob.instance()
+		m.set_name(str(id))
+		mobs.add_child(m)
+	elif who == "player":
+		var p = player.instance()
+		p.set_name(str(id))
+		if str(get_tree().get_network_unique_id()) == id:
+			p.set_camera_me()
+		players.add_child(p)
+		if str(get_tree().get_network_unique_id()) == id:
+			local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
 
 func player_disconnect(id):
 	for e in players.get_children():
@@ -42,15 +54,18 @@ func player_disconnect(id):
 
 # Processed every frame
 func _physics_process(delta):
-	for p in players.get_children():
+	if local_player_instance != null:
+		local_player_instance.move()
+	pass
+	#for p in players.get_children():
 		# ssshhhh
-		p.move()
-		p.check_health()
-		check_position(p)
+	#	p.move()
+	#	p.check_health()
+	#	check_position(p)
 		
 		#TODO: server use player nodes
-		rpc_id(1, "player_position", p.get_name(), p.position)
-	update_HUD_bars()
+	#	rpc_id(1, "player_position", p.get_name(), p.position)
+	#update_HUD_bars()
 
 
 func check_position(entity):
