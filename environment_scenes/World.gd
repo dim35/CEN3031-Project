@@ -13,20 +13,6 @@ var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
-	
-	# load all player and networked players
-	#var player_scene = preload("res://entity_scenes/Player.tscn")
-	#for p_id in global_player.player_info:
-	#	var player = player_scene.instance()
-
-	#	player.set_name(str(p_id)) # Use unique ID as node name
-	#	player.set_network_master(p_id) #set unique id as master
-
-	#	players.add_child(player)
-		
-	# obtain the player that is local
-	#local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
-	#local_player_instance = player.instance()
 	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
 	
 
