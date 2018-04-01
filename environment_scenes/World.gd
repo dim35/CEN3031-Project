@@ -26,7 +26,7 @@ remote func spawn(who, id):
 		m.set_name(str(id))
 		mobs.add_child(m)
 	elif who == "player":
-		var p = class_knight.instance()
+		var p = class_mage.instance()
 		p.set_name(str(id))
 		if str(get_tree().get_network_unique_id()) == id:
 			p.set_camera_me()
