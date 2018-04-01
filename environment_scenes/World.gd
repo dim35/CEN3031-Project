@@ -9,6 +9,9 @@ onready var items = get_node("/root/World/entities/items")
 
 onready var mob = preload("res://entity_scenes/Mob.tscn")
 onready var player = preload("res://entity_scenes/Player.tscn")
+onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
+onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
+
 var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
@@ -23,7 +26,7 @@ remote func spawn(who, id):
 		m.set_name(str(id))
 		mobs.add_child(m)
 	elif who == "player":
-		var p = player.instance()
+		var p = class_knight.instance()
 		p.set_name(str(id))
 		if str(get_tree().get_network_unique_id()) == id:
 			p.set_camera_me()

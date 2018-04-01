@@ -8,10 +8,6 @@ var enemies_in_range = Dictionary()
 # func _ready():	
 # 	pass	
 
-slave var slave_pos = Vector2()
-slave var slave_velocity = Vector2()
-slave var slave_is_attacking = false
-
 var last_direction = 0
 
 var STAMINA_RUN_DEPLETION = 0.3
@@ -19,6 +15,8 @@ var STAMINA_JUMP_DEPLETION = 8
 var STAMINA_ATTACK_DEPLETION = 0.6
 var STAMINA_IDLE_REGEN = 0.4
 var current_xp
+
+var classtype
 
 func _ready():
 	MAX_HEALTH = 200
