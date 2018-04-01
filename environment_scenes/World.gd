@@ -6,11 +6,14 @@ onready var entities = get_node("/root/World/entities")
 onready var players = get_node("/root/World/entities/players")
 onready var mobs = get_node("/root/World/entities/mobs")
 onready var items = get_node("/root/World/entities/items")
+onready var projectiles = get_node("/root/World/entities/projectiles")
+
 
 onready var mob = preload("res://entity_scenes/Mob.tscn")
 onready var player = preload("res://entity_scenes/Player.tscn")
 onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
 onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
+onready var projectile = preload("res://entity_scenes/Projectile.tscn")
 
 var local_player_instance = null # use with caution as it's direct access
 
@@ -33,6 +36,11 @@ remote func spawn(who, id):
 		players.add_child(p)
 		if str(get_tree().get_network_unique_id()) == id:
 			local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
+	elif who == "projectile":
+		var proj = projectile.instance()
+		proj.set_name(str(id))
+		projectiles.add_child(proj)
+	
 
 func player_disconnect(id):
 	for e in players.get_children():
