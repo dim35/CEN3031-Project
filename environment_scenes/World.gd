@@ -14,15 +14,16 @@ onready var player = preload("res://entity_scenes/Player.tscn")
 onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
 onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
 onready var projectile = preload("res://entity_scenes/Projectile.tscn")
+onready var item = preload("res://entity_scenes/Item.tscn")
+
 
 var local_player_instance = null # use with caution as it's direct access
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
-	
 
-remote func spawn(who, id):
+remote func spawn(who, id, it_id = 0):
 	print("spawn! " + who + " " + str(id))
 	if who == "mob":
 		var m = mob.instance()
@@ -40,6 +41,11 @@ remote func spawn(who, id):
 		var proj = projectile.instance()
 		proj.set_name(str(id))
 		projectiles.add_child(proj)
+	elif who == "item":
+		var new_item = item.instance()
+		new_item.set_name(str(id))
+		new_item.select_sprite(it_id)
+		items.add_child(new_item)
 	
 
 func player_disconnect(id):
