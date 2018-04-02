@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mage_down.png-f99209e3107329c150afe80e0b2fe64d.stex"
+path="res://.import/mage_idle_1.png-16f4763e57caeaadbfe5f6dd54c9d257.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/mage/mage_down.png"
-source_md5="9072e693ae8b4b3c61e7ce7c7d2a5061"
+source_file="res://assets/animation_sprites/mage/mage_idle_1.png"
+source_md5="7bba59cb226e6a36d505a9883dec9940"
 
-dest_files=[ "res://.import/mage_down.png-f99209e3107329c150afe80e0b2fe64d.stex" ]
-dest_md5="dac088f75f1ed7db4ab308054ddde58b"
+dest_files=[ "res://.import/mage_idle_1.png-16f4763e57caeaadbfe5f6dd54c9d257.stex" ]
+dest_md5="0f9a4ee52a25ba2374bde27548ccf8c5"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
