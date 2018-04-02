@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fireball.png-91837bde44f0ee8dd9cadf871f800789.stex"
+path="res://.import/mage_walking_1.png-0d090ad6169e61afa5cd19e978893a43.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/fireball/fireball.png"
-source_md5="29dcf922334ed487221302a823785301"
+source_file="res://assets/animation_sprites/mage/mage_walking_1.png"
+source_md5="a93827e998add33c338d4533365fc16e"
 
-dest_files=[ "res://.import/fireball.png-91837bde44f0ee8dd9cadf871f800789.stex" ]
-dest_md5="25e7dbd5f055aef9287ad6c0cd8721e3"
+dest_files=[ "res://.import/mage_walking_1.png-0d090ad6169e61afa5cd19e978893a43.stex" ]
+dest_md5="4d529cf271a7d921e6bfd604835654e1"
 
 [params]
 
