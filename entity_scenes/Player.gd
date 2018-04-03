@@ -47,10 +47,9 @@ func move():
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		moved_this_itr = true
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor() or test_move(transform, Vector2(0,1)):
 			velocity.y = -1.5*speed
 			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
-		moved_this_itr = true
+			moved_this_itr = true
 	if Input.is_action_pressed("attack"):
 		is_attacking = true
 		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
