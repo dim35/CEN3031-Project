@@ -10,6 +10,7 @@ onready var connected_players = get_node("connected_players")
 func _ready():
 	$ClassDropdown.add_item("Knight")
 	$ClassDropdown.add_item("Mage")
+	$ClassDropdown.add_item("Rogue")
 	$ClassDropdown.connect("item_selected", self, "_class_selected")
 	global_player.start_client()
 	global_player.connect("player_list_changed", self, "update_list")
@@ -26,8 +27,10 @@ func _ready():
 func _class_selected(id):
 	if $ClassDropdown.get_item_text(id) == "Knight":
 		$PlayerThumbnail.texture = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
-	else:
+	elif $ClassDropdown.get_item_text(id) == "Mage":
 		$PlayerThumbnail.texture = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
+	else:
+		$PlayerThumbnail.texture = load("res://assets/animation_sprites/rogue/rogue_attacking_0.png")
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
 

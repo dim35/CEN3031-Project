@@ -1,0 +1,40 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=2]
+
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_idle_0.png" type="Texture" id=1]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_idle_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_4.png" type="Texture" id=7]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_walking_5.png" type="Texture" id=8]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_attacking_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_attacking_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_attacking_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_attacking_3.png" type="Texture" id=12]
+[ext_resource path="res://assets/animation_sprites/rogue/rogue_attacking_4.png" type="Texture" id=13]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 6.0
+} ]
+
