@@ -18,10 +18,17 @@ onready var item = preload("res://entity_scenes/Item.tscn")
 
 
 var local_player_instance = null # use with caution as it's direct access
+onready var inventory = {} # local player's inventory
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
+	
+	# tell server i'm ready to recieve player data
 	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
+	
+	# set items to default amount (0)
+	for i in range(5):
+		inventory[i] = 0
 
 remote func spawn(who, id, it_id = 0):
 	print("spawn! " + who + " " + str(id))
@@ -59,23 +66,11 @@ func player_disconnect(id):
 			e.free()
 			break
 
-
 # Processed every frame
 func _physics_process(delta):
 	if local_player_instance != null:
 		local_player_instance.move()
 	update_HUD_bars()
-
-
-func check_position(entity):
-	if entity.get_position().y > 650:
-		if entity.who == "player":
-			entity.position = Vector2(0,0)
-			entity.velocity.y = 0
-		elif entity.who == "mob":
-			entity.free()
-	
-
 
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():
@@ -118,3 +113,11 @@ func level_complete():
 # When the timer reaches 0, trigger the end of the level
 func _on_LevelEndTimer_timeout():
 	level_complete()
+
+func item_picked_up(id):
+	# add another instance of item
+	inventory[id] = inventory[id] + 1
+	
+	print ("Inventory: " + str(inventory))
+	
+	# call some GUI update

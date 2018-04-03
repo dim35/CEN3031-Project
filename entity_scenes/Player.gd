@@ -1,12 +1,5 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
 
-# Represents all enemies within the range of the player
-var enemies_in_range = Dictionary()
-
-
-# Initialize the Player entity with its attributes
-# func _ready():	
-# 	pass	
 
 var last_direction = 0
 
@@ -54,10 +47,9 @@ func move():
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		moved_this_itr = true
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor() or test_move(transform, Vector2(0,1)):
 			velocity.y = -1.5*speed
 			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
-		moved_this_itr = true
+			moved_this_itr = true
 	if Input.is_action_pressed("attack"):
 		is_attacking = true
 		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
@@ -78,18 +70,3 @@ remote func remote_move(p, v, s, ld):
 	position = p
 	state = s
 	last_direction = ld
-
-func _on_Area2D_body_entered(body):
-# 	# If the body is an enemy, add it to the dictionary
- 	if body.collision_layer == Base.MOB_COLLISION_LAYER:	
- 		enemies_in_range[body] = true
-
-
-
-func _on_Area2D_body_exited(body):
-# 	# If the body that left is an enemy, it is no longer a potential target for attacking
- 	if body.collision_layer == Base.MOB_COLLISION_LAYER:	
- 		enemies_in_range.erase(body)
-
-func check_health():
-	pass
