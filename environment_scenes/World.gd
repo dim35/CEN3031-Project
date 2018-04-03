@@ -13,6 +13,7 @@ onready var mob = preload("res://entity_scenes/Mob.tscn")
 onready var player = preload("res://entity_scenes/Player.tscn")
 onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
 onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
+onready var class_rogue = preload("res://entity_scenes/class_rogue.tscn")
 onready var projectile = preload("res://entity_scenes/Projectile.tscn")
 onready var item = preload("res://entity_scenes/Item.tscn")
 
@@ -42,6 +43,8 @@ remote func spawn(who, id, it_id = 0):
 			p = class_knight.instance()
 		elif it_id == "mage":
 			p = class_mage.instance()
+		elif it_id == "rogue":
+			p = class_rogue.instance()
 		p.classtype = it_id
 		p.set_name(str(id))
 		if str(get_tree().get_network_unique_id()) == id:
