@@ -44,3 +44,6 @@ func flip_state(x):
 	
 func take_damage(x):
 	health -= x
+	
+remote func delete_me():
+	queue_free()
