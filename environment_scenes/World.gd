@@ -66,17 +66,6 @@ func _physics_process(delta):
 		local_player_instance.move()
 	update_HUD_bars()
 
-
-func check_position(entity):
-	if entity.get_position().y > 650:
-		if entity.who == "player":
-			entity.position = Vector2(0,0)
-			entity.velocity.y = 0
-		elif entity.who == "mob":
-			entity.free()
-	
-
-
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():
 	if local_player_instance == null:
