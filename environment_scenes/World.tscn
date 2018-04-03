@@ -15,7 +15,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 20.6948, 32.4157 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
