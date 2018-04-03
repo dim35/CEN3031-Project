@@ -6,32 +6,59 @@ onready var entities = get_node("/root/World/entities")
 onready var players = get_node("/root/World/entities/players")
 onready var mobs = get_node("/root/World/entities/mobs")
 onready var items = get_node("/root/World/entities/items")
+onready var projectiles = get_node("/root/World/entities/projectiles")
+
 
 onready var mob = preload("res://entity_scenes/Mob.tscn")
+onready var player = preload("res://entity_scenes/Player.tscn")
+onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
+onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
+onready var projectile = preload("res://entity_scenes/Projectile.tscn")
+onready var item = preload("res://entity_scenes/Item.tscn")
+
+
 var local_player_instance = null # use with caution as it's direct access
+onready var inventory = {} # local player's inventory
 
 func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	
-	# load all player and networked players
-	var player_scene = preload("res://entity_scenes/Player.tscn")
-	for p_id in global_player.player_info:
-		var player = player_scene.instance()
-
-		player.set_name(str(p_id)) # Use unique ID as node name
-		player.set_network_master(p_id) #set unique id as master
-
-		players.add_child(player)
-		
-	# obtain the player that is local
-	local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
+	# tell server i'm ready to recieve player data
+	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
 	
+	# set items to default amount (0)
+	for i in range(5):
+		inventory[i] = 0
 
-remote func spawn(who, id):
+remote func spawn(who, id, it_id = 0):
 	print("spawn! " + who + " " + str(id))
-	var m = mob.instance()
-	m.set_name(str(id))
-	mobs.add_child(m)
+	if who == "mob":
+		var m = mob.instance()
+		m.set_name(str(id))
+		mobs.add_child(m)
+	elif who == "player":
+		var p = null
+		if it_id == "knight":
+			p = class_knight.instance()
+		elif it_id == "mage":
+			p = class_mage.instance()
+		p.classtype = it_id
+		p.set_name(str(id))
+		if str(get_tree().get_network_unique_id()) == id:
+			p.set_camera_me()
+		players.add_child(p)
+		if str(get_tree().get_network_unique_id()) == id:
+			local_player_instance = get_node("/root/World/entities/players/" + str(get_tree().get_network_unique_id()))
+	elif who == "projectile":
+		var proj = projectile.instance()
+		proj.set_name(str(id))
+		projectiles.add_child(proj)
+	elif who == "item":
+		var new_item = item.instance()
+		new_item.set_name(str(id))
+		new_item.select_sprite(it_id)
+		items.add_child(new_item)
+	
 
 func player_disconnect(id):
 	for e in players.get_children():
@@ -39,32 +66,16 @@ func player_disconnect(id):
 			e.free()
 			break
 
-
 # Processed every frame
 func _physics_process(delta):
-	for p in players.get_children():
-		# ssshhhh
-		p.move()
-		p.check_health()
-		check_position(p)
-		
-		#TODO: server use player nodes
-		rpc_id(1, "player_position", p.get_name(), p.position)
+	if local_player_instance != null:
+		local_player_instance.move()
 	update_HUD_bars()
 
-
-func check_position(entity):
-	if entity.get_position().y > 650:
-		if entity.who == "player":
-			entity.position = Vector2(0,0)
-			entity.velocity.y = 0
-		elif entity.who == "mob":
-			entity.free()
-	
-
-
 # Updates all player HUD bar maxima, dimensions, and current values
-func update_HUD_bars():	
+func update_HUD_bars():
+	if local_player_instance == null:
+		return
 	var healthBar = $PlayerHUD/Stats/Health
 	var manaBar = $PlayerHUD/Stats/Mana
 	var staminaBar = $PlayerHUD/Stats/Stamina
@@ -102,3 +113,11 @@ func level_complete():
 # When the timer reaches 0, trigger the end of the level
 func _on_LevelEndTimer_timeout():
 	level_complete()
+
+func item_picked_up(id):
+	# add another instance of item
+	inventory[id] = inventory[id] + 1
+	
+	print ("Inventory: " + str(inventory))
+	
+	# call some GUI update

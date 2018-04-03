@@ -22,6 +22,8 @@ var defense = 0
 var speed = 0
 var damage = 0
 
+var state = "idle"
+
 func apply_gravity():
 	velocity.y += GRAVITY
 	
@@ -42,3 +44,6 @@ func flip_state(x):
 	
 func take_damage(x):
 	health -= x
+	
+remote func delete_me():
+	queue_free()

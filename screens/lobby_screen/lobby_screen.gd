@@ -5,33 +5,51 @@ var check = true # set to false to not check for players connected
 export (PackedScene) var next_scene
 onready var connected_players = get_node("connected_players")
 
+
+
 func _ready():
+	$ClassDropdown.add_item("Knight")
+	$ClassDropdown.add_item("Mage")
+	$ClassDropdown.connect("item_selected", self, "_class_selected")
 	global_player.start_client()
 	global_player.connect("player_list_changed", self, "update_list")
 	global_player.connect("post_configure", self, "post_configure")
 	if(check):
-		get_node("Button").disabled = true
+		$Button.disabled = true
 	else:
 		global_player.fake_register_player()
 		update_list()
 
+
+
+# Updates the player's class and displays the appropriate thumbnail above selection
+func _class_selected(id):
+	if $ClassDropdown.get_item_text(id) == "Knight":
+		$PlayerThumbnail.texture = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
+	else:
+		$PlayerThumbnail.texture = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
+	global_player.update_class($ClassDropdown.get_item_text(id))
+
+
+
+# on each player list update, clear the graphic and reprint it for each player
 func update_list():
 	connected_players.clear()
 	var players = global_player.player_info
 	for p in players:
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
-	if len(players) > 1 or !check:
-		get_node("Button").disabled = false
-	else:
-		get_node("Button").disabled = true
+	$Button.disabled = (len(players) < 1 and check)
+
 
 
 func _on_Button_pressed():
-	get_node("Button").disabled = true
+	$Button.disabled = true
 	if check:
 		global_player.done_preconfiguring()
 	else:
 		post_configure()
+
+
 	
 func post_configure():
 	get_tree().change_scene_to(next_scene)

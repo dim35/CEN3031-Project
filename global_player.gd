@@ -45,3 +45,12 @@ remote func post_configure_game():
 func fake_register_player():
 	var my_info = { username = username, classtype = classtype }
 	player_info[get_tree().get_network_unique_id()] = my_info
+	
+remote func change_class(id, c):
+	player_info[id]["classtype"] = c
+	emit_signal("player_list_changed")
+	#print("changed " + player_info[id]["username"] + " to " + player_info[id]["classtype"])
+	
+func update_class(c):
+	rpc("change_class", get_tree().get_network_unique_id(), c)
+	change_class(get_tree().get_network_unique_id(), c) # update our list

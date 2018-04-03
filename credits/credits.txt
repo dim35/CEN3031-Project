@@ -5,3 +5,6 @@ Castle Tiles: no attribution required; Authors: OpenPixelProject, https://openpi
 Ranger: attribution required; Author: Calciumtrice, https://opengameart.org/content/animated-ranger
 
 Necromancer: no attribution required; Author: Disthron, https://opengameart.org/users/disthron
+
+Sky background: attribution required, Paulina Riva
+https://opengameart.org/content/sky-background

@@ -65,6 +65,7 @@ margin_top = 58.0
 margin_right = 42.0
 margin_bottom = 98.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -132,6 +133,8 @@ autostart = false
 [node name="mobs" type="Node" parent="entities" index="1"]
 
 [node name="items" type="Node" parent="entities" index="2"]
+
+[node name="projectiles" type="Node" parent="entities" index="3"]
 
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
 

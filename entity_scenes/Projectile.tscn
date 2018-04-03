@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entity_scenes/AnimatedEntity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entity_scenes/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://entity_scenes/entity_resources/FireballAnimationFrames.tres" type="SpriteFrames" id=3]
+
+[node name="Projectile" index="0" instance=ExtResource( 1 )]
+
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+
+[node name="Animations" parent="." index="0"]
+
+frames = ExtResource( 3 )
+
+
