@@ -4,12 +4,14 @@ var classtype = "Knight"
 
 var server_ip = "ec2-54-175-123-188.compute-1.amazonaws.com" # this will be overridden by login
 var server_port = 5555
+var session_token = null
 
 var player_info = {}
 
 signal player_list_changed()
 signal post_configure()
 signal player_disconnect(id)
+signal existing_session()
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -23,9 +25,14 @@ func _ready():
 	pass
 
 func _connected_ok():
+	assert(session_token != null)
 	print ("Connected to server... ")
 	var my_info = { username = username, classtype = classtype }
-	rpc("register_player", get_tree().get_network_unique_id(), my_info)
+	rpc("register_player", get_tree().get_network_unique_id(), my_info, session_token)
+	
+remote func existing_session():
+	emit_signal("existing_session")
+	get_tree().get_meta("network_peer").close_connection()
 	
 func _player_disconnected(id):
 	player_info.erase(id)

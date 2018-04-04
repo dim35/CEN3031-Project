@@ -32,9 +32,17 @@ func _on_Button_button_up():
 			text_result.bbcode_text = "Wrong username/password"
 			return
 
+	assert(!http.is_response_chunked())
+	var bl = http.get_response_body_length()
+	var chunk = http.read_response_body_chunk().get_string_from_ascii()
+	
+	var dict = {}
+	dict = parse_json(chunk)
+	
 	# figure out how to getresponse message when code is 200
 	global_player.username = username_field.text
 	global_player.server_ip = address_field.text
+	global_player.session_token = dict["token"]
 
 	get_tree().change_scene_to(next_scene)
 	
