@@ -12,7 +12,7 @@ onready var text_result = get_node("text_result")
 var http = HTTPClient.new()
 var HTTP_PORT = 443
 
-
+var website_login_address = "https://ec2-54-175-123-188.compute-1.amazonaws.com"
 
 func _init():
 	pass
@@ -21,7 +21,7 @@ func _ready():
 	print ("loaded login!")
 	
 # This has been connected from Button
-func _on_Button_button_up():
+func _on_Login_pressed():
 
 	if check == true:
 		var c = connect()
@@ -88,3 +88,6 @@ func connect():
 	else:
 		return -2
 
+
+func _on_Signup_pressed():
+	OS.shell_open(website_login_address)
