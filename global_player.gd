@@ -22,7 +22,6 @@ func start_client():
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	pass
 
 func _connected_ok():
 	assert(session_token != null)

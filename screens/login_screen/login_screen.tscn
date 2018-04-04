@@ -103,16 +103,16 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Button" type="Button" parent="." index="3"]
+[node name="Login" type="Button" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 7.0
-margin_top = 55.0
+margin_top = 56.0
 margin_right = 67.0
-margin_bottom = 75.0
+margin_bottom = 76.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -129,7 +129,33 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text_result" type="RichTextLabel" parent="." index="4"]
+[node name="Signup" type="Button" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 233.0
+margin_top = 56.0
+margin_right = 293.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Sign Up"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="text_result" type="RichTextLabel" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -158,8 +184,8 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Signup" to="." method="_on_Signup_pressed"]
 
 
