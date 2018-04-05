@@ -22,7 +22,7 @@ Sprinting: Shift + Left/Right/A/D
 Attacking: hold X
 ```
 
-### Credits
+## Credits
 - Sky background: [Paulina Riva](https://opengameart.org/content/sky-background), CC-BY 3.0 license
 - Knight sprites: [Disthron](https://opengameart.org/content/classic-knight-animated), Public Domain
 - Mage sprites (recolored from original): [Disthron](https://opengameart.org/content/mr-necromancer-man-animated), Public Domain
