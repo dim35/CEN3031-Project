@@ -20,6 +20,7 @@ onready var item = preload("res://entity_scenes/Item.tscn")
 
 var local_player_instance = null # use with caution as it's direct access
 onready var inventory = {} # local player's inventory
+var menuBool = false #escape menu implementation
 
 func _ready():
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
@@ -113,8 +114,6 @@ func level_complete():
 	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 
-
-
 # When the timer reaches 0, trigger the end of the level
 func _on_LevelEndTimer_timeout():
 	level_complete()
@@ -131,9 +130,18 @@ func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 	queue_free()
-	
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		menu()
+
 func menu():
-	$Menu/Panel.show()
+	if menuBool == false:
+		$Menu/Panel.show()
+		menuBool = true
+	else:
+		$Menu/Panel.hide()
+		menuBool = false
 
 # Network Friendly quit game function here
 func quit_game():
