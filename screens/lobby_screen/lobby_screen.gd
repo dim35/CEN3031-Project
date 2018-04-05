@@ -5,9 +5,14 @@ var check = true # set to false to not check for players connected
 export (PackedScene) var next_scene
 onready var connected_players = get_node("connected_players")
 
+var class_thumbnails = Dictionary()
+
 
 
 func _ready():
+	class_thumbnails["Knight"] = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
+	class_thumbnails["Mage"] = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
+	class_thumbnails["Rogue"] = load("res://assets/animation_sprites/rogue/rogue_attacking_0.png")
 	$ClassDropdown.add_item("Knight")
 	$ClassDropdown.add_item("Mage")
 	$ClassDropdown.add_item("Rogue")
@@ -27,12 +32,6 @@ func _ready():
 
 # Updates the player's class and displays the appropriate thumbnail above selection
 func _class_selected(id):
-	if $ClassDropdown.get_item_text(id) == "Knight":
-		$PlayerThumbnail.texture = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
-	elif $ClassDropdown.get_item_text(id) == "Mage":
-		$PlayerThumbnail.texture = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
-	else:
-		$PlayerThumbnail.texture = load("res://assets/animation_sprites/rogue/rogue_attacking_0.png")
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
 
@@ -42,6 +41,9 @@ func update_list():
 	connected_players.clear()
 	var players = global_player.player_info
 	for p in players:
+		if p == get_tree().get_network_unique_id():
+			$Thumbnails/t2.texture = class_thumbnails[players[p]["classtype"]]
+			pass
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
