@@ -22,6 +22,7 @@ var local_player_instance = null # use with caution as it's direct access
 onready var inventory = {} # local player's inventory
 
 func _ready():
+	get_tree().connect("server_disconnected", self, "_server_disconnected")
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	
 	# tell server i'm ready to recieve player data
@@ -31,7 +32,7 @@ func _ready():
 	for i in range(5):
 		inventory[i] = 0
 
-remote func spawn(who, id, it_id = 0):
+remote func spawn(who, id, it_id = 0, b = 0):
 	print("spawn! " + who + " " + str(id))
 	if who == "mob":
 		var m = mob.instance()
@@ -46,6 +47,7 @@ remote func spawn(who, id, it_id = 0):
 		elif it_id == "rogue":
 			p = class_rogue.instance()
 		p.classtype = it_id
+		p.username = b
 		p.set_name(str(id))
 		if str(get_tree().get_network_unique_id()) == id:
 			p.set_camera_me()
@@ -124,3 +126,8 @@ func item_picked_up(id):
 	print ("Inventory: " + str(inventory))
 	
 	# call some GUI update
+
+func _server_disconnected():
+	var my_scene = load("res://screens/login_screen/login_screen.tscn")
+	get_tree().change_scene_to(my_scene)
+	queue_free()
