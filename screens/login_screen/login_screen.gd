@@ -18,6 +18,7 @@ func _init():
 	pass
 
 func _ready():
+	$Username_field.grab_focus()
 	print ("loaded login!")
 	
 # This has been connected from Button
