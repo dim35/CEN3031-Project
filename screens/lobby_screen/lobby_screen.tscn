@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://screens/lobby_screen/lobby_screen.gd" type="Script" id=1]
 [ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/animation_sprites/knight/knight-attacking-0.png" type="Texture" id=3]
+[ext_resource path="res://assets/animation_sprites/environment/portrait.png" type="Texture" id=3]
+[ext_resource path="res://assets/animation_sprites/knight/knight-attacking-0.png" type="Texture" id=4]
 
 [node name="lobby_node" type="Control" index="0"]
 
@@ -53,10 +54,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 459.0
-margin_top = 476.0
-margin_right = 583.0
-margin_bottom = 517.0
+margin_left = 467.0
+margin_top = 477.0
+margin_right = 591.0
+margin_bottom = 518.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -78,10 +79,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 455.0
-margin_top = 343.0
-margin_right = 589.0
-margin_bottom = 388.0
+margin_left = 481.0
+margin_top = 372.0
+margin_right = 577.0
+margin_bottom = 401.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -100,11 +101,76 @@ items = [  ]
 selected = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_icons", "custom_styles" ]
 
-[node name="PlayerThumbnail" type="Sprite" parent="." index="3"]
+[node name="player0" type="Sprite" parent="." index="3"]
 
-position = Vector2( 520, 288 )
-scale = Vector2( 3, 3 )
+position = Vector2( 164.803, 277.211 )
+scale = Vector2( 1.2852, 1.4794 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="player1" type="Sprite" parent="." index="4"]
+
+position = Vector2( 339.872, 276.103 )
+scale = Vector2( 1.2852, 1.4794 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="player2" type="Sprite" parent="." index="5"]
+
+position = Vector2( 527.13, 275.995 )
+scale = Vector2( 1.2852, 1.4794 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="player3" type="Sprite" parent="." index="6"]
+
+position = Vector2( 711.063, 273.779 )
+scale = Vector2( 1.2852, 1.4794 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="player4" type="Sprite" parent="." index="7"]
+
+position = Vector2( 897.213, 274.887 )
+scale = Vector2( 1.2852, 1.4794 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Thumbnails" type="Node" parent="." index="8"]
+
+[node name="t0" type="Sprite" parent="Thumbnails" index="0"]
+
+position = Vector2( 164.826, 273.94 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="t1" type="Sprite" parent="Thumbnails" index="1"]
+
+position = Vector2( 339.911, 270.33 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="t2" type="Sprite" parent="Thumbnails" index="2"]
+
+position = Vector2( 526.729, 268.525 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="t3" type="Sprite" parent="Thumbnails" index="3"]
+
+position = Vector2( 712.644, 267.623 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="t4" type="Sprite" parent="Thumbnails" index="4"]
+
+position = Vector2( 898.559, 267.623 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
