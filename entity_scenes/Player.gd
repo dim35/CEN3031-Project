@@ -1,6 +1,5 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
 
-
 var last_direction = 0
 
 var STAMINA_RUN_DEPLETION = 0.3
@@ -10,6 +9,7 @@ var STAMINA_IDLE_REGEN = 0.4
 var current_xp
 
 var classtype
+var username
 
 func _ready():
 	MAX_HEALTH = 200
@@ -26,6 +26,16 @@ func _ready():
 	mana = MAX_MANA
 	damage = MAX_DAMAGE
 	who = "player"
+	$name.text = username
+	$name.rect_scale = Vector2(0.25, 0.25)
+	set_process(true)
+
+func _process(delta):
+	# only when label is drawen does it update the size
+	# multiple the size by the scale and divide by 2 to center
+	var pos = -$name.get_size().x*0.25*0.5
+	$name.rect_position = Vector2(pos, $Animations.position.y - 15)
+
 
 var is_attacking = false
 
