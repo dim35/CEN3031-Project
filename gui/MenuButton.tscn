@@ -2,7 +2,6 @@
 
 [ext_resource path="res://gui/MenuButton.gd" type="Script" id=1]
 
-
 [node name="MenuButton" type="CanvasLayer"]
 
 layer = 1
