@@ -50,9 +50,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "Username"
 focus_mode = 2
 context_menu_enabled = true
+placeholder_text = "Username"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
@@ -77,15 +77,15 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "Password"
 secret = true
 focus_mode = 2
 context_menu_enabled = true
+placeholder_text = "Password"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Caret", "Rect" ]
+_sections_unfolded = [ "Caret", "Placeholder", "Rect" ]
 
 [node name="Address_field" type="LineEdit" parent="." index="3"]
 
