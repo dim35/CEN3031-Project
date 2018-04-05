@@ -131,3 +131,11 @@ func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 	queue_free()
+	
+func menu():
+	$Menu/Panel.show()
+
+# Network Friendly quit game function here
+func quit_game():
+	print ("The game is quit")
+	get_tree().quit()
