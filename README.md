@@ -1,6 +1,14 @@
 # Dim35
 A multiplayer RPG platformer developed in the open-source [Godot game engine](https://godotengine.org/) as a project for Introduction to Software Engineering.
 
+## Contributors
+- Aleksandr Hovhannisyan
+- Daniel Volya
+- Steven Spinner
+- Matthew Wanner
+- Diego Amador
+- Jonathan Correa
+
 ## Getting Started - Development
 Ensure Godot 3.0 is installed and ready. Then, clone the following repos:
 ```
