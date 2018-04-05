@@ -96,5 +96,5 @@ func _on_Signup_pressed():
 	OS.shell_open(website_login_address)
 
 func _process(delta):
-	if(Input.is_action_pressed("ui_accept")):
+	if(Input.is_action_pressed("ui_enter")):
 		_on_Login_pressed()
