@@ -2,7 +2,7 @@ extends Control
 
 export (PackedScene) var next_scene
 
-var check = false # set to false to disable connecting to server
+var check = true # set to false to disable connecting to server
 
 onready var username_field = get_node("Username_field")
 onready var password_field = get_node("Password_field")

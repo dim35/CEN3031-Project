@@ -43,9 +43,19 @@ func update_list():
 	for p in players:
 		if p == get_tree().get_network_unique_id():
 			$Thumbnails/t2.texture = class_thumbnails[players[p]["classtype"]]
+			if _player_slot_occupied($Thumbnails/t2):
+				print("Occupado!")
 			pass
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
+
+
+
+
+func _player_slot_occupied(slot):
+	return slot.texture != null
+
+
 
 
 
