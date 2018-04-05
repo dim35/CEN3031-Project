@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var check = true # set to false to not check for players connected
 
