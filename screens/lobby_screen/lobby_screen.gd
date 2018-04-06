@@ -46,21 +46,17 @@ func update_list():
 	connected_players.clear()
 	_clear_thumbnails()
 	var players = global_player.player_info
+	thumbnail_slots[2].texture = class_thumbnails[players[get_tree().get_network_unique_id()]["classtype"]]
 	for p in players:
 		var player_class = players[p]["classtype"]
-		# If p is "you", set the central slot's thumbnail
+		# If p is "you", skip
 		if p == get_tree().get_network_unique_id():
-			thumbnail_slots[2].texture = class_thumbnails[player_class]
+			pass
 		else:
-			_get_leftmost_slot().texture = class_thumbnails[player_class]
+			_get_leftmost_empty_slot().texture = class_thumbnails[player_class]
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
-
-
-# Checks whether a given slot in the lobby is currently occupied by another player
-func _player_slot_occupied(slot):
-	return slot.texture != null
 
 
 
@@ -72,10 +68,10 @@ func _clear_thumbnails():
 
 
 # Guaranteed to return the leftmost open slot
-func _get_leftmost_slot():
+func _get_leftmost_empty_slot():
 	var index
 	for index in range(0, thumbnail_slots.size()):
-		if thumbnail_slots[index] != null:
+		if thumbnail_slots[index].texture == null:
 			return thumbnail_slots[index]
 
 
