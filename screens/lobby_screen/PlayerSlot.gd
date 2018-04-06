@@ -14,4 +14,3 @@ func set_slot(username, image, id):
 	$Username.text = username
 	$Image.texture = image
 	player_id = id
-	

@@ -42,9 +42,19 @@ func _class_selected(id):
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
 
+
 # the ready list has changed
 func new_player_ready():
-	print(global_player.player_ready)
+	for slot in player_slots:
+		var status = slot.get_node("Status")
+		if slot.get_node("Image").texture == null:
+			status.text = ""
+		elif slot.player_id in global_player.player_ready:
+			status.text = "Ready"
+		else:
+			status.text = "Not Ready"
+	#print(global_player.player_ready)
+
 
 
 # On each player list update, clear the slots and reprint them for each player
