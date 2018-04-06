@@ -27,6 +27,7 @@ func _ready():
 	global_player.connect("player_list_changed", self, "update_list")
 	global_player.connect("post_configure", self, "post_configure")
 	global_player.connect("existing_session", self, "existing_session")
+	global_player.connect("new_player_ready", self, "new_player_ready")
 	
 	if(check):
 		$Button.disabled = true
@@ -40,6 +41,10 @@ func _ready():
 func _class_selected(id):
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
+
+# the ready list has changed
+func new_player_ready():
+	print(global_player.player_ready)
 
 
 # On each player list update, clear the slots and reprint them for each player

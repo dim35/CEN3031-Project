@@ -7,11 +7,13 @@ var server_port = 5555
 var session_token = null
 
 var player_info = {}
+var player_ready = []
 
 signal player_list_changed()
 signal post_configure()
 signal player_disconnect(id)
 signal existing_session()
+signal new_player_ready()
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -65,3 +67,7 @@ remote func change_class(id, c):
 func update_class(c):
 	rpc("change_class", get_tree().get_network_unique_id(), c)
 	change_class(get_tree().get_network_unique_id(), c) # update our list
+	
+remote func who_is_ready(players):
+	player_ready = players
+	emit_signal("new_player_ready")
