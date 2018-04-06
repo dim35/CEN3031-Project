@@ -35,5 +35,6 @@ Attacking: hold X
 - Knight sprites: [Disthron](https://opengameart.org/content/classic-knight-animated), Public Domain
 - Mage sprites (recolored from original): [Disthron](https://opengameart.org/content/mr-necromancer-man-animated), Public Domain
 - Rogue sprites: [Disthron](https://opengameart.org/content/mr-knife-guy-animated), Public Domain
-- Castle tiles: OpenPixelProject (https://openpixelproject.itch.io/opp2017castle), Public Domain
+- Castle tiles: [OpenPixelProject](https://openpixelproject.itch.io/opp2017castle), Public Domain
+- Lobby slot frames: [yd](https://opengameart.org/content/gui-windows-constructor), Public Domain
 
