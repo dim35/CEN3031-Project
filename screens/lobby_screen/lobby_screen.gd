@@ -60,8 +60,7 @@ func update_list():
 			pass
 		else:
 			var leftmost_empty_slot = _get_leftmost_empty_slot()
-			leftmost_empty_slot.get_node("Username").text = player_username
-			leftmost_empty_slot.get_node("Image").texture = class_thumbnails[player_class]
+			leftmost_empty_slot.set_slot(player_username, class_thumbnails[player_class], p)
 		#connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
@@ -69,8 +68,7 @@ func update_list():
 
 # Sets the current player in the middle slot
 func _place_me_in_middle_slot(me):
-	player_slots[2].get_node("Username").text = me["username"]
-	player_slots[2].get_node("Image").texture = class_thumbnails[me["classtype"]]
+	player_slots[2].set_slot(me["username"], class_thumbnails[me["classtype"]], me)
 
 
 
