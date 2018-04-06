@@ -3,18 +3,19 @@ extends Control
 var check = true # set to false to not check for players connected
 
 export (PackedScene) var next_scene
-onready var connected_players = get_node("connected_players")
+#onready var connected_players = get_node("connected_players")
 
-var thumbnail_slots = []
+var player_slots = []
 var class_thumbnails = Dictionary()
 
 
+# Prepares basic setup for lobby
 func _ready():
-	thumbnail_slots.append($Thumbnails/t1)
-	thumbnail_slots.append($Thumbnails/t2)
-	thumbnail_slots.append($Thumbnails/t3)
-	thumbnail_slots.append($Thumbnails/t4)
-	thumbnail_slots.append($Thumbnails/t5)
+	player_slots.append($Slots/Slot1)
+	player_slots.append($Slots/Slot2)
+	player_slots.append($Slots/Slot3)
+	player_slots.append($Slots/Slot4)
+	player_slots.append($Slots/Slot5)
 	class_thumbnails["Knight"] = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
 	class_thumbnails["Mage"] = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
 	class_thumbnails["Rogue"] = load("res://assets/animation_sprites/rogue/rogue_attacking_0.png")
@@ -35,44 +36,52 @@ func _ready():
 
 
 
-# Updates the player's class and displays the appropriate thumbnail above selection
+# Updates the player's class
 func _class_selected(id):
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
 
 
-# On each player list update, clear the graphic and reprint it for each player
+# On each player list update, clear the slots and reprint them for each player
 func update_list():
-	connected_players.clear()
-	_clear_thumbnails()
+	#connected_players.clear()
+	_clear_player_slots()
 	var players = global_player.player_info
-	thumbnail_slots[2].texture = class_thumbnails[players[get_tree().get_network_unique_id()]["classtype"]]
+	_place_me_in_middle_slot(players[get_tree().get_network_unique_id()])
 	for p in players:
 		var player_class = players[p]["classtype"]
-		# If p is "you", skip
-		if p == get_tree().get_network_unique_id():
+		var player_username = players[p]["username"]
+		if p == get_tree().get_network_unique_id():		# If p is "you", skip
 			pass
 		else:
-			_get_leftmost_empty_slot().texture = class_thumbnails[player_class]
-		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
+			var leftmost_empty_slot = _get_leftmost_empty_slot()
+			leftmost_empty_slot.get_node("Username").text = player_username
+			leftmost_empty_slot.get_node("Image").texture = class_thumbnails[player_class]
+		#connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
 
 
+# Sets the current player in the middle slot
+func _place_me_in_middle_slot(me):
+	player_slots[2].get_node("Username").text = me["username"]
+	player_slots[2].get_node("Image").texture = class_thumbnails[me["classtype"]]
 
-# Resets all thumbnails from the lobby
-func _clear_thumbnails():
-	for thumbnail in thumbnail_slots:
-		thumbnail.texture = null
+
+
+# Resets all player slots in the lobby
+func _clear_player_slots():
+	for slot in player_slots:
+		slot.clear()
 
 
 
 # Guaranteed to return the leftmost open slot
 func _get_leftmost_empty_slot():
 	var index
-	for index in range(0, thumbnail_slots.size()):
-		if thumbnail_slots[index].texture == null:
-			return thumbnail_slots[index]
+	for index in range(0, player_slots.size()):
+		if player_slots[index].get_node("Image").texture == null:
+			return player_slots[index]
 
 
 
@@ -89,6 +98,8 @@ func post_configure():
 	get_tree().change_scene_to(next_scene)
 	print("Start game...")
 	queue_free()
+	
+	
 	
 func existing_session():
 	get_tree().change_scene_to(load("res://screens/login_screen/login_screen.tscn"))
