@@ -5,11 +5,16 @@ var check = true # set to false to not check for players connected
 export (PackedScene) var next_scene
 onready var connected_players = get_node("connected_players")
 
+var thumbnail_slots = []
 var class_thumbnails = Dictionary()
 
 
-
 func _ready():
+	thumbnail_slots.append($Thumbnails/t1)
+	thumbnail_slots.append($Thumbnails/t2)
+	thumbnail_slots.append($Thumbnails/t3)
+	thumbnail_slots.append($Thumbnails/t4)
+	thumbnail_slots.append($Thumbnails/t5)
 	class_thumbnails["Knight"] = load("res://assets/animation_sprites/knight/knight-attacking-0.png")
 	class_thumbnails["Mage"] = load("res://assets/animation_sprites/mage/mage_attacking_0.png")
 	class_thumbnails["Rogue"] = load("res://assets/animation_sprites/rogue/rogue_attacking_0.png")
@@ -36,26 +41,42 @@ func _class_selected(id):
 
 
 
-# on each player list update, clear the graphic and reprint it for each player
+# On each player list update, clear the graphic and reprint it for each player
 func update_list():
 	connected_players.clear()
+	_clear_thumbnails()
 	var players = global_player.player_info
 	for p in players:
+		var player_class = players[p]["classtype"]
+		# If p is "you", set the central slot's thumbnail
 		if p == get_tree().get_network_unique_id():
-			$Thumbnails/t2.texture = class_thumbnails[players[p]["classtype"]]
-			if _player_slot_occupied($Thumbnails/t2):
-				print("Occupado!")
-			pass
+			thumbnail_slots[2].texture = class_thumbnails[player_class]
+		else:
+			_get_leftmost_slot().texture = class_thumbnails[player_class]
 		connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
 
 
-
+# Checks whether a given slot in the lobby is currently occupied by another player
 func _player_slot_occupied(slot):
 	return slot.texture != null
 
 
+
+# Resets all thumbnails from the lobby
+func _clear_thumbnails():
+	for thumbnail in thumbnail_slots:
+		thumbnail.texture = null
+
+
+
+# Guaranteed to return the leftmost open slot
+func _get_leftmost_slot():
+	var index
+	for index in range(0, thumbnail_slots.size()):
+		if thumbnail_slots[index] != null:
+			return thumbnail_slots[index]
 
 
 
