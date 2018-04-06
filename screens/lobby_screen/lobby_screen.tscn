@@ -2,9 +2,9 @@
 
 [ext_resource path="res://screens/lobby_screen/lobby_screen.gd" type="Script" id=1]
 [ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/animation_sprites/environment/portrait.png" type="Texture" id=3]
+[ext_resource path="res://screens/lobby_screen/PlayerSlot.tscn" type="PackedScene" id=3]
 
-[node name="lobby_node" type="Control" index="0"]
+[node name="lobby_node" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -19,43 +19,15 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 next_scene = ExtResource( 2 )
 
-[node name="connected_players" type="RichTextLabel" parent="." index="0"]
+[node name="Button" type="Button" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 132.0
-margin_top = 37.0
-margin_right = 919.0
-margin_bottom = 421.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-
-[node name="Button" type="Button" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 467.0
+margin_left = 455.0
 margin_top = 477.0
-margin_right = 591.0
+margin_right = 579.0
 margin_bottom = 518.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -72,16 +44,16 @@ text = "Ready"
 flat = false
 align = 1
 
-[node name="ClassDropdown" type="OptionButton" parent="." index="2"]
+[node name="ClassDropdown" type="OptionButton" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 481.0
-margin_top = 372.0
-margin_right = 577.0
-margin_bottom = 401.0
+margin_left = 471.0
+margin_top = 428.0
+margin_right = 567.0
+margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -100,74 +72,27 @@ items = [  ]
 selected = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_icons", "custom_styles" ]
 
-[node name="Slots" type="Node" parent="." index="3"]
+[node name="Slots" type="Node" parent="." index="2"]
 
-[node name="slot1" type="Sprite" parent="Slots" index="0"]
+[node name="Slot1" parent="Slots" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 164.803, 277.211 )
-scale = Vector2( 1.2852, 1.4794 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="slot2" type="Sprite" parent="Slots" index="1"]
+[node name="Slot2" parent="Slots" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 339.872, 276.103 )
-scale = Vector2( 1.2852, 1.4794 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+position = Vector2( 339.803, 277.211 )
 
-[node name="slot3" type="Sprite" parent="Slots" index="2"]
+[node name="Slot3" parent="Slots" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 527.13, 275.995 )
-scale = Vector2( 1.2852, 1.4794 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+position = Vector2( 514.803, 277.211 )
 
-[node name="slot4" type="Sprite" parent="Slots" index="3"]
+[node name="Slot4" parent="Slots" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 711.063, 273.779 )
-scale = Vector2( 1.2852, 1.4794 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+position = Vector2( 689.803, 277.211 )
 
-[node name="slot5" type="Sprite" parent="Slots" index="4"]
+[node name="Slot5" parent="Slots" index="4" instance=ExtResource( 3 )]
 
-position = Vector2( 897.213, 274.887 )
-scale = Vector2( 1.2852, 1.4794 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="Thumbnails" type="Node" parent="." index="4"]
-
-[node name="t1" type="Sprite" parent="Thumbnails" index="0"]
-
-position = Vector2( 164.826, 273.94 )
-scale = Vector2( 3, 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="t2" type="Sprite" parent="Thumbnails" index="1"]
-
-position = Vector2( 339.911, 270.33 )
-scale = Vector2( 3, 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="t3" type="Sprite" parent="Thumbnails" index="2"]
-
-position = Vector2( 526.729, 268.525 )
-scale = Vector2( 3, 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="t4" type="Sprite" parent="Thumbnails" index="3"]
-
-position = Vector2( 712.644, 267.623 )
-scale = Vector2( 3, 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="t5" type="Sprite" parent="Thumbnails" index="4"]
-
-position = Vector2( 898.559, 267.623 )
-scale = Vector2( 3, 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+position = Vector2( 864.803, 277.211 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
