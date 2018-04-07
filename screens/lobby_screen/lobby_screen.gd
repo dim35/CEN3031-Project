@@ -6,6 +6,8 @@ export (PackedScene) var next_scene
 
 var player_slots = []
 var class_thumbnails = Dictionary()
+var ready = load("res://assets/animation_sprites/environment/checked_box.png")
+var not_ready = load("res://assets/animation_sprites/environment/unchecked_Box.png")
 
 
 # Prepares basic setup for lobby
@@ -49,9 +51,9 @@ func new_player_ready():
 			if slot.player_id == null:
 				continue
 			if i == slot.player_id:
-				slot.get_node("Status").text = "Ready"
+				slot.get_node("Status").texture = ready
 			else:
-				slot.get_node("Status").text = "Not Ready"
+				slot.get_node("Status").texture = not_ready
 
 
 # On each player list update, clear the slots and reprint them for each player
@@ -68,8 +70,7 @@ func update_list():
 			var leftmost_empty_slot = _get_leftmost_empty_slot()
 			leftmost_empty_slot.set_slot(player_username, class_thumbnails[player_class], p)
 			if not (p in global_player.player_ready):
-				leftmost_empty_slot.get_node("Status").text = "Not Ready"
-		#connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
+				leftmost_empty_slot.get_node("Status").texture = not_ready
 	$Button.disabled = (len(players) < 1 and check)
 
 
@@ -77,7 +78,7 @@ func update_list():
 # Sets the current player in the middle slot
 func _place_me_in_middle_slot(me):
 	player_slots[2].set_slot(me["username"], class_thumbnails[me["classtype"]], get_tree().get_network_unique_id())
-	player_slots[2].get_node("Status").text = "Not Ready"
+	player_slots[2].get_node("Status").texture = not_ready
 
 
 
@@ -101,7 +102,7 @@ func _on_Button_pressed():
 	$Button.disabled = true
 	for slots in player_slots:
 		if slots.player_id == get_tree().get_network_unique_id():
-			slots.get_node("Status").text = "Ready"
+			slots.get_node("Status").texture = ready
 	if check:
 		global_player.done_preconfiguring()
 	else:
