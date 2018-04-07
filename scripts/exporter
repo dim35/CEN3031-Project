@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Must supply a version (e.x: exporter 2.3.1)"
+    exit 1
+fi
+
+if ! [ -e ../export_presets.cfg ]
+then
+    echo "Ensure export_presets.cfg exists in base of project"
+    echo "Ensure that exporter is run within scripts folder"
+    exit 1
+fi
+
+version="$1"
+
+cd ..
+
+mkdir build
+mkdir build/dim35_linux_v$version
+mkdir build/dim35_windows_v$version
+
+godot --export "Linux/X11" build/dim35_linux_v$version/dim35_linux_v$version.x86_64
+godot --export "Windows Desktop" build/dim35_windows_v$version/dim35_windows_v$version.exe
+godot --export "Mac OSX" build/dim35_macosx_v$version.zip
+
+cd build
+
+zip -r dim35_linux_v$version.zip dim35_linux_v$version
+zip -r dim35_windows_v$version.zip dim35_windows_v$version
+
+exit 0

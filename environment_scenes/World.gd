@@ -13,14 +13,17 @@ onready var mob = preload("res://entity_scenes/Mob.tscn")
 onready var player = preload("res://entity_scenes/Player.tscn")
 onready var class_knight = preload("res://entity_scenes/class_knight.tscn")
 onready var class_mage = preload("res://entity_scenes/class_mage.tscn")
+onready var class_rogue = preload("res://entity_scenes/class_rogue.tscn")
 onready var projectile = preload("res://entity_scenes/Projectile.tscn")
 onready var item = preload("res://entity_scenes/Item.tscn")
 
 
 var local_player_instance = null # use with caution as it's direct access
 onready var inventory = {} # local player's inventory
+var menuBool = false #escape menu implementation
 
 func _ready():
+	get_tree().connect("server_disconnected", self, "_server_disconnected")
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	
 	# tell server i'm ready to recieve player data
@@ -30,7 +33,7 @@ func _ready():
 	for i in range(5):
 		inventory[i] = 0
 
-remote func spawn(who, id, it_id = 0):
+remote func spawn(who, id, it_id = 0, b = 0):
 	print("spawn! " + who + " " + str(id))
 	if who == "mob":
 		var m = mob.instance()
@@ -42,7 +45,10 @@ remote func spawn(who, id, it_id = 0):
 			p = class_knight.instance()
 		elif it_id == "mage":
 			p = class_mage.instance()
+		elif it_id == "rogue":
+			p = class_rogue.instance()
 		p.classtype = it_id
+		p.username = b
 		p.set_name(str(id))
 		if str(get_tree().get_network_unique_id()) == id:
 			p.set_camera_me()
@@ -108,8 +114,6 @@ func level_complete():
 	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
 	get_tree().change_scene_to(my_scene)
 
-
-
 # When the timer reaches 0, trigger the end of the level
 func _on_LevelEndTimer_timeout():
 	level_complete()
@@ -121,3 +125,25 @@ func item_picked_up(id):
 	print ("Inventory: " + str(inventory))
 	
 	# call some GUI update
+
+func _server_disconnected():
+	var my_scene = load("res://screens/login_screen/login_screen.tscn")
+	get_tree().change_scene_to(my_scene)
+	queue_free()
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		menu()
+
+func menu():
+	if menuBool == false:
+		$Menu/Panel.show()
+		menuBool = true
+	else:
+		$Menu/Panel.hide()
+		menuBool = false
+
+# Network Friendly quit game function here
+func quit_game():
+	print ("The game is quit")
+	get_tree().quit()

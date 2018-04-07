@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spearman.png-3d41cf876d79fc10398840d422d18c6e.stex"
+path="res://.import/portrait.png-2b86d4f3f6b96373cc50379f23b0cf4d.stex"
 
 [deps]
 
-source_file="res://assets/spritesheets/spearman.png"
-source_md5="2c5bc8f6286a0fc27a0809ee7bd7b526"
+source_file="res://assets/animation_sprites/environment/portrait.png"
+source_md5="e5af51193d43514c01869be014ddc061"
 
-dest_files=[ "res://.import/spearman.png-3d41cf876d79fc10398840d422d18c6e.stex" ]
-dest_md5="19337b7f85d29e7d3f704c60df131a11"
+dest_files=[ "res://.import/portrait.png-2b86d4f3f6b96373cc50379f23b0cf4d.stex" ]
+dest_md5="991edd84f8b48fe690864782dc598d5e"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

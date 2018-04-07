@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://screens/login_screen/login_screen.gd" type="Script" id=1]
 [ext_resource path="res://screens/lobby_screen/lobby_screen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/animation_sprites/environment/tilesetOpenGameBackground.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=4]
 
 [node name="Control" type="Control" index="0"]
 
@@ -21,7 +23,15 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 next_scene = ExtResource( 2 )
 
-[node name="Username_field" type="LineEdit" parent="." index="0"]
+[node name="tilesetOpenGameBackground" type="Sprite" parent="." index="0"]
+
+position = Vector2( -551.01, -231.74 )
+scale = Vector2( 4.25564, 4.25564 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Username_field" type="LineEdit" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -38,16 +48,16 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "Username"
 focus_mode = 2
 context_menu_enabled = true
+placeholder_text = "Username"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Password_field" type="LineEdit" parent="." index="1"]
+[node name="Password_field" type="LineEdit" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -64,51 +74,26 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "Password"
+secret = true
 focus_mode = 2
 context_menu_enabled = true
+placeholder_text = "Password"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Caret", "Rect" ]
+_sections_unfolded = [ "Caret", "Placeholder", "Rect" ]
 
-[node name="Address_field" type="LineEdit" parent="." index="2"]
+[node name="Login" type="Button" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 7.0
-margin_top = 100.0
-margin_right = 293.0
-margin_bottom = 124.0
-rect_min_size = Vector2( 286, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "54.175.123.188"
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name="Button" type="Button" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 7.0
-margin_top = 55.0
+margin_top = 56.0
 margin_right = 67.0
-margin_bottom = 75.0
+margin_bottom = 76.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -124,7 +109,59 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text_result" type="RichTextLabel" parent="." index="4"]
+[node name="Signup" type="Button" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 233.0
+margin_top = 56.0
+margin_right = 293.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Sign Up"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Address_field" type="LineEdit" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 100.0
+margin_right = 293.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 286, 20 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "54.175.123.188"
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="text_result" type="RichTextLabel" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -153,8 +190,31 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[node name="Title" type="Label" parent="." index="7"]
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -127.0
+margin_top = -105.0
+margin_right = 533.0
+margin_bottom = -45.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Dimension35"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
+
+[connection signal="pressed" from="Signup" to="." method="_on_Signup_pressed"]
 
 

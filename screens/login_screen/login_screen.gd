@@ -12,16 +12,17 @@ onready var text_result = get_node("text_result")
 var http = HTTPClient.new()
 var HTTP_PORT = 443
 
-
+var website_login_address = "https://ec2-54-175-123-188.compute-1.amazonaws.com"
 
 func _init():
 	pass
 
 func _ready():
+	$Username_field.grab_focus()
 	print ("loaded login!")
 	
 # This has been connected from Button
-func _on_Button_button_up():
+func _on_Login_pressed():
 
 	if check == true:
 		var c = connect()
@@ -32,6 +33,17 @@ func _on_Button_button_up():
 			text_result.bbcode_text = "Wrong username/password"
 			return
 
+		assert(!http.is_response_chunked())
+		var bl = http.get_response_body_length()
+		var chunk = http.read_response_body_chunk().get_string_from_ascii()
+	
+		var dict = {}
+		dict = parse_json(chunk)
+		global_player.session_token = dict["token"]
+	else:
+		# create fake session token if we are not checking for login
+		global_player.session_token = randi() % 1000000 + 1
+	
 	# figure out how to getresponse message when code is 200
 	global_player.username = username_field.text
 	global_player.server_ip = address_field.text
@@ -80,3 +92,10 @@ func connect():
 	else:
 		return -2
 
+
+func _on_Signup_pressed():
+	OS.shell_open(website_login_address)
+
+func _process(delta):
+	if(Input.is_action_pressed("ui_enter")):
+		_on_Login_pressed()
