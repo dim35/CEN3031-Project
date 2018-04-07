@@ -44,15 +44,14 @@ func _class_selected(id):
 
 # the ready list has changed
 func new_player_ready():
-	for slot in player_slots:
-		var status = slot.get_node("Status")
-		if slot.get_node("Image").texture == null:
-			status.text = ""
-		elif global_player.player_ready.has(slot.player_id):
-			status.text = "Ready"
-		else:
-			status.text = "Not Ready"
-
+	for i in global_player.player_ready:
+		for slot in player_slots:
+			if slot.player_id == null:
+				continue
+			if i == slot.player_id:
+				slot.get_node("Status").text = "Ready"
+			else:
+				slot.get_node("Status").text = "Not Ready"
 
 
 # On each player list update, clear the slots and reprint them for each player
@@ -68,6 +67,8 @@ func update_list():
 		else:
 			var leftmost_empty_slot = _get_leftmost_empty_slot()
 			leftmost_empty_slot.set_slot(player_username, class_thumbnails[player_class], p)
+			if not (p in global_player.player_ready):
+				leftmost_empty_slot.get_node("Status").text = "Not Ready"
 		#connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
@@ -75,7 +76,8 @@ func update_list():
 
 # Sets the current player in the middle slot
 func _place_me_in_middle_slot(me):
-	player_slots[2].set_slot(me["username"], class_thumbnails[me["classtype"]], me)
+	player_slots[2].set_slot(me["username"], class_thumbnails[me["classtype"]], get_tree().get_network_unique_id())
+	player_slots[2].get_node("Status").text = "Not Ready"
 
 
 
@@ -97,6 +99,9 @@ func _get_leftmost_empty_slot():
 
 func _on_Button_pressed():
 	$Button.disabled = true
+	for slots in player_slots:
+		if slots.player_id == get_tree().get_network_unique_id():
+			slots.get_node("Status").text = "Ready"
 	if check:
 		global_player.done_preconfiguring()
 	else:

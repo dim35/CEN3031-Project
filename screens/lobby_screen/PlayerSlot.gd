@@ -2,7 +2,6 @@ extends Sprite
 
 var player_id = null
 
-
 # Clears this player slot's username, image, and ID
 func clear():
 	set_slot("", null, null)
@@ -14,3 +13,4 @@ func set_slot(username, image, id):
 	$Username.text = username
 	$Image.texture = image
 	player_id = id
+	$Status.text = ""
