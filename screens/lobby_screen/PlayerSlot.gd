@@ -3,7 +3,7 @@ extends Sprite
 var player_id = null
 
 
-# Clears this player slot's username and image
+# Clears this player slot's username, image, and ID
 func clear():
 	set_slot("", null, null)
 	

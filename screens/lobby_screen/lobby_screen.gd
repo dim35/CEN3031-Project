@@ -3,7 +3,6 @@ extends Control
 var check = true # set to false to not check for players connected
 
 export (PackedScene) var next_scene
-#onready var connected_players = get_node("connected_players")
 
 var player_slots = []
 var class_thumbnails = Dictionary()
@@ -49,17 +48,15 @@ func new_player_ready():
 		var status = slot.get_node("Status")
 		if slot.get_node("Image").texture == null:
 			status.text = ""
-		elif slot.player_id in global_player.player_ready:
+		elif global_player.player_ready.has(slot.player_id):
 			status.text = "Ready"
 		else:
 			status.text = "Not Ready"
-	#print(global_player.player_ready)
 
 
 
 # On each player list update, clear the slots and reprint them for each player
 func update_list():
-	#connected_players.clear()
 	_clear_player_slots()
 	var players = global_player.player_info
 	_place_me_in_middle_slot(players[get_tree().get_network_unique_id()])
