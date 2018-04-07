@@ -3,7 +3,6 @@ extends Control
 var check = true # set to false to not check for players connected
 
 export (PackedScene) var next_scene
-#onready var connected_players = get_node("connected_players")
 
 var player_slots = []
 var class_thumbnails = Dictionary()
@@ -42,14 +41,21 @@ func _class_selected(id):
 	global_player.update_class($ClassDropdown.get_item_text(id))
 
 
+
 # the ready list has changed
 func new_player_ready():
-	print(global_player.player_ready)
+	for i in global_player.player_ready:
+		for slot in player_slots:
+			if slot.player_id == null:
+				continue
+			if i == slot.player_id:
+				slot.get_node("Status").text = "Ready"
+			else:
+				slot.get_node("Status").text = "Not Ready"
 
 
 # On each player list update, clear the slots and reprint them for each player
 func update_list():
-	#connected_players.clear()
 	_clear_player_slots()
 	var players = global_player.player_info
 	_place_me_in_middle_slot(players[get_tree().get_network_unique_id()])
@@ -60,8 +66,9 @@ func update_list():
 			pass
 		else:
 			var leftmost_empty_slot = _get_leftmost_empty_slot()
-			leftmost_empty_slot.get_node("Username").text = player_username
-			leftmost_empty_slot.get_node("Image").texture = class_thumbnails[player_class]
+			leftmost_empty_slot.set_slot(player_username, class_thumbnails[player_class], p)
+			if not (p in global_player.player_ready):
+				leftmost_empty_slot.get_node("Status").text = "Not Ready"
 		#connected_players.add_text(players[p]["username"] + " -> " + players[p]["classtype"] + "\n")
 	$Button.disabled = (len(players) < 1 and check)
 
@@ -69,8 +76,8 @@ func update_list():
 
 # Sets the current player in the middle slot
 func _place_me_in_middle_slot(me):
-	player_slots[2].get_node("Username").text = me["username"]
-	player_slots[2].get_node("Image").texture = class_thumbnails[me["classtype"]]
+	player_slots[2].set_slot(me["username"], class_thumbnails[me["classtype"]], get_tree().get_network_unique_id())
+	player_slots[2].get_node("Status").text = "Not Ready"
 
 
 
@@ -92,6 +99,9 @@ func _get_leftmost_empty_slot():
 
 func _on_Button_pressed():
 	$Button.disabled = true
+	for slots in player_slots:
+		if slots.player_id == get_tree().get_network_unique_id():
+			slots.get_node("Status").text = "Ready"
 	if check:
 		global_player.done_preconfiguring()
 	else:
