@@ -38,4 +38,4 @@ Attacking: hold X
 - Castle tiles: [OpenPixelProject](https://openpixelproject.itch.io/opp2017castle), Public Domain
 - Lobby slot frames: [yd](https://opengameart.org/content/gui-windows-constructor), Public Domain
 - Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
-
+- Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
