@@ -138,6 +138,7 @@ func _input(event):
 func menu():
 	if menuBool == false:
 		$Menu/Panel.show()
+		$Menu/Panel/Quit_Game.grab_focus()
 		menuBool = true
 	else:
 		$Menu/Panel.hide()

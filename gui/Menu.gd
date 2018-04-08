@@ -8,6 +8,5 @@ func hideMenu():
 func _on_Exit_Menu_pressed():
 	hideMenu()
 
-
 func _on_Quit_Game_pressed():
 	emit_signal("closegame")
