@@ -30,7 +30,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Visibility" ]
 
-[node name="Quit Game" type="Button" parent="Panel" index="0"]
+[node name="Quit_Game" type="Button" parent="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -53,7 +53,7 @@ text = "Quit Game"
 flat = false
 align = 1
 
-[node name="Exit Menu" type="Button" parent="Panel" index="1"]
+[node name="Exit_Menu" type="Button" parent="Panel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -75,8 +75,8 @@ text = "Exit Menu"
 flat = false
 align = 1
 
-[connection signal="pressed" from="Panel/Quit Game" to="." method="_on_Quit_Game_pressed"]
+[connection signal="pressed" from="Panel/Quit_Game" to="." method="_on_Quit_Game_pressed"]
 
-[connection signal="pressed" from="Panel/Exit Menu" to="." method="_on_Exit_Menu_pressed"]
+[connection signal="pressed" from="Panel/Exit_Menu" to="." method="_on_Exit_Menu_pressed"]
 
 
