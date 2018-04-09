@@ -4,10 +4,11 @@ export (PackedScene) var next_scene
 
 var check = true # set to false to disable connecting to server
 
-onready var username_field = get_node("Username_field")
-onready var password_field = get_node("Password_field")
-onready var address_field = get_node("Address_field")
-onready var text_result = get_node("text_result")
+onready var username_field = get_node("Elements/Username_field")
+onready var password_field = get_node("Elements/Password_field")
+onready var address_field = get_node("Elements/Address_field")
+onready var text_result = get_node("Elements/text_result")
+onready var camera = get_node("Background/Camera")
 
 var http = HTTPClient.new()
 var HTTP_PORT = 443
@@ -18,7 +19,7 @@ func _init():
 	pass
 
 func _ready():
-	$Username_field.grab_focus()
+	username_field.grab_focus()
 	print ("loaded login!")
 	
 # This has been connected from Button
@@ -96,6 +97,8 @@ func connect():
 func _on_Signup_pressed():
 	OS.shell_open(website_login_address)
 
+
 func _process(delta):
+	camera.position.x += 2
 	if(Input.is_action_pressed("ui_enter")):
 		_on_Login_pressed()
