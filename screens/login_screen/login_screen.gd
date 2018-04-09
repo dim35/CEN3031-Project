@@ -4,10 +4,10 @@ export (PackedScene) var next_scene
 
 var check = true # set to false to disable connecting to server
 
-onready var username_field = get_node("Elements/Username_field")
-onready var password_field = get_node("Elements/Password_field")
-onready var address_field = get_node("Elements/Address_field")
-onready var text_result = get_node("Elements/text_result")
+onready var username_field = get_node("Elements/Forms/Username_field")
+onready var password_field = get_node("Elements/Forms/Password_field")
+onready var address_field = get_node("Elements/Forms/Address_field")
+onready var text_result = get_node("Elements/Forms/text_result")
 onready var camera = get_node("Background/Camera")
 
 var http = HTTPClient.new()

@@ -13,6 +13,7 @@ signal player_list_changed()
 signal post_configure()
 signal player_disconnect(id)
 signal existing_session()
+signal game_in_play()
 signal new_player_ready()
 
 func start_client():
@@ -38,6 +39,11 @@ func _connected_ok():
 	
 remote func existing_session():
 	emit_signal("existing_session")
+	get_tree().get_meta("network_peer").close_connection()
+	
+
+remote func game_in_play():
+	emit_signal("game_in_play")
 	get_tree().get_meta("network_peer").close_connection()
 	
 func _player_disconnected(id):
