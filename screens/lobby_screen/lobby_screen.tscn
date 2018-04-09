@@ -4,7 +4,7 @@
 [ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=2]
 [ext_resource path="res://screens/lobby_screen/PlayerSlot.tscn" type="PackedScene" id=3]
 
-[node name="lobby_node" type="Control" index="0"]
+[node name="lobby_node" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -17,6 +17,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 next_scene = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="." index="0"]
@@ -25,9 +26,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 455.0
+margin_left = 450.0
 margin_top = 477.0
-margin_right = 579.0
+margin_right = 574.0
 margin_bottom = 518.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -43,6 +44,7 @@ group = null
 text = "Ready"
 flat = false
 align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="ClassDropdown" type="OptionButton" parent="." index="1"]
 
@@ -50,9 +52,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 471.0
+margin_left = 464.0
 margin_top = 428.0
-margin_right = 567.0
+margin_right = 560.0
 margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -72,7 +74,19 @@ items = [  ]
 selected = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_icons", "custom_styles" ]
 
-[node name="Slots" type="Node" parent="." index="2"]
+[node name="Slots" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="Slot1" parent="Slots" index="0" instance=ExtResource( 3 )]
 
