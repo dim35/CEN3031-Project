@@ -9,7 +9,6 @@ var class_thumbnails = Dictionary()
 var ready = load("res://assets/animation_sprites/environment/checked_box.png")
 var not_ready = load("res://assets/animation_sprites/environment/unchecked_Box.png")
 
-
 # Prepares basic setup for lobby
 func _ready():
 	player_slots.append($Slots/Slot1)
@@ -28,6 +27,7 @@ func _ready():
 	global_player.connect("player_list_changed", self, "update_list")
 	global_player.connect("post_configure", self, "post_configure")
 	global_player.connect("existing_session", self, "existing_session")
+	global_player.connect("game_in_play", self, "game_in_play")
 	global_player.connect("new_player_ready", self, "new_player_ready")
 	
 	if(check):
@@ -118,5 +118,10 @@ func post_configure():
 	
 	
 func existing_session():
+	get_tree().change_scene_to(load("res://screens/login_screen/login_screen.tscn"))
+	queue_free()
+	
+	
+func game_in_play():
 	get_tree().change_scene_to(load("res://screens/login_screen/login_screen.tscn"))
 	queue_free()
