@@ -30,6 +30,11 @@ Sprinting: Shift + Left/Right/A/D
 Attacking: hold X
 ```
 
+## Screenshots
+![Login](assets/screenshots/login.png)
+![Lobby](assets/screenshots/lobby.png)
+![In Game](assets/screenshots/ingame.png)
+
 ## Credits
 - Sky background: [Paulina Riva](https://opengameart.org/content/sky-background), CC-BY 3.0 license
 - Knight sprites: [Disthron](https://opengameart.org/content/classic-knight-animated), Public Domain
