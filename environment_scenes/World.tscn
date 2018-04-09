@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
@@ -11,13 +11,14 @@
 [ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=9]
 [ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.6948, 32.4157 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -141,6 +142,14 @@ autostart = false
 [node name="Menu" parent="." index="5" instance=ExtResource( 10 )]
 
 [node name="MenuButton" parent="." index="6" instance=ExtResource( 11 )]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
 

@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bitgamesound.ogg-268430c388100f0073c66446a18845c5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/bitgamesound.ogg"
+source_md5="64205156cc72a482faed88e044c4dbd0"
+
+dest_files=[ "res://.import/bitgamesound.ogg-268430c388100f0073c66446a18845c5.oggstr" ]
+dest_md5="8c9db3a03f3f9f471c5a356391c2c8b0"
+
+[params]
+
+loop=true
+loop_offset=0
