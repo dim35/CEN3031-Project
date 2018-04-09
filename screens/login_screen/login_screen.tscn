@@ -2,8 +2,8 @@
 
 [ext_resource path="res://screens/login_screen/login_screen.gd" type="Script" id=1]
 [ext_resource path="res://screens/lobby_screen/lobby_screen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://assets/audio/bitgamesound.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/bitgamesound.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/animation_sprites/environment/tilesetOpenGameBackground.png" type="Texture" id=5]
 
 [node name="Control" type="Control" index="0"]
@@ -27,14 +27,36 @@ next_scene = ExtResource( 2 )
 
 [node name="Elements" type="CanvasLayer" parent="." index="0"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Username_field" type="LineEdit" parent="Elements" index="0"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Elements" index="0"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = true
+mix_target = 2
+bus = "Master"
+
+[node name="Forms" type="Control" parent="Elements" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Username_field" type="LineEdit" parent="Elements/Forms" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -61,7 +83,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Password_field" type="LineEdit" parent="Elements" index="1"]
+[node name="Password_field" type="LineEdit" parent="Elements/Forms" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -89,7 +111,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Caret", "Placeholder", "Rect" ]
 
-[node name="Login" type="Button" parent="Elements" index="2"]
+[node name="Login" type="Button" parent="Elements/Forms" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -115,7 +137,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Signup" type="Button" parent="Elements" index="3"]
+[node name="Signup" type="Button" parent="Elements/Forms" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -141,7 +163,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Address_field" type="LineEdit" parent="Elements" index="4"]
+[node name="Address_field" type="LineEdit" parent="Elements/Forms" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -168,7 +190,30 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="text_result" type="RichTextLabel" parent="Elements" index="5"]
+[node name="Title" type="Label" parent="Elements" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 235.0
+margin_top = 127.0
+margin_right = 895.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Dimension35"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="text_result" type="RichTextLabel" parent="Elements" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -196,37 +241,6 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
-
-[node name="Title" type="Label" parent="Elements" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 235.0
-margin_top = 127.0
-margin_right = 895.0
-margin_bottom = 187.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
-text = "Dimension35"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Elements" index="7"]
-
-stream = ExtResource( 4 )
-volume_db = 0.0
-autoplay = true
-mix_target = 2
-bus = "Master"
 
 [node name="Background" type="CanvasLayer" parent="." index="1"]
 
@@ -291,8 +305,8 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[connection signal="pressed" from="Elements/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="Elements/Forms/Login" to="." method="_on_Login_pressed"]
 
-[connection signal="pressed" from="Elements/Signup" to="." method="_on_Signup_pressed"]
+[connection signal="pressed" from="Elements/Forms/Signup" to="." method="_on_Signup_pressed"]
 
 
