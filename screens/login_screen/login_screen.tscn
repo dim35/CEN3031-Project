@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://screens/login_screen/login_screen.gd" type="Script" id=1]
 [ext_resource path="res://screens/lobby_screen/lobby_screen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/animation_sprites/environment/tilesetOpenGameBackground.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/audio/bitgamesound.ogg" type="AudioStream" id=5]
 
 [node name="Control" type="Control"]
 
@@ -217,6 +218,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = true
+mix_target = 2
+bus = "Master"
 
 [connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
 
