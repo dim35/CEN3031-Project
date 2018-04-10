@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fireball-old1.wav-00b03232f540cffe882a24d640637e52.sample"
+
+[deps]
+
+source_file="res://assets/audio/fireball-old1.wav"
+source_md5="dd192549b8fc06f206f93c81b8399906"
+
+dest_files=[ "res://.import/fireball-old1.wav-00b03232f540cffe882a24d640637e52.sample" ]
+dest_md5="784c298462701b40e9df939223ad9e32"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -30,6 +30,11 @@ Sprinting: Shift + Left/Right/A/D
 Attacking: hold X
 ```
 
+## Screenshots
+![Login](assets/screenshots/login.png)
+![Lobby](assets/screenshots/lobby.png)
+![In Game](assets/screenshots/ingame.png)
+
 ## Credits
 - Sky background: [Paulina Riva](https://opengameart.org/content/sky-background), CC-BY 3.0 license
 - Knight sprites: [Disthron](https://opengameart.org/content/classic-knight-animated), Public Domain
@@ -37,4 +42,5 @@ Attacking: hold X
 - Rogue sprites: [Disthron](https://opengameart.org/content/mr-knife-guy-animated), Public Domain
 - Castle tiles: [OpenPixelProject](https://openpixelproject.itch.io/opp2017castle), Public Domain
 - Lobby slot frames: [yd](https://opengameart.org/content/gui-windows-constructor), Public Domain
-
+- Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
+- Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
