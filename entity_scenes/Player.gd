@@ -1,34 +1,22 @@
 extends "res://entity_scenes/AnimatedEntity.gd"
 
 var last_direction = 0
-
 var STAMINA_RUN_DEPLETION = 0.3
 var STAMINA_JUMP_DEPLETION = 8
 var STAMINA_ATTACK_DEPLETION = 0.6
 var STAMINA_IDLE_REGEN = 0.4
+var SPELL_MANA_DEPLETION = 1
 var current_xp
-
 var classtype
 var username
 
+
 func _ready():
-	MAX_HEALTH = 200
-	MAX_MANA = 80
-	MAX_STAMINA = 150
-	MAX_DEFENSE = 300
-	MAX_SPEED = 150
-	MAX_DAMAGE = 1
-	
-	health = MAX_HEALTH
-	stamina = MAX_STAMINA
-	speed = MAX_SPEED
-	defense = MAX_DEFENSE
-	mana = MAX_MANA
-	damage = MAX_DAMAGE
 	who = "player"
 	$name.text = username
 	$name.rect_scale = Vector2(0.25, 0.25)
 	set_process(true)
+
 
 func _process(delta):
 	# only when label is drawen does it update the size
@@ -38,7 +26,6 @@ func _process(delta):
 
 
 var is_attacking = false
-
 func move():
 	rpc_id(1, "set_to_idle")
 	var is_attacking = false
@@ -63,11 +50,15 @@ func move():
 	if Input.is_action_pressed("attack"):
 		is_attacking = true
 		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
+		if classtype == "mage":
+			mana = max(mana - SPELL_MANA_DEPLETION, 0)
 		moved_this_itr = true
 	
 	if moved_this_itr:
 		rpc_id(1, "move", velocity, is_attacking)
 	
+	if state == "idle":
+		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 	
 	flip_state(last_direction)
 	update_state(state)
@@ -75,6 +66,7 @@ func move():
 
 func set_camera_me():
 	get_node("Camera").current = true;
+
 
 remote func remote_move(p, v, s, ld):
 	position = p
