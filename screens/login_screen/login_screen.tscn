@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/animation_sprites/environment/tilesetOpenGameBackground.png" type="Texture" id=5]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.5
 anchor_top = 0.5
