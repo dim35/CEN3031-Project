@@ -22,3 +22,8 @@ func set_max_value(val):
 # Sets the width and height of this stat bar
 func set_dimensions(width, height=8):
 	rect_size = Vector2(width, height)
+	
+	
+# When called, modulates the stat bar's foreground color
+func change_color():
+	pass
