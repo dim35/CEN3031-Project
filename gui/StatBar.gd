@@ -25,5 +25,5 @@ func set_dimensions(width, height=8):
 	
 	
 # When called, modulates the stat bar's foreground color
-func flash():
+func change_color():
 	pass
