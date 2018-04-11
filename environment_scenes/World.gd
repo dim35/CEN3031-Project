@@ -151,3 +151,7 @@ func menu():
 func quit_game():
 	print ("The game is quit")
 	get_tree().quit()
+	
+	
+remote func set_inventory(it):
+	inventory = it
