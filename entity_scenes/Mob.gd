@@ -3,13 +3,6 @@ extends "res://entity_scenes/AnimatedEntity.gd"
 onready var entities = get_node("/root/World/entities")
 
 func _ready():
-	health = MAX_HEALTH
-	mana = MAX_MANA
-	stamina = MAX_STAMINA
-	defense = MAX_DEFENSE
-	speed = MAX_SPEED
-	damage = MAX_DAMAGE
-
 	update_state("walking")	
 	who = "mob"
 
@@ -34,7 +27,6 @@ func take_damage(x):
 
 remote func set_health(h):
 	health = h
-	get_node("Health").update(health)
 
 remote func delete():
 	queue_free()

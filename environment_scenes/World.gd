@@ -25,10 +25,8 @@ var menuBool = false #escape menu implementation
 func _ready():
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 	global_player.connect("player_disconnect", self, "player_disconnect")
-	
 	# tell server i'm ready to recieve player data
 	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
-	
 	# set items to default amount (0)
 	for i in range(5):
 		inventory[i] = 0
@@ -37,6 +35,7 @@ remote func spawn(who, id, it_id = 0, b = 0):
 	print("spawn! " + who + " " + str(id))
 	if who == "mob":
 		var m = mob.instance()
+		m.get_node("Health").set_parent_entity(m)
 		m.set_name(str(id))
 		mobs.add_child(m)
 	elif who == "player":
@@ -64,6 +63,10 @@ remote func spawn(who, id, it_id = 0, b = 0):
 		new_item.set_name(str(id))
 		new_item.select_sprite(it_id)
 		items.add_child(new_item)
+	# Sets up the HUD bars so that they have access to the player whose stats they are reflecting
+	get_node("PlayerHUD/Stats/Health").set_parent_entity(local_player_instance)
+	get_node("PlayerHUD/Stats/Mana").set_parent_entity(local_player_instance)
+	get_node("PlayerHUD/Stats/Stamina").set_parent_entity(local_player_instance)
 	
 
 func player_disconnect(id):
@@ -119,12 +122,8 @@ func _on_LevelEndTimer_timeout():
 	level_complete()
 
 func item_picked_up(id):
-	# add another instance of item
-	inventory[id] = inventory[id] + 1
-	
-	print ("Inventory: " + str(inventory))
-	
-	# call some GUI update
+	# just to notify when player picked up item, perhaps for gui
+	pass
 
 func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")
@@ -148,3 +147,14 @@ func menu():
 func quit_game():
 	print ("The game is quit")
 	get_tree().quit()
+	
+	
+remote func set_inventory(it):
+	print ("Got inventory" + str(it))
+	inventory = it
+	#use_item(0)
+	
+
+remote func use_item(id):
+	inventory[id] -= 1
+	rpc_id(1, "update_inventory_from_client", get_tree().get_network_unique_id(), inventory)
