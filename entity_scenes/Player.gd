@@ -72,3 +72,12 @@ remote func remote_move(p, v, s, ld):
 	position = p
 	state = s
 	last_direction = ld
+	
+	
+remote func update_stats(hp, mp, sta, def, agil, dmg):
+	health = hp
+	mana = mp
+	stamina = sta
+	defense = def
+	speed = agil
+	damage = dmg
