@@ -49,7 +49,6 @@ anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -195,7 +194,6 @@ margin_top = 127.0
 margin_right = 895.0
 margin_bottom = 187.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -238,27 +236,6 @@ _sections_unfolded = [ "BBCode" ]
 
 [node name="Background" type="CanvasLayer" parent="." index="1"]
 
-<<<<<<< HEAD
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -127.0
-margin_top = -105.0
-margin_right = 533.0
-margin_bottom = -45.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
-text = "Dimension35"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-=======
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -319,7 +296,6 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
->>>>>>> 0d4d104d9aab8825b2899f03b60e634386ccc155
 
 [connection signal="pressed" from="Elements/Forms/Login" to="." method="_on_Login_pressed"]
 

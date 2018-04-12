@@ -1,21 +1,25 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/ManaBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/StaminaBar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=6]
-[ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=9]
+[ext_resource path="res://gui/Inventory.gd" type="Script" id=6]
+[ext_resource path="res://assets/animation_sprites/potion/potion1.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui_graphics/item_count_background.png" type="Texture" id=8]
+[ext_resource path="res://assets/animation_sprites/potion/potion2.png" type="Texture" id=9]
+[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=10]
+[ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=13]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.6948, 32.4157 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -90,11 +94,170 @@ margin_top = 17.0
 margin_right = 146.0
 margin_bottom = 25.0
 
+[node name="Inventory" type="Container" parent="PlayerHUD/Stats" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 166.0
+margin_top = -6.0
+margin_right = 276.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 6 )
+_sections_unfolded = [ "Columns", "Icon", "Visibility" ]
+
+[node name="Health Potions" type="Container" parent="PlayerHUD/Stats/Inventory" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="PlayerHUD/Stats/Inventory/Health Potions" index="0"]
+
+position = Vector2( 15, 11 )
+scale = Vector2( 0.5, 0.52381 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KeyMapping" type="Label" parent="PlayerHUD/Stats/Inventory/Health Potions" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 29.0
+margin_right = 26.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "E"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Count" type="Label" parent="PlayerHUD/Stats/Inventory/Health Potions" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 16.0
+margin_right = 58.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Background" type="Sprite" parent="PlayerHUD/Stats/Inventory/Health Potions/Count" index="0"]
+
+show_behind_parent = true
+position = Vector2( 4, 6 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Stamina Potions" type="Container" parent="PlayerHUD/Stats/Inventory" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="PlayerHUD/Stats/Inventory/Stamina Potions" index="0"]
+
+position = Vector2( 15, 11 )
+scale = Vector2( 0.5, 0.52381 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KeyMapping" type="Label" parent="PlayerHUD/Stats/Inventory/Stamina Potions" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 29.0
+margin_right = 26.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "R"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Count" type="Label" parent="PlayerHUD/Stats/Inventory/Stamina Potions" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 16.0
+margin_right = 58.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Background" type="Sprite" parent="PlayerHUD/Stats/Inventory/Stamina Potions/Count" index="0"]
+
+show_behind_parent = true
+position = Vector2( 4, 6 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
 [node name="Gate" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
 position = Vector2( 1101.91, 472.051 )
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="GateArea" type="Area2D" parent="Gate" index="0"]
 
@@ -110,7 +273,7 @@ audio_bus_name = "Master"
 [node name="GateHitbox" type="CollisionShape2D" parent="Gate/GateArea" index="0"]
 
 position = Vector2( 0.785278, -0.785339 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="LevelEndTimer" type="Timer" parent="." index="3"]
 
@@ -129,13 +292,13 @@ autostart = false
 
 [node name="projectiles" type="Node" parent="entities" index="3"]
 
-[node name="Menu" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Menu" parent="." index="5" instance=ExtResource( 11 )]
 
-[node name="MenuButton" parent="." index="6" instance=ExtResource( 8 )]
+[node name="MenuButton" parent="." index="6" instance=ExtResource( 12 )]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
