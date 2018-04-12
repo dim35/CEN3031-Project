@@ -122,12 +122,8 @@ func _on_LevelEndTimer_timeout():
 	level_complete()
 
 func item_picked_up(id):
-	# add another instance of item
-	inventory[id] = inventory[id] + 1
-	
-	print ("Inventory: " + str(inventory))
-	
-	# call some GUI update
+	# just to notify when player picked up item, perhaps for gui
+	pass
 
 func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")
@@ -151,3 +147,14 @@ func menu():
 func quit_game():
 	print ("The game is quit")
 	get_tree().quit()
+	
+	
+remote func set_inventory(it):
+	print ("Got inventory" + str(it))
+	inventory = it
+	#use_item(0)
+	
+
+remote func use_item(id):
+	inventory[id] -= 1
+	rpc_id(1, "update_inventory_from_client", get_tree().get_network_unique_id(), inventory)
