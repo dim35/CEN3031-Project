@@ -99,6 +99,7 @@ func _get_leftmost_empty_slot():
 
 func _on_Button_pressed():
 	$Button.disabled = true
+	$ClassDropdown.disabled = true
 	for slots in player_slots:
 		if slots.player_id == get_tree().get_network_unique_id():
 			slots.get_node("Status").texture = ready
