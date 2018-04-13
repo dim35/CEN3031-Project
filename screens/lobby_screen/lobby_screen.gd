@@ -31,7 +31,7 @@ func _ready():
 	global_player.connect("new_player_ready", self, "new_player_ready")
 	
 	if(check):
-		$Button.disabled = true
+		$Button.disabled = false
 	else:
 		global_player.fake_register_player()
 		update_list()
@@ -41,7 +41,7 @@ func _ready():
 # Updates the player's class
 func _class_selected(id):
 	global_player.update_class($ClassDropdown.get_item_text(id))
-
+	
 
 
 # the ready list has changed
@@ -71,7 +71,6 @@ func update_list():
 			leftmost_empty_slot.set_slot(player_username, class_thumbnails[player_class], p)
 			if not (p in global_player.player_ready):
 				leftmost_empty_slot.get_node("Status").texture = not_ready
-	$Button.disabled = (len(players) < 1 and check)
 
 
 
