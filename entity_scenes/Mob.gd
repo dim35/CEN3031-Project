@@ -6,21 +6,13 @@ func _ready():
 	update_state("walking")	
 	who = "mob"
 
-remote func remote_move(p, v):
+remote func remote_move(p, v, state):
 	position = p
 	velocity = v
 	flip_state(velocity.x < 0)
-	if (abs(velocity.x) > 0):
-		update_state("walking")
-	
-#TODO: Server should manage attacks
-func _on_Area2D_body_entered(body):
-	if body.collision_layer == Base.PLAYER_COLLISION_LAYER:
-		update_state("attacking")
-
-func _on_Area2D_body_exited(body):
-	if body.collision_layer == Base.PLAYER_COLLISION_LAYER:
-		update_state("walking")
+	update_state(state)
+	#if (abs(velocity.x) > 0):
+	#	update_state("walking")
 
 func take_damage(x):
 	rpc_id(1, "take_damage", x)
