@@ -6,7 +6,6 @@ var id = -1
 onready var world = get_node("/root/World")
 
 func _ready():
-	
 	pass
 
 func select_sprite(i):
