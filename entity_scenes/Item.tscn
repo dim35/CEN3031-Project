@@ -3,7 +3,7 @@
 [ext_resource path="res://entity_scenes/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/animation_sprites/potion/potion1.png" type="Texture" id=2]
 
-[node name="Item" type="Node2D" index="0"]
+[node name="Item" type="Node2D"]
 
 script = ExtResource( 1 )
 

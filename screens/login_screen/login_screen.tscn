@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/fonts/TitleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/animation_sprites/environment/tilesetOpenGameBackground.png" type="Texture" id=5]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,7 +17,6 @@ margin_top = -68.0
 margin_right = 150.0
 margin_bottom = 68.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -50,7 +49,6 @@ anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -68,7 +66,6 @@ margin_right = 655.0
 margin_bottom = 261.0
 rect_min_size = Vector2( 200, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -95,7 +92,6 @@ margin_right = 655.0
 margin_bottom = 286.0
 rect_min_size = Vector2( 200, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -122,7 +118,6 @@ margin_top = 288.0
 margin_right = 429.0
 margin_bottom = 308.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -148,7 +143,6 @@ margin_top = 288.0
 margin_right = 655.0
 margin_bottom = 308.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -175,7 +169,6 @@ margin_right = 655.0
 margin_bottom = 356.0
 rect_min_size = Vector2( 286, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -201,7 +194,6 @@ margin_top = 127.0
 margin_right = 895.0
 margin_bottom = 187.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

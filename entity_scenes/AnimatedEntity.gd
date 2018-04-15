@@ -73,3 +73,11 @@ remote func delete_me():
 	
 remote func set_health(h):
 	health = h
+
+
+remote func set_mana(m):
+	mana = m
+
+
+remote func set_stamina(s):
+	stamina = s
