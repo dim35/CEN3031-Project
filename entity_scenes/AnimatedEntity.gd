@@ -70,3 +70,6 @@ func take_damage(x):
 	
 remote func delete_me():
 	queue_free()
+	
+remote func set_health(h):
+	health = h

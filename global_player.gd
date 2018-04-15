@@ -15,6 +15,7 @@ signal player_disconnect(id)
 signal existing_session()
 signal game_in_play()
 signal new_player_ready()
+signal finished_loading()
 
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -77,3 +78,6 @@ func update_class(c):
 remote func who_is_ready(players):
 	player_ready = players
 	emit_signal("new_player_ready")
+	
+remote func finished_loading():
+	emit_signal("finished_loading")

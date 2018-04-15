@@ -44,7 +44,7 @@ func move():
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		moved_this_itr = true
 	if Input.is_action_just_pressed("jump"):
-			velocity.y = -1.5*speed
+			velocity.y = -1.5*150
 			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
 			moved_this_itr = true
 	if Input.is_action_pressed("attack"):
@@ -72,3 +72,12 @@ remote func remote_move(p, v, s, ld):
 	position = p
 	state = s
 	last_direction = ld
+	
+	
+remote func update_stats(hp, mp, sta, def, agil, dmg):
+	health = hp
+	mana = mp
+	stamina = sta
+	defense = def
+	speed = agil
+	damage = dmg
