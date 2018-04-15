@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
-[ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/ManaBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/StaminaBar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=5]
-[ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/ManaBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/StaminaBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=7]
+[ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -66,13 +68,17 @@ margin_bottom = 17.0
 margin_left = 46.0
 margin_top = 17.0
 margin_right = 146.0
-margin_bottom = 25.0
+margin_bottom = 25.0[node name="Inventory" parent="PlayerHUD" index="1" instance=ExtResource( 6 )]
 
-[node name="Gate" type="Sprite" parent="." index="1"]
+margin_left = 892.0
+margin_top = 48.0
+margin_right = 980.0
+margin_bottom = 92.0
 
-editor/display_folded = true
-position = Vector2( 484.035, -1224.31 )
-texture = ExtResource( 5 )
+[node name="Gate" type="Sprite" parent="." index="2"]
+
+position = Vector2( 1101.91, 472.051 )
+texture = ExtResource( 7 )
 
 [node name="GateArea" type="Area2D" parent="Gate" index="0"]
 
@@ -107,15 +113,13 @@ editor/display_folded = true
 
 [node name="items" type="Node" parent="entities" index="2"]
 
-[node name="projectiles" type="Node" parent="entities" index="3"]
+[node name="projectiles" type="Node" parent="entities" index="3"][node name="Menu" parent="." index="5" instance=ExtResource( 8 )]
 
-[node name="Menu" parent="." index="4" instance=ExtResource( 6 )]
-
-[node name="MenuButton" parent="." index="5" instance=ExtResource( 7 )]
+[node name="MenuButton" parent="." index="6" instance=ExtResource( 9 )]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
