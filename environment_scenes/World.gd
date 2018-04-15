@@ -1,5 +1,5 @@
 extends "res://Base.gd"
-
+export (PackedScene) var next_scene
 
 
 onready var entities = get_node("/root/World/entities")
@@ -101,12 +101,12 @@ func update_HUD_bars():
 	staminaBar.set_dimensions(local_player_instance.MAX_STAMINA)
 	staminaBar.update(local_player_instance.stamina)		
 
-
+func levelOneComplete():
+	get_tree().change_scene_to(next_scene)
 
 # Triggered upon body entering the area. Used mainly for player entry. Triggers level end.
 func _on_GateArea_body_entered(body):
 	if body.collision_layer == PLAYER_COLLISION_LAYER:
-		$Gate.set_texture(load("res://assets/animation_sprites/environment/closed_gate.png"))
 		# $PlayerSpawner/Container.get_child(0).visible = false
 		$LevelEndTimer.start()
 
@@ -114,8 +114,8 @@ func _on_GateArea_body_entered(body):
 
 # Changes to splash screen
 func level_complete():
-	var my_scene = load("res://screens/splash_screen/splash_screen.tscn")
-	get_tree().change_scene_to(my_scene)
+	var my_scene = load("res://environment_scenes/World2.tscn")
+	get_tree().change_scene_to(next_scene)
 
 # When the timer reaches 0, trigger the end of the level
 func _on_LevelEndTimer_timeout():
@@ -128,6 +128,8 @@ func item_picked_up(id):
 	print ("Inventory: " + str(inventory))
 	
 	# call some GUI update
+	
+	
 
 func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")

@@ -119,8 +119,6 @@ autostart = false
 
 [node name="entities" type="Node" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="players" type="Node" parent="entities" index="0"]
 
 [node name="mobs" type="Node" parent="entities" index="1"]

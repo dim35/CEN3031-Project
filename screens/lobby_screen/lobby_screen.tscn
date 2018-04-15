@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://screens/lobby_screen/lobby_screen.gd" type="Script" id=1]
-[ext_resource path="res://environment_scenes/World2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=2]
 [ext_resource path="res://screens/lobby_screen/PlayerSlot.tscn" type="PackedScene" id=3]
-
 
 [node name="lobby_node" type="Control"]
 
@@ -18,7 +17,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Hint", "Margin", "Material", "Mouse", "Pause", "Size Flags", "Theme", "Visibility" ]
 next_scene = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="." index="0"]
@@ -45,7 +44,7 @@ group = null
 text = "Ready"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Hint", "Material", "Mouse", "Pause", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="ClassDropdown" type="OptionButton" parent="." index="1"]
 
