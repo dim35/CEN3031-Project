@@ -43,7 +43,6 @@ margin_top = 58.0
 margin_right = 42.0
 margin_bottom = 98.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -69,6 +68,13 @@ margin_left = 46.0
 margin_top = 17.0
 margin_right = 146.0
 margin_bottom = 25.0[node name="Inventory" parent="PlayerHUD" index="1" instance=ExtResource( 6 )]
+
+margin_left = 892.0
+margin_top = 48.0
+margin_right = 980.0
+margin_bottom = 92.0
+
+[node name="Inventory" parent="PlayerHUD" index="1" instance=ExtResource( 6 )]
 
 margin_left = 892.0
 margin_top = 48.0
@@ -113,7 +119,9 @@ editor/display_folded = true
 
 [node name="items" type="Node" parent="entities" index="2"]
 
-[node name="projectiles" type="Node" parent="entities" index="3"][node name="Menu" parent="." index="5" instance=ExtResource( 8 )]
+[node name="projectiles" type="Node" parent="entities" index="3"]
+
+[node name="Menu" parent="." index="5" instance=ExtResource( 8 )]
 
 [node name="MenuButton" parent="." index="6" instance=ExtResource( 9 )]
 
