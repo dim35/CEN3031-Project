@@ -165,3 +165,4 @@ func update_inventory(id):
 	inventory[id] -= 1
 	rpc_id(1, "update_inventory_from_client", get_tree().get_network_unique_id(), inventory)
 	
+	
