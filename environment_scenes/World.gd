@@ -68,6 +68,7 @@ remote func spawn(who, id, it_id = 0, b = 0):
 	get_node("PlayerHUD/Stats/Health").set_parent_entity(local_player_instance)
 	get_node("PlayerHUD/Stats/Mana").set_parent_entity(local_player_instance)
 	get_node("PlayerHUD/Stats/Stamina").set_parent_entity(local_player_instance)
+	get_node("PlayerHUD/Inventory").set_parent_entity(local_player_instance)
 	
 
 func player_disconnect(id):
@@ -81,6 +82,17 @@ func _physics_process(delta):
 	if local_player_instance != null:
 		local_player_instance.move()
 	update_HUD_bars()
+	
+	# Use consumables and update HUD item tracker
+	if Input.is_action_just_released("use_item_0") && (inventory[0] > 0):
+		update_inventory(0)
+		$Inventory.HealthPotion.set_inventory_item_count(0, inventory[0])
+		local_player_instance.use_item(0)
+		
+	elif Input.is_action_just_released("use_item_1") && (inventory[0] > 0):
+		update_inventory(1)
+		$Inventory.HealthPotion.set_inventory_item_count(1, inventory[1])
+		local_player_instance.use_item(1)
 
 # Updates all player HUD bar maxima, dimensions, and current values
 func update_HUD_bars():
@@ -124,7 +136,17 @@ func _on_LevelEndTimer_timeout():
 
 func item_picked_up(id):
 	# just to notify when player picked up item, perhaps for gui
-	pass
+	if id == 0:
+		print("Picked up health potion")
+		inventory[id] += 1
+		$Inventory.HealthPotion.set_inventory_item_count(id, inventory[id])
+	elif id == 1:
+		print("Picked up stamina potion")
+		inventory[id] += 1
+		$Inventory.StaminaPotion.set_inventory_item_count(id, inventory[id])
+
+	else:
+		print("Picked up some item")
 
 func _server_disconnected():
 	var my_scene = load("res://screens/login_screen/login_screen.tscn")
@@ -153,9 +175,10 @@ func quit_game():
 remote func set_inventory(it):
 	print ("Got inventory" + str(it))
 	inventory = it
-	#use_item(0)
 	
-
-remote func use_item(id):
+# originally a remote func
+func update_inventory(id):
 	inventory[id] -= 1
 	rpc_id(1, "update_inventory_from_client", get_tree().get_network_unique_id(), inventory)
+	
+	
