@@ -10,7 +10,6 @@ var current_xp
 var classtype
 var username
 
-
 func _ready():
 	who = "player"
 	$name.text = username
@@ -72,3 +71,11 @@ remote func remote_move(p, v, s, ld):
 	position = p
 	state = s
 	last_direction = ld
+
+func use_item(id):
+	rpc_id(1, "", id)
+	
+	
+	
+	
+	
