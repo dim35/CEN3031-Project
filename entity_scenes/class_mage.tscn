@@ -13,4 +13,8 @@ script = ExtResource( 2 )
 frames = ExtResource( 3 )
 animation = "idle"
 
+[node name="name" parent="." index="2"]
+
+rect_clip_content = false
+
 

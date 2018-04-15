@@ -12,6 +12,7 @@ var username
 
 func _ready():
 	who = "player"
+	set_max_attributes(200, 80, 150, 300, 150, 15)
 	$name.text = username
 	$name.rect_scale = Vector2(0.25, 0.25)
 	set_process(true)
