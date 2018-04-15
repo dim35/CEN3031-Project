@@ -11,7 +11,8 @@ func finished_loading():
 	get_tree().change_scene_to(next_scene)
 	queue_free()
 	
-#func _process(delta):
+func _process(delta):
+	$CanvasLayer/ParallaxBackground/Camera2D.position.x += 2
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
