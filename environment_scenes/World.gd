@@ -27,6 +27,7 @@ func _ready():
 	global_player.connect("player_disconnect", self, "player_disconnect")
 	# tell server i'm ready to recieve player data
 	rpc_id(1, "feed_me_player_info", get_tree().get_network_unique_id())
+	rpc_id(1, "mark_player_as_spawned", get_tree().get_network_unique_id())
 	# set items to default amount (0)
 	for i in range(5):
 		inventory[i] = 0

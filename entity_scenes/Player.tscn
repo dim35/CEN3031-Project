@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entity_scenes/AnimatedEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entity_scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/animation_sprites/environment/desert.png" type="Texture" id=3]
 
 [node name="Player" instance=ExtResource( 1 )]
 
-position = Vector2( 864, 128 )
 scale = Vector2( 2, 2 )
 collision_layer = 4
 collision_mask = 3
@@ -20,7 +20,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 anchor_mode = 1
 rotating = false
-current = false
+current = true
 zoom = Vector2( 0.8, 0.8 )
 limit_left = -10000000
 limit_top = -10000000
@@ -63,5 +63,35 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1075.2, 604.8 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+position = Vector2( 1.75787, 3.28189 )
+scale = Vector2( 0.282575, 0.282575 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 
