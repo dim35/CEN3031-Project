@@ -73,7 +73,7 @@ remote func remote_move(p, v, s, ld):
 	last_direction = ld
 
 func use_item(id):
-	rpc_id(1, "", id)
+	rpc_id(1, "restore_stats", id)
 	
 remote func update_stats(hp, mp, sta, def, agil, dmg):
 	health = hp
