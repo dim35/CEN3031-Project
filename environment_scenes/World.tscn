@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
+[ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/ManaBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/StaminaBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=5]
+[ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20.6948, 32.4157 )
+
+[node name="World" type="Node2D" index="0"]
+
+position = Vector2( -1.22803, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+next_scene = null
+
+[node name="PlayerHUD" type="CanvasLayer" parent="." index="0"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Stats" type="Control" parent="PlayerHUD" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 58.0
+margin_right = 42.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Health" parent="PlayerHUD/Stats" index="0" instance=ExtResource( 2 )]
+
+margin_left = 46.0
+margin_top = 1.0
+margin_right = 146.0
+margin_bottom = 9.0
+
+[node name="Mana" parent="PlayerHUD/Stats" index="1" instance=ExtResource( 3 )]
+
+margin_left = 46.0
+margin_top = 9.0
+margin_right = 146.0
+margin_bottom = 17.0
+
+[node name="Stamina" parent="PlayerHUD/Stats" index="2" instance=ExtResource( 4 )]
+
+margin_left = 46.0
+margin_top = 17.0
+margin_right = 146.0
+margin_bottom = 25.0
+
+[node name="Gate" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 484.035, -1224.31 )
+texture = ExtResource( 5 )
+
+[node name="GateArea" type="Area2D" parent="Gate" index="0"]
+
+position = Vector2( 272.052, -230.672 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="GateHitbox" type="CollisionShape2D" parent="Gate/GateArea" index="0"]
+
+position = Vector2( -272.043, 235.867 )
+shape = SubResource( 1 )
+
+[node name="LevelEndTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="entities" type="Node" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="players" type="Node" parent="entities" index="0"]
+
+[node name="mobs" type="Node" parent="entities" index="1"]
+
+[node name="items" type="Node" parent="entities" index="2"]
+
+[node name="projectiles" type="Node" parent="entities" index="3"]
+
+[node name="Menu" parent="." index="4" instance=ExtResource( 6 )]
+
+[node name="MenuButton" parent="." index="5" instance=ExtResource( 7 )]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
+
+[connection signal="timeout" from="LevelEndTimer" to="." method="_on_LevelEndTimer_timeout"]
+
+[connection signal="closegame" from="Menu" to="." method="quit_game"]
+
+[connection signal="getmenu" from="MenuButton" to="." method="menu"]
+
+
