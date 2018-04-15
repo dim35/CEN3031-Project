@@ -85,7 +85,6 @@ func player_disconnect(id):
 func _physics_process(delta):
 	if local_player_instance != null:
 		local_player_instance.move()
-	update_HUD_bars()
 	
 	# Use consumables and update HUD item tracker
 	if Input.is_action_just_released("use_item_0") && (inventory[0] > 0):
@@ -98,27 +97,7 @@ func _physics_process(delta):
 		print("Drinking a stamina potion!")
 		update_inventory(1)
 		$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, inventory[1])
-		local_player_instance.use_item(1)
-
-# Updates all player HUD bar maxima, dimensions, and current values
-func update_HUD_bars():
-	if local_player_instance == null:
-		return
-	var healthBar = $PlayerHUD/Stats/Health
-	var manaBar = $PlayerHUD/Stats/Mana
-	var staminaBar = $PlayerHUD/Stats/Stamina
-	
-	healthBar.set_max_value(local_player_instance.MAX_HEALTH)
-	healthBar.set_dimensions(local_player_instance.MAX_HEALTH)
-	healthBar.update(local_player_instance.health)
-	
-	manaBar.set_max_value(local_player_instance.MAX_MANA)
-	manaBar.set_dimensions(local_player_instance.MAX_MANA)
-	manaBar.update(local_player_instance.mana)
-	
-	staminaBar.set_max_value(local_player_instance.MAX_STAMINA)
-	staminaBar.set_dimensions(local_player_instance.MAX_STAMINA)
-	staminaBar.update(local_player_instance.stamina)		
+		local_player_instance.use_item(1)	
 
 
 
