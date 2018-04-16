@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/animation_sprites/environment/Desert/desert_0005_Layer-5.png" type="Texture" id=1]
 [ext_resource path="res://assets/animation_sprites/environment/Desert/desert_0004_Layer-4-copy.png" type="Texture" id=2]
@@ -6,9 +6,13 @@
 [ext_resource path="res://assets/animation_sprites/environment/Desert/desert_0002_Layer-3.png" type="Texture" id=4]
 [ext_resource path="res://assets/animation_sprites/environment/Desert/desert_0001_Layer-2.png" type="Texture" id=5]
 [ext_resource path="res://assets/animation_sprites/environment/Desert/desert_0000_Layer-1.png" type="Texture" id=6]
-[ext_resource path="res://assets/animation_sprites/environment/Desert/BrownLayer.png" type="Texture" id=7]
 
-[node name="Desert" type="ParallaxBackground"]
+[node name="Desert" type="Node2D" index="0"]
+
+position = Vector2( 0, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
 layer = -1
 offset = Vector2( 0, 0 )
@@ -21,103 +25,92 @@ scroll_base_scale = Vector2( 1, 1 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
 
-[node name="Layer5" type="ParallaxLayer" parent="." index="0"]
+[node name="Sky" type="Sprite" parent="ParallaxBackground" index="0"]
 
-motion_scale = Vector2( 0.1, 0.1 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1081.93, 0 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="Layer5" index="0"]
-
+position = Vector2( 0.366089, -11.2326 )
 scale = Vector2( 0.281752, 0.281752 )
 texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Layer4" type="ParallaxLayer" parent="." index="1"]
+[node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
+position = Vector2( 0, 187.926 )
 motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 1081.93, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Layer4" index="0"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer4" index="0"]
 
-scale = Vector2( 0.281752, 0.281752 )
+position = Vector2( 0, -2 )
+scale = Vector2( 0.281752, 0.29181 )
 texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Layer3" type="ParallaxLayer" parent="." index="2"]
+[node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
+position = Vector2( 0, 187.926 )
 motion_scale = Vector2( 0.3, 0.3 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 1081.93, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Layer3" index="0"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer3" index="0"]
 
-scale = Vector2( 0.281752, 0.281752 )
+position = Vector2( 0, 21 )
+scale = Vector2( 0.281752, 0.289317 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Layer2" type="ParallaxLayer" parent="." index="3"]
+[node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 
+position = Vector2( 0, 187.926 )
 motion_scale = Vector2( 0.4, 0.4 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 1081.93, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Layer2" index="0"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer2" index="0"]
 
-scale = Vector2( 0.281752, 0.281752 )
+position = Vector2( 0, 14 )
+scale = Vector2( 0.281752, 0.291845 )
 texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Layer1" type="ParallaxLayer" parent="." index="4"]
+[node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
+position = Vector2( 0, 187.926 )
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 1081.93, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Layer1" index="0"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer1" index="0"]
 
-scale = Vector2( 0.281752, 0.281752 )
+scale = Vector2( 0.281752, 0.321551 )
 texture = ExtResource( 5 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Layer0" type="ParallaxLayer" parent="." index="5"]
+[node name="Layer0" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
 
+position = Vector2( 0, 187.926 )
 motion_scale = Vector2( 0.6, 0.6 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 1081.93, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Layer0" index="0"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer0" index="0"]
 
+position = Vector2( 0, 39.1933 )
 scale = Vector2( 0.281752, 0.281752 )
 texture = ExtResource( 6 )
-centered = false
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-
-[node name="Bottom" type="ParallaxLayer" parent="." index="6"]
-
-position = Vector2( 0, 384.903 )
-motion_scale = Vector2( 0.6, 0.6 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1081.93, 200 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="Bottom" index="0"]
-
-scale = Vector2( 0.281752, 1 )
-texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
