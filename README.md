@@ -45,3 +45,7 @@ Attacking: hold X
 - Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
 - Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
 - Desert background: [PWL](https://opengameart.org/content/seamless-desert-background-in-parts), Public Domain
+- House in a Forest Loop: [HorrorPen](https://opengameart.org/users/horrorpen),CC-BY 3.0 license
+- Fireball Cast 1: [LiamG_SFX](https://freesound.org/people/LiamG_SFX/),CC-BY 3.0 license
+- BitGameSound: [dragonx62](https://freesound.org/people/dragonx62/),CC-BY 3.0 license
+- Small Explosion: [ryansnook](https://freesound.org/people/ryansnook/),CC-BY 3.0 license

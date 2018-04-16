@@ -34,6 +34,7 @@ func _ready():
 		
 	$PlayerHUD/Inventory/HealthPotion.set_inventory_item_count(0, 0)
 	$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, 0)
+	$Menu/Panel/Change_Sound/PopupMenu/HSlider.value = 5
 
 
 remote func spawn(who, id, it_id = 0, b = 0):
@@ -99,7 +100,8 @@ func _physics_process(delta):
 		$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, inventory[1])
 		local_player_instance.use_item(1)	
 
-
+func _process(delta):
+	setSound()
 
 # Triggered upon body entering the area. Used mainly for player entry. Triggers level end.
 func _on_GateArea_body_entered(body):
@@ -140,6 +142,7 @@ func _server_disconnected():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		menu()
+		#BackgroundMusic.volume_db = -80
 
 func menu():
 	if menuBool == false:
@@ -150,19 +153,46 @@ func menu():
 		$Menu/Panel.hide()
 		menuBool = false
 
+func setSound():
+	var soundValue = $Menu/Panel/Change_Sound/PopupMenu/HSlider.value
+	if(soundValue == 0):
+		$BackgroundMusic.volume_db = -80
+	if(soundValue == 1):
+		$BackgroundMusic.volume_db = -40
+	if(soundValue == 2):
+		$BackgroundMusic.volume_db = -35
+	if(soundValue == 3):
+		$BackgroundMusic.volume_db = -25
+	if(soundValue == 4):
+		$BackgroundMusic.volume_db = -19
+	if(soundValue == 5):
+		$BackgroundMusic.volume_db = -12
+	if(soundValue == 6):
+		$BackgroundMusic.volume_db = -6
+	if(soundValue == 7):
+		$BackgroundMusic.volume_db = 0
+	if(soundValue == 8):
+		$BackgroundMusic.volume_db = 5
+	if(soundValue == 9):
+		$BackgroundMusic.volume_db = 10
+	if(soundValue == 10):
+		$BackgroundMusic.volume_db = 12
+			
 # Network Friendly quit game function here
 func quit_game():
 	print ("The game is quit")
 	get_tree().quit()
-	
+
+func _on_Menu_muted():
+	$BackgroundMusic.volume_db = -80
 	
 remote func set_inventory(it):
 	print ("Got inventory" + str(it))
 	inventory = it
-	
+
 # originally a remote func
 func update_inventory(id):
 	inventory[id] -= 1
 	rpc_id(1, "update_inventory_from_client", get_tree().get_network_unique_id(), inventory)
 	
-	
+
