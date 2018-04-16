@@ -45,3 +45,4 @@ Attacking: hold X
 - Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
 - Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
 - Desert background: [PWL](https://opengameart.org/content/seamless-desert-background-in-parts), Public Domain
+- Castle: [Alucard](https://opengameart.org/content/castle-2d), Public Domain
