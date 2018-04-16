@@ -46,3 +46,8 @@ Attacking: hold X
 - Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
 - Desert background: [PWL](https://opengameart.org/content/seamless-desert-background-in-parts), Public Domain
 - Castle: [Alucard](https://opengameart.org/content/castle-2d), Public Domain
+- House in a Forest Loop: [HorrorPen](https://opengameart.org/users/horrorpen),CC-BY 3.0 license
+- Fireball Cast 1: [LiamG_SFX](https://freesound.org/people/LiamG_SFX/),CC-BY 3.0 license
+- BitGameSound: [dragonx62](https://freesound.org/people/dragonx62/),CC-BY 3.0 license
+- Small Explosion: [ryansnook](https://freesound.org/people/ryansnook/),CC-BY 3.0 license
+- RPG - The Secret Within the Woods: [Hitctrl](https://opengameart.org/users/hitctrl),CC-BY 3.0 license

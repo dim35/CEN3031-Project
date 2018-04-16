@@ -6,9 +6,7 @@ extends Particles2D
 onready var timer = lifetime / speed_scale
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	$ExplosionSFX.play()
 
 func _process(delta):
 	timer -= delta

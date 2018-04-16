@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/Menu.gd" type="Script" id=1]
+[ext_resource path="res://gui/soundMenu.tscn" type="PackedScene" id=2]
 
 [node name="Menu" type="CanvasLayer"]
 
@@ -11,16 +12,16 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 
-[node name="Panel" type="Panel" parent="." index="0"]
+[node name="Panel" type="PopupPanel" parent="." index="0"]
 
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
+margin_left = -92.0
 margin_top = -100.0
-margin_right = 100.0
+margin_right = 128.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -28,7 +29,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Visibility" ]
+popup_exclusive = false
+_sections_unfolded = [ "Margin", "Popup", "Rect", "Visibility" ]
 
 [node name="Quit_Game" type="Button" parent="Panel" index="0"]
 
@@ -36,8 +38,10 @@ anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -10.0
-margin_bottom = 10.0
+margin_left = 10.0
+margin_top = -70.0
+margin_right = -10.0
+margin_bottom = -50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -52,14 +56,48 @@ group = null
 text = "Quit Game"
 flat = false
 align = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="Exit_Menu" type="Button" parent="Panel" index="1"]
+[node name="Change_Sound" type="Button" parent="Panel" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -10.0
+margin_right = 100.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Sound"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="PopupMenu" parent="Panel/Change_Sound" index="0" instance=ExtResource( 2 )]
+
+visible = false
+
+[node name="Exit_Menu" type="Button" parent="Panel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -20.0
+margin_left = 10.0
+margin_top = -50.0
+margin_right = -10.0
+margin_bottom = -30.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -74,8 +112,11 @@ group = null
 text = "Exit Menu"
 flat = false
 align = 1
+_sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="Panel/Quit_Game" to="." method="_on_Quit_Game_pressed"]
+
+[connection signal="pressed" from="Panel/Change_Sound" to="." method="_on_Change_Sound_pressed"]
 
 [connection signal="pressed" from="Panel/Exit_Menu" to="." method="_on_Exit_Menu_pressed"]
 
