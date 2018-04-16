@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desert.png-7b5c4eac550ec83cbbd3ea0b18606527.stex"
+path="res://.import/desert.png-3e441e75adab00a522f3527c0125d878.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/environment/desert.png"
+source_file="res://assets/animation_sprites/environment/Desert/desert.png"
 source_md5="c60f932501807061b54e24cc723e81a0"
 
-dest_files=[ "res://.import/desert.png-7b5c4eac550ec83cbbd3ea0b18606527.stex" ]
+dest_files=[ "res://.import/desert.png-3e441e75adab00a522f3527c0125d878.stex" ]
 dest_md5="90980eacc8ff571212f357e66a4100f6"
 
 [params]

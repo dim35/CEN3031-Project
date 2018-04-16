@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/castle.png-bc51610582469df8df030ab43843eba7.stex"
+path="res://.import/Sky.png-c1331629e8832f45539cc075e6be14e2.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/environment/castle.png"
-source_md5="dee2aa55f68899eba47c00076c4285de"
+source_file="res://assets/animation_sprites/environment/Sky.png"
+source_md5="78def1ee604a95519fea498d6226d9dd"
 
-dest_files=[ "res://.import/castle.png-bc51610582469df8df030ab43843eba7.stex" ]
-dest_md5="fc5d1e6f9f28bc7f546d671c055b40f0"
+dest_files=[ "res://.import/Sky.png-c1331629e8832f45539cc075e6be14e2.stex" ]
+dest_md5="0feed839ef27e14eca258e44d2941da2"
 
 [params]
 
