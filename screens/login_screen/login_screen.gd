@@ -14,7 +14,7 @@ var http = HTTPClient.new()
 var HTTP_PORT = 443
 
 var website_login_address = "https://ec2-54-175-123-188.compute-1.amazonaws.com"
-
+var menuBool = false
 func _init():
 	pass
 
@@ -99,6 +99,58 @@ func _on_Signup_pressed():
 
 
 func _process(delta):
+	setSound()
 	camera.position.x += 2
-	if(Input.is_action_pressed("ui_enter")):
+	if(Input.is_action_pressed("ui_enter") and menuBool == false):
 		_on_Login_pressed()
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		menu()
+		#BackgroundMusic.volume_db = -80
+
+func menu():
+	if menuBool == false:
+		$Menu/Panel.show()
+		$Menu/Panel/Quit_Game.grab_focus()
+		menuBool = true
+	else:
+		$Menu/Panel.hide()
+		menuBool = false
+		username_field.grab_focus()
+
+func setSound():
+	var soundValue = $Menu/Panel/Change_Sound/PopupMenu/HSlider.value
+	if(soundValue == 0):
+		$BackgroundMusic.volume_db = -80
+	if(soundValue == 1):
+		$BackgroundMusic.volume_db = -40
+	if(soundValue == 2):
+		$BackgroundMusic.volume_db = -35
+	if(soundValue == 3):
+		$BackgroundMusic.volume_db = -25
+	if(soundValue == 4):
+		$BackgroundMusic.volume_db = -19
+	if(soundValue == 5):
+		$BackgroundMusic.volume_db = -12
+	if(soundValue == 6):
+		$BackgroundMusic.volume_db = -6
+	if(soundValue == 7):
+		$BackgroundMusic.volume_db = 0
+	if(soundValue == 8):
+		$BackgroundMusic.volume_db = 5
+	if(soundValue == 9):
+		$BackgroundMusic.volume_db = 10
+	if(soundValue == 10):
+		$BackgroundMusic.volume_db = 12
+			
+# Network Friendly quit game function here
+func quit_game():
+	print ("The game is quit")
+	get_tree().quit()
+
+func _on_Menu_muted():
+	$BackgroundMusic.volume_db = -80
+
+func _on_Menu_hidemenu():
+	username_field.grab_focus()
