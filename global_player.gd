@@ -81,3 +81,16 @@ remote func who_is_ready(players):
 	
 remote func finished_loading():
 	emit_signal("finished_loading")
+	
+
+remote func load_next_map(next_world):
+	get_node("/root/World").set_name("OldWorldFreeing")
+	get_node("/root/OldWorldFreeing").queue_free()
+	var load_screen = load("res://screens/loading_screen/loading_screen.tscn").instance()
+	load_screen.next_scene = load("res://environment_scenes/"+next_world+".tscn")
+	get_tree().get_root().add_child(load_screen)
+	
+remote func we_done_bois():
+	get_tree().get_meta("network_peer").close_connection()
+	get_tree().change_scene_to(preload("res://screens/credit_screen/credit_screen.tscn"))
+	get_node("/root/World").queue_free()

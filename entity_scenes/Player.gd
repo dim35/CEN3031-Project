@@ -71,6 +71,7 @@ func set_camera_me():
 remote func remote_move(p, v, s, ld):
 	position = p
 	state = s
+	velocity = v
 	last_direction = ld
 
 func use_item(id):

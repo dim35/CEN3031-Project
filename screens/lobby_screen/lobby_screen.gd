@@ -2,8 +2,6 @@ extends Control
 
 var check = true # set to false to not check for players connected
 
-export (PackedScene) var next_scene
-
 var player_slots = []
 var class_thumbnails = Dictionary()
 var ready = load("res://assets/animation_sprites/environment/checked_box.png")
@@ -112,7 +110,10 @@ func _on_Button_pressed():
 
 	
 func post_configure():
-	get_tree().change_scene_to(next_scene)
+	var next_scene = preload("res://screens/loading_screen/loading_screen.tscn").instance()
+	next_scene.next_scene = load("res://environment_scenes/World.tscn")
+	#next_scene.next_scene.set_name("World")
+	get_tree().get_root().add_child(next_scene)
 	print("Start game...")
 	queue_free()
 	

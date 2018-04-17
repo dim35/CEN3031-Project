@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
@@ -9,11 +9,6 @@
 [ext_resource path="res://assets/animation_sprites/environment/open_gate.png" type="Texture" id=7]
 [ext_resource path="res://gui/MenuInstance.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=9]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20.6948, 32.4157 )
 
 [node name="World" type="Node2D" index="0"]
 
@@ -120,7 +115,6 @@ audio_bus_name = "Master"
 [node name="GateHitbox" type="CollisionShape2D" parent="Gate/GateArea" index="0"]
 
 position = Vector2( 0.785278, -0.785339 )
-shape = SubResource( 1 )
 
 [node name="LevelEndTimer" type="Timer" parent="." index="3"]
 
