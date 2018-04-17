@@ -7,10 +7,10 @@ path="res://.import/knight-attacking-1.png-b9424671eee7a7adede27315f3c66b04.stex
 [deps]
 
 source_file="res://assets/animation_sprites/knight/knight-attacking-1.png"
-source_md5="be50651e25d844aace517c9d5b2d50ea"
+source_md5="393eb22c3087bbd99453f17551de2348"
 
 dest_files=[ "res://.import/knight-attacking-1.png-b9424671eee7a7adede27315f3c66b04.stex" ]
-dest_md5="1a6b9a446fecd516a3860f48340677f1"
+dest_md5="0131a5bfef998d5c3788e29aa63873d3"
 
 [params]
 

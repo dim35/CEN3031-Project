@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://environment_scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/CastleTileset.tres" type="TileSet" id=2]
@@ -10,13 +10,14 @@
 [ext_resource path="res://gui/Menu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/MenuButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/audio/House In a Forest Loop.ogg" type="AudioStream" id=10]
+[ext_resource path="res://environment_scenes/Desert.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.6948, 32.4157 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -48,6 +49,7 @@ __meta__ = {
 
 [node name="PlayerHUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -102,6 +104,7 @@ margin_bottom = 92.0
 
 [node name="Gate" type="Sprite" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 1101.91, 472.051 )
 texture = ExtResource( 7 )
 
@@ -130,6 +133,8 @@ autostart = false
 
 [node name="entities" type="Node" parent="." index="4"]
 
+editor/display_folded = true
+
 [node name="players" type="Node" parent="entities" index="0"]
 
 [node name="mobs" type="Node" parent="entities" index="1"]
@@ -149,6 +154,8 @@ volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="Desert" parent="." index="8" instance=ExtResource( 11 )]
 
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
 

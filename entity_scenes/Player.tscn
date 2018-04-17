@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entity_scenes/AnimatedEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entity_scenes/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/animation_sprites/environment/desert.png" type="Texture" id=3]
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
 
@@ -21,14 +20,14 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.8, 0.8 )
+zoom = Vector2( 1, 1 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 smoothing_enabled = false
 smoothing_speed = 5.0
 offset_v = 0.0
@@ -53,6 +52,7 @@ margin_top = -30.0
 margin_right = 21.0
 margin_bottom = -16.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -63,35 +63,5 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
-
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = false
-_sections_unfolded = [ "Scroll" ]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
-
-motion_scale = Vector2( 0.5, 0.5 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1075.2, 604.8 )
-_sections_unfolded = [ "Motion" ]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-
-position = Vector2( 1.75787, 3.28189 )
-scale = Vector2( 0.282575, 0.282575 )
-texture = ExtResource( 3 )
-centered = false
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 
