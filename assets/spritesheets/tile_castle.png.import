@@ -10,7 +10,7 @@ source_file="res://assets/spritesheets/tile_castle.png"
 source_md5="2ce31052853c33977046b296c5649d1f"
 
 dest_files=[ "res://.import/tile_castle.png-d10886222ce24390de37f5812b0a35cd.stex" ]
-dest_md5="58a1ec82a3586bfac2735156775d2456"
+dest_md5="e7a073a017a659a3c92737bbad616678"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
