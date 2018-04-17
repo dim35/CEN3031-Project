@@ -54,7 +54,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Animation", "Color" ]
 
-[node name="ExplosionParticles" type="Particles2D"]
+[node name="ExplosionParticles" type="Particles2D" index="0"]
 
 emitting = true
 amount = 50
@@ -80,7 +80,7 @@ _sections_unfolded = [ "Drawing", "Pause", "Process Material", "Time" ]
 [node name="ExplosionSFX" type="AudioStreamPlayer" parent="." index="0"]
 
 stream = ExtResource( 2 )
-volume_db = -30.0
+volume_db = -40.0
 autoplay = false
 mix_target = 0
 bus = "Master"

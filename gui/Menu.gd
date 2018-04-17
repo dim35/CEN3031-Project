@@ -3,6 +3,9 @@ extends CanvasLayer
 signal closegame
 signal hidemenu
 
+func _ready():
+	$Panel/Change_Sound/PopupMenu/HSlider.value = global_menu.sound_level
+
 func hideMenu():
 	$Panel.hide()
 

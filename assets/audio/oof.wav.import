@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/oof.wav-7dbfa9c8f5176248913edb067c8d9b5a.sample"
+
+[deps]
+
+source_file="res://assets/audio/oof.wav"
+source_md5="71089dd78977c062a7f4c0857351bdfc"
+
+dest_files=[ "res://.import/oof.wav-7dbfa9c8f5176248913edb067c8d9b5a.sample" ]
+dest_md5="ff83b71a56b1bfe3b768ebea505e7e80"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -45,7 +45,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[node name="Projectile" instance=ExtResource( 1 )]
+[node name="Projectile" index="0" instance=ExtResource( 1 )]
 
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
@@ -133,7 +133,7 @@ _sections_unfolded = [ "Drawing", "Material", "Pause", "Process Material", "Text
 [node name="Soundfx" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = -15.0
 autoplay = false
 mix_target = 0
 bus = "Master"
