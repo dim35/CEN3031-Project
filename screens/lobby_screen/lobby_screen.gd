@@ -29,6 +29,7 @@ func _ready():
 	global_player.connect("existing_session", self, "existing_session")
 	global_player.connect("game_in_play", self, "game_in_play")
 	global_player.connect("new_player_ready", self, "new_player_ready")
+
 	
 	if(check):
 		$Button.disabled = false
@@ -125,54 +126,3 @@ func existing_session():
 func game_in_play():
 	get_tree().change_scene_to(load("res://screens/login_screen/login_screen.tscn"))
 	queue_free()
-	
-func _process(delta):
-	setSound()
-
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		menu()
-		#BackgroundMusic.volume_db = -80
-
-var menuBool = false
-func menu():
-	if menuBool == false:
-		$Menu/Panel.show()
-		$Menu/Panel/Quit_Game.grab_focus()
-		menuBool = true
-	else:
-		$Menu/Panel.hide()
-		menuBool = false
-
-func setSound():
-	var soundValue = $Menu/Panel/Change_Sound/PopupMenu/HSlider.value
-	if(soundValue == 0):
-		$BackgroundMusic.volume_db = -80
-	if(soundValue == 1):
-		$BackgroundMusic.volume_db = -40
-	if(soundValue == 2):
-		$BackgroundMusic.volume_db = -35
-	if(soundValue == 3):
-		$BackgroundMusic.volume_db = -25
-	if(soundValue == 4):
-		$BackgroundMusic.volume_db = -19
-	if(soundValue == 5):
-		$BackgroundMusic.volume_db = -12
-	if(soundValue == 6):
-		$BackgroundMusic.volume_db = -6
-	if(soundValue == 7):
-		$BackgroundMusic.volume_db = 0
-	if(soundValue == 8):
-		$BackgroundMusic.volume_db = 5
-	if(soundValue == 9):
-		$BackgroundMusic.volume_db = 10
-	if(soundValue == 10):
-		$BackgroundMusic.volume_db = 12
-			
-# Network Friendly quit game function here
-func quit_game():
-	print ("The game is quit")
-	get_tree().quit()
-
-func _on_Menu_muted():
-	$BackgroundMusic.volume_db = -80

@@ -83,3 +83,9 @@ remote func update_stats(hp, mp, sta, def, agil, dmg):
 	defense = def
 	speed = agil
 	damage = dmg
+
+remote func playDeath():
+	$Death.play()
+
+remote func playWilhelm():
+	$Wilhelm.play()
