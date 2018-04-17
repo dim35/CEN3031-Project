@@ -1,16 +1,20 @@
 extends Node2D
 
-export (PackedScene) var next_scene
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var next_scene = null
+
 func _init():
 	global_player.connect("finished_loading", self, "finished_loading")
 
 func finished_loading():
-	get_tree().change_scene_to(next_scene)
-	queue_free()
+	if (next_scene != null):
+		print(next_scene.get_name())
+		get_tree().change_scene_to(next_scene)
+		queue_free()
+	else:
+		print("Dun messed up")
+		assert(true)
 	
+
 func _process(delta):
 	$CanvasLayer/ParallaxBackground/Camera2D.position.x += 2
 #	# Called every frame. Delta is time since last frame.

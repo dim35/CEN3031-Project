@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://screens/lobby_screen/lobby_screen.gd" type="Script" id=1]
-[ext_resource path="res://screens/loading_screen/loading_screen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://screens/lobby_screen/PlayerSlot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/MenuInstance.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/audio/RPG - The Secret Within The Silent Woods.ogg" type="AudioStream" id=5]
+[ext_resource path="res://screens/lobby_screen/PlayerSlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/MenuInstance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/RPG - The Secret Within The Silent Woods.ogg" type="AudioStream" id=4]
 
 [node name="lobby_node" type="Control"]
 
@@ -24,7 +23,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
-next_scene = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="." index="0"]
 
@@ -95,31 +93,31 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="Slot1" parent="Slots" index="0" instance=ExtResource( 3 )]
+[node name="Slot1" parent="Slots" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 164.803, 277.211 )
 
-[node name="Slot2" parent="Slots" index="1" instance=ExtResource( 3 )]
+[node name="Slot2" parent="Slots" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 339.803, 277.211 )
 
-[node name="Slot3" parent="Slots" index="2" instance=ExtResource( 3 )]
+[node name="Slot3" parent="Slots" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 514.803, 277.211 )
 
-[node name="Slot4" parent="Slots" index="3" instance=ExtResource( 3 )]
+[node name="Slot4" parent="Slots" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 689.803, 277.211 )
 
-[node name="Slot5" parent="Slots" index="4" instance=ExtResource( 3 )]
+[node name="Slot5" parent="Slots" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 864.803, 277.211 )
 
-[node name="MenuInstance" parent="." index="3" instance=ExtResource( 4 )]
+[node name="MenuInstance" parent="." index="3" instance=ExtResource( 3 )]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="MenuInstance" index="2"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 volume_db = -25.0
 autoplay = true
 mix_target = 0
