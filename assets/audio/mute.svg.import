@@ -7,7 +7,7 @@ path="res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex"
 [deps]
 
 source_file="res://assets/audio/mute.svg"
-source_md5="9627da0eb322bfaa7656e2ef4fbb7945"
+source_md5="f35afe9bbf8da186d19b69f636e9e097"
 
 dest_files=[ "res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex" ]
 dest_md5="972e85375df7f380cbeb2c6447b753c0"

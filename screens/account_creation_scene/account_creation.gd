@@ -6,6 +6,7 @@ var check = true # set to false to disable connecting to server
 
 onready var username_field = get_node("Elements/Forms/Username_field")
 onready var password_field = get_node("Elements/Forms/Password_field")
+onready var password_field2 = get_node("Elements/Forms/Password_field2")
 onready var address_field = get_node("Elements/Forms/Address_field")
 onready var text_result = get_node("Elements/Forms/text_result")
 onready var camera = get_node("Background/Camera")
@@ -19,41 +20,26 @@ func _init():
 
 func _ready():
 	username_field.grab_focus()
-	print ("loaded login!")
+	print ("loaded account creation!")
 	
 # This has been connected from Button
-func _on_Login_pressed():
+func _on_Create_Account_pressed():
+	var c = connect()
 
-	if check == true:
-		var c = connect()
-		if c == -1:
-			text_result.bbcode_text = "Failed to connect to server"
-			return
-		if c == -2:
-			text_result.bbcode_text = "Wrong username/password"
-			return
-
-		assert(!http.is_response_chunked())
-		var bl = http.get_response_body_length()
-		var chunk = http.read_response_body_chunk().get_string_from_ascii()
-	
-		var dict = {}
-		dict = parse_json(chunk)
-		global_player.session_token = dict["token"]
+	if c == -1:
+		text_result.bbcode_text = "Failed to connect to server"
+		return
+	if c == -2:
+		text_result.bbcode_text = "Passwords do not match"
+		return
+	if c == -3:
+		text_result.bbcode_text = "Username is already in use"
+		return
 	else:
-		# create fake session token if we are not checking for login
-		global_player.session_token = randi() % 1000000 + 1
-	
-	# figure out how to getresponse message when code is 200
-	global_player.username = username_field.text
-	global_player.server_ip = address_field.text
+		text_result.bbcode_text = "Account created successfully"
+		return
 
-	get_tree().change_scene_to(next_scene)
-	
-	queue_free()
-	
 func connect():
-	
 	# connect to ip address
 	http.connect_to_host(address_field.text, HTTP_PORT, true, false)
 	
@@ -68,12 +54,12 @@ func connect():
 		return -1
 
 	# send api request
-	var query = http.query_string_from_dict({"username": username_field.text, "psw":password_field.text})
+	var query = http.query_string_from_dict({"username": username_field.text, "psw":password_field.text,  "psw-repeat":password_field2.text})
 	var headers = [
 		"Content-Type: application/x-www-form-urlencoded",
 		"Content-Length: " + str(query.length())
 	]
-	http.request(HTTPClient.METHOD_POST, "/api/login", headers, query)
+	http.request(HTTPClient.METHOD_POST, "/api/createaccount", headers, query)
 	
 	# wait until finished requesting
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
@@ -89,18 +75,17 @@ func connect():
 	var code = http.get_response_code()
 	if code == 200:
 		return 200
-	else:
+	if code == 666:
 		return -2
+	else:
+		return -3
 
 var isMenuActive = false
-
-func _on_Signup_pressed():
-	get_tree().change_scene("res://screens/account_creation_scene/account_creation.tscn")
 
 func _process(delta):
 	camera.position.x += 2
 	if(Input.is_action_pressed("ui_enter") and isMenuActive == false):
-		_on_Login_pressed()
+		_on_Create_Account_pressed()
 
 
 func _on_Menu_hidemenu():
@@ -109,3 +94,7 @@ func _on_Menu_hidemenu():
 	else:
 		username_field.grab_focus()
 		isMenuActive = false
+
+
+func _on_Return_Login_pressed():
+	get_tree().change_scene("res://screens/login_screen/login_screen.tscn")
