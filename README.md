@@ -44,10 +44,11 @@ Attacking: hold X
 - Lobby slot frames: [yd](https://opengameart.org/content/gui-windows-constructor), Public Domain
 - Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
 - Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
-- Desert background: [PWL](https://opengameart.org/content/seamless-desert-background-in-parts), Public Domain
+- Desert background: [Game Building Tools](http://www.gamebuildingtools.com/product/desert-parallax-background/), CC-BY-4.0 license
 - Castle: [Alucard](https://opengameart.org/content/castle-2d), Public Domain
 - House in a Forest Loop: [HorrorPen](https://opengameart.org/users/horrorpen),CC-BY 3.0 license
 - Fireball Cast 1: [LiamG_SFX](https://freesound.org/people/LiamG_SFX/),CC-BY 3.0 license
 - BitGameSound: [dragonx62](https://freesound.org/people/dragonx62/),CC-BY 3.0 license
 - Small Explosion: [ryansnook](https://freesound.org/people/ryansnook/),CC-BY 3.0 license
 - RPG - The Secret Within the Woods: [Hitctrl](https://opengameart.org/users/hitctrl),CC-BY 3.0 license
+- Castle back wall: [Antti Tujula, Indium Games](https://blog.indiumgames.fi/2014/08/06/creating-level-2d-game/), with permission of author
