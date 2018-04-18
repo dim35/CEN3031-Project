@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-6.png" type="Texture" id=1]
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-5.png" type="Texture" id=2]
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-4.png" type="Texture" id=3]
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/animation_sprites/environment/Desert/desert-layer-1.png" type="Texture" id=6]
+
+[node name="Dunes" type="Node2D" index="0"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="Layer6" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer6" index="0"]
+
+scale = Vector2( 0.70548, 0.70548 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="Layer5" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+
+position = Vector2( 0, 331.558 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer5" index="0"]
+
+scale = Vector2( 0.70548, 0.70548 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+
+position = Vector2( 0, 331.558 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer4" index="0"]
+
+scale = Vector2( 0.70548, 0.70548 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+
+position = Vector2( 0, 498.712 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer3" index="0"]
+
+scale = Vector2( 0.70548, 0.70548 )
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+
+position = Vector2( 0, 415.127 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer2" index="0"]
+
+scale = Vector2( 0.70548, 0.70548 )
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+
+position = Vector2( 0, 570.217 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1354.52, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer1" index="0"]
+
+scale = Vector2( 0.70548, 1.20724 )
+texture = ExtResource( 6 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+
