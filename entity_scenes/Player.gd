@@ -82,7 +82,8 @@ func use_item(id):
 	if(id == 1):
 		$PotionParticles.process_material.color = Color(0, 1, 0)
 	rpc_id(1, "restore_stats", id)
-	
+	$Item.play()
+
 remote func update_stats(hp, mp, sta, def, agil, dmg):
 	health = hp
 	mana = mp

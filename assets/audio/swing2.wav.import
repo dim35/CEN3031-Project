@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing2.wav-4b8820ea6073824023c46ab0b1588e2b.sample"
+
+[deps]
+
+source_file="res://assets/audio/swing2.wav"
+source_md5="b7a09fd250f5449e56859cf147c2e074"
+
+dest_files=[ "res://.import/swing2.wav-4b8820ea6073824023c46ab0b1588e2b.sample" ]
+dest_md5="6ba1b8141e509495599882f47a4712dc"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

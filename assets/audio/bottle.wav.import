@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bottle.wav-d3ad86699283b373f4b63ae24227671b.sample"
+
+[deps]
+
+source_file="res://assets/audio/bottle.wav"
+source_md5="1f4131749822833394065c503a959d5e"
+
+dest_files=[ "res://.import/bottle.wav-d3ad86699283b373f4b63ae24227671b.sample" ]
+dest_md5="c0d97f9a79ea5a4b0d3c51d7560b1d6b"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

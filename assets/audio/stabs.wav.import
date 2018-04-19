@@ -7,10 +7,10 @@ path="res://.import/stabs.wav-c1925570dc247f8be15b0b2b71b5c3ce.sample"
 [deps]
 
 source_file="res://assets/audio/stabs.wav"
-source_md5="394fc4ff9aed0d050333c4bc53a13ad8"
+source_md5="896ea011598bd3de269927d5f69d0c7f"
 
 dest_files=[ "res://.import/stabs.wav-c1925570dc247f8be15b0b2b71b5c3ce.sample" ]
-dest_md5="5b0ef50ee4a1c0fcfd95f496f1e85183"
+dest_md5="637cf5d17513196f9d1d29cf6178036d"
 
 [params]
 
