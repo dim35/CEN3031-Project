@@ -23,7 +23,7 @@ func menu():
 
 func setSound():
 	global_menu.sound_level = $Menu/Panel/Change_Sound/PopupMenu/HSlider.value
-	if (global_menu.isMute == false):
+	if (global_menu.playSound == true):
 		if(global_menu.sound_level == 0):
 			$BackgroundMusic.volume_db = -80
 		if(global_menu.sound_level == 1):
@@ -55,8 +55,8 @@ func quit_game():
 
 func muted():
 	print("mute signal emitted")
-	global_menu.isMute = true
+	global_menu.playSound = false
 
 func notmuted():
 	print("mute signal emitted")
-	global_menu.isMute = false
+	global_menu.playSound = true

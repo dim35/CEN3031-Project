@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/MenuButton.gd" type="Script" id=1]
-[ext_resource path="res://assets/audio/mute.svg" type="Texture" id=2]
+[ext_resource path="res://assets/audio/music_note.png" type="Texture" id=2]
 
-[sub_resource type="InputEventKey" id=1]
+[sub_resource type="InputEventKey" id=3]
 
 device = 0
 alt = false
@@ -12,14 +12,13 @@ control = false
 meta = false
 command = false
 pressed = false
-scancode = 0
+scancode = 77
 unicode = 0
 echo = false
-_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="ShortCut" id=2]
 
-shortcut = SubResource( 1 )
+shortcut = SubResource( 3 )
 
 [node name="MenuButton" type="CanvasLayer"]
 
@@ -62,10 +61,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 906.0
-margin_top = 556.0
-margin_right = 1022.0
-margin_bottom = 604.0
+margin_left = 900.0
+margin_top = 560.0
+margin_right = 1017.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -74,6 +73,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = true
+pressed = true
 enabled_focus_mode = 2
 shortcut = SubResource( 2 )
 group = null

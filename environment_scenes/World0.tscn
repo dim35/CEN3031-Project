@@ -37,4 +37,6 @@ position = Vector2( -0.43457, -1.09348 )
 
 [node name="Dunes" parent="." index="7" instance=ExtResource( 4 )]
 
+position = Vector2( 270, 360 )
+
 

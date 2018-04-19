@@ -4,6 +4,7 @@
 [ext_resource path="res://entity_scenes/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/oof.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/WilhelmScream.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/bottle.wav" type="AudioStream" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
@@ -142,5 +143,14 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Time" ]
+
+[node name="Item" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 5 )
+volume_db = -20.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 
 

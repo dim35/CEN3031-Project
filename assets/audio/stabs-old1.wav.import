@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/stabs-old1.wav-d7224bd42b0f43063ca75fb8fbf79a23.sample"
+
+[deps]
+
+source_file="res://assets/audio/stabs-old1.wav"
+source_md5="394fc4ff9aed0d050333c4bc53a13ad8"
+
+dest_files=[ "res://.import/stabs-old1.wav-d7224bd42b0f43063ca75fb8fbf79a23.sample" ]
+dest_md5="5b0ef50ee4a1c0fcfd95f496f1e85183"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

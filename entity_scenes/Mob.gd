@@ -24,6 +24,9 @@ remote func set_health(h):
 remote func delete():
 	queue_free()
 
+remote func playMobDeath():
+	$Death.play()
+
 func check_health():
 	if (health <= 0):
 		queue_free()
