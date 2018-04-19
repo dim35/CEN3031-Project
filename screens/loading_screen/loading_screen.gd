@@ -8,7 +8,7 @@ func _init():
 func finished_loading():
 	if (next_scene != null):
 		print(next_scene.get_name())
-		get_tree().change_scene_to(next_scene)
+		get_tree().get_root().add_child(next_scene)
 		queue_free()
 	else:
 		print("Dun messed up")

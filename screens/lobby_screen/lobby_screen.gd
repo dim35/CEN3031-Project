@@ -111,8 +111,7 @@ func _on_Button_pressed():
 	
 func post_configure():
 	var next_scene = preload("res://screens/loading_screen/loading_screen.tscn").instance()
-	next_scene.next_scene = load("res://environment_scenes/World0.tscn")
-	#next_scene.next_scene.set_name("World")
+	next_scene.next_scene = preload("res://environment_scenes/World0.tscn").instance()
 	get_tree().get_root().add_child(next_scene)
 	print("Start game...")
 	queue_free()
