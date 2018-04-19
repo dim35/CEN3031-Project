@@ -98,3 +98,4 @@ func _on_Menu_hidemenu():
 
 func _on_Return_Login_pressed():
 	get_tree().change_scene("res://screens/login_screen/login_screen.tscn")
+	queue_free()
