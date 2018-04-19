@@ -14,6 +14,8 @@ script = ExtResource( 1 )
 
 [connection signal="closegame" from="Menu" to="." method="quit_game"]
 
+[connection signal="hidemenu" from="Menu" to="." method="menu"]
+
 [connection signal="getmenu" from="MenuButton" to="." method="menu"]
 
 [connection signal="mute" from="MenuButton" to="." method="muted"]

@@ -6,11 +6,11 @@ signal hidemenu
 func _ready():
 	$Panel/Change_Sound/PopupMenu/HSlider.value = global_menu.sound_level
 
-func hideMenu():
-	$Panel.hide()
+#func hideMenu():
+#	$Panel.hide()
 
 func _on_Exit_Menu_pressed():
-	hideMenu()
+	#hideMenu()
 	emit_signal("hidemenu")
 
 func _on_Quit_Game_pressed():

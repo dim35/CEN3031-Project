@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mute-volume.jpg-93809c65ed355724e05dbbcdc2ad2282.stex"
+path="res://.import/music_note.png-c67f0a09c90c0ee4b2bbee63509b5842.stex"
 
 [deps]
 
-source_file="res://assets/audio/mute-volume.jpg"
-source_md5="340b6d766f2c7bc8380178036be2b657"
+source_file="res://assets/audio/music_note.png"
+source_md5="e62adadc170b0aa6b170a2963186bc8d"
 
-dest_files=[ "res://.import/mute-volume.jpg-93809c65ed355724e05dbbcdc2ad2282.stex" ]
-dest_md5="4a41db184c3579c038327173052da5b0"
+dest_files=[ "res://.import/music_note.png-c67f0a09c90c0ee4b2bbee63509b5842.stex" ]
+dest_md5="ce4bed5281c2e0b807c90fabecaf3a9a"
 
 [params]
 
