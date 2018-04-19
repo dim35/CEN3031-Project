@@ -75,6 +75,12 @@ remote func remote_move(p, v, s, ld):
 	last_direction = ld
 
 func use_item(id):
+	$PotionParticles.restart()
+	$PotionParticles.rotation = PI*int(last_direction)+PI
+	if(id == 0):
+		$PotionParticles.process_material.color = Color(1, 0, 0)
+	if(id == 1):
+		$PotionParticles.process_material.color = Color(0, 1, 0)
 	rpc_id(1, "restore_stats", id)
 	
 remote func update_stats(hp, mp, sta, def, agil, dmg):
