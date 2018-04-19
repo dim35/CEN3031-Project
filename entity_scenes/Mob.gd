@@ -18,6 +18,7 @@ func take_damage(x):
 	rpc_id(1, "take_damage", x)
 
 remote func set_health(h):
+	$DamagedParticles.restart()
 	health = h
 
 remote func delete():
