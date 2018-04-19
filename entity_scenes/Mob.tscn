@@ -66,7 +66,6 @@ margin_top = -25.0
 margin_right = 13.0
 margin_bottom = -22.0
 
-<<<<<<< HEAD
 [node name="DamagedParticles" type="Particles2D" parent="." index="2"]
 
 emitting = false
@@ -88,7 +87,7 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Time" ]
-=======
+
 [node name="Death" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 5 )
@@ -96,6 +95,6 @@ volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
->>>>>>> drink, stabs, and swings
+
 
 
