@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex"
+path="res://.import/lighting.png-755f62afa5c615cf53a964b06f90a105.stex"
 
 [deps]
 
-source_file="res://assets/audio/mute.svg"
-source_md5="9627da0eb322bfaa7656e2ef4fbb7945"
+source_file="res://assets/animation_sprites/environment/Castle/lighting.png"
+source_md5="b082f554616c07680ed500aba3353eda"
 
-dest_files=[ "res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex" ]
-dest_md5="972e85375df7f380cbeb2c6447b753c0"
+dest_files=[ "res://.import/lighting.png-755f62afa5c615cf53a964b06f90a105.stex" ]
+dest_md5="14d18f9f2cd92901fb56a566120d156e"
 
 [params]
 

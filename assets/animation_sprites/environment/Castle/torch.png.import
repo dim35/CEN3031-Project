@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex"
+path="res://.import/torch.png-ebd76c69f78564511ce1369f67ce885d.stex"
 
 [deps]
 
-source_file="res://assets/audio/mute.svg"
-source_md5="9627da0eb322bfaa7656e2ef4fbb7945"
+source_file="res://assets/animation_sprites/environment/Castle/torch.png"
+source_md5="1e95a9c7baa2745ab7e65243fd907709"
 
-dest_files=[ "res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex" ]
-dest_md5="972e85375df7f380cbeb2c6447b753c0"
+dest_files=[ "res://.import/torch.png-ebd76c69f78564511ce1369f67ce885d.stex" ]
+dest_md5="34f034c104bbb6b086c312376c072138"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

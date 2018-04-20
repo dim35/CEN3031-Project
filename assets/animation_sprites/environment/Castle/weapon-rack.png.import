@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex"
+path="res://.import/weapon-rack.png-60b40bcf586eda1ddabbece8ad24d8f0.stex"
 
 [deps]
 
-source_file="res://assets/audio/mute.svg"
-source_md5="9627da0eb322bfaa7656e2ef4fbb7945"
+source_file="res://assets/animation_sprites/environment/Castle/weapon-rack.png"
+source_md5="9f32cee9c019d8cfaa55303313cb8e32"
 
-dest_files=[ "res://.import/mute.svg-2721b56d890111ab44830be38667e6f3.stex" ]
-dest_md5="972e85375df7f380cbeb2c6447b753c0"
+dest_files=[ "res://.import/weapon-rack.png-60b40bcf586eda1ddabbece8ad24d8f0.stex" ]
+dest_md5="1cb57362c33332abcd253c99aec6b4b3"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
