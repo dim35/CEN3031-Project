@@ -39,15 +39,15 @@ scroll_ignore_camera_zoom = false
 
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 2320, 0 )
+motion_mirroring = Vector2( 2850.99, 0 )
 _sections_unfolded = [ "Motion" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
-position = Vector2( -39.3071, 124.665 )
-scale = Vector2( 0.609173, 0.460457 )
+position = Vector2( -44.1658, 129.579 )
+scale = Vector2( 0.742445, 0.561194 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Label" type="Label" parent="." index="1"]
 
