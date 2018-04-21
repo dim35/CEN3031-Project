@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/glowcage.png-d7319f9a62b1c31f506129fde0881d76.stex"
+path="res://.import/torch8.png-c9c350665053973960ae1adf70384f24.stex"
 
 [deps]
 
-source_file="res://assets/animation_sprites/environment/Castle/glowcage.png"
-source_md5="a32d9cca89df6f60c51b1adc31ebfe4c"
+source_file="res://assets/animation_sprites/environment/Castle/Torch/torch8.png"
+source_md5="d38381d8ce0032e52bd92a7db95321bf"
 
-dest_files=[ "res://.import/glowcage.png-d7319f9a62b1c31f506129fde0881d76.stex" ]
-dest_md5="f5362901d7c13a7259ac6fab97bd96eb"
+dest_files=[ "res://.import/torch8.png-c9c350665053973960ae1adf70384f24.stex" ]
+dest_md5="ba6454967d08262515e099072d3e7613"
 
 [params]
 

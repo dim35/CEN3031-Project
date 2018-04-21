@@ -1,12 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://environment_scenes/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/DarkCastle.tres" type="TileSet" id=2]
 [ext_resource path="res://environment_scenes/CastleBackground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/animation_sprites/environment/Castle/torch.png" type="Texture" id=4]
-[ext_resource path="res://assets/animation_sprites/environment/Castle/lighting.png" type="Texture" id=5]
-[ext_resource path="res://assets/animation_sprites/environment/Castle/crate.png" type="Texture" id=6]
-[ext_resource path="res://assets/animation_sprites/environment/Castle/weapon-rack.png" type="Texture" id=7]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch0.png" type="Texture" id=4]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch1.png" type="Texture" id=5]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch2.png" type="Texture" id=6]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch3.png" type="Texture" id=7]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch4.png" type="Texture" id=8]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch5.png" type="Texture" id=9]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch6.png" type="Texture" id=10]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch7.png" type="Texture" id=11]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/Torch/torch8.png" type="Texture" id=12]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/lighting.png" type="Texture" id=13]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/crate.png" type="Texture" id=14]
+[ext_resource path="res://assets/animation_sprites/environment/Castle/weapon-rack.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "fanning",
+"speed": 8.0
+} ]
 
 [node name="World" index="0" instance=ExtResource( 1 )]
 
@@ -28,14 +45,14 @@ editor/display_folded = true
 
 [node name="Torches" type="Node2D" parent="." index="7"]
 
-editor/display_folded = true
-
-[node name="Torch1" type="Sprite" parent="Torches" index="0"]
+[node name="Torch1" type="AnimatedSprite" parent="Torches" index="0"]
 
 editor/display_folded = true
 position = Vector2( 256, 256 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 4
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -43,11 +60,11 @@ __meta__ = {
 
 [node name="Light2D" type="Light2D" parent="Torches/Torch1" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -68,24 +85,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch2" type="Sprite" parent="Torches" index="1"]
+[node name="Torch12" type="AnimatedSprite" parent="Torches" index="1"]
 
 editor/display_folded = true
 position = Vector2( 576, 256 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 3
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch2" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch12" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -106,24 +125,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch3" type="Sprite" parent="Torches" index="2"]
+[node name="Torch13" type="AnimatedSprite" parent="Torches" index="2"]
 
 editor/display_folded = true
 position = Vector2( 928, 256 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 2
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch3" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch13" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -144,24 +165,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch4" type="Sprite" parent="Torches" index="3"]
+[node name="Torch14" type="AnimatedSprite" parent="Torches" index="3"]
 
 editor/display_folded = true
 position = Vector2( 1280, 256 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 2
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch4" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch14" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -182,24 +205,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch5" type="Sprite" parent="Torches" index="4"]
+[node name="Torch15" type="AnimatedSprite" parent="Torches" index="4"]
 
 editor/display_folded = true
 position = Vector2( 1632, 128 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 2
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch5" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch15" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -220,24 +245,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch6" type="Sprite" parent="Torches" index="5"]
+[node name="Torch16" type="AnimatedSprite" parent="Torches" index="5"]
 
 editor/display_folded = true
 position = Vector2( 2112, 64 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 1
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch6" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch16" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -258,24 +285,25 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch7" type="Sprite" parent="Torches" index="6"]
+[node name="Torch17" type="AnimatedSprite" parent="Torches" index="6"]
 
 editor/display_folded = true
 position = Vector2( 2528, 128 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch7" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch17" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -296,24 +324,25 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch8" type="Sprite" parent="Torches" index="7"]
+[node name="Torch18" type="AnimatedSprite" parent="Torches" index="7"]
 
 editor/display_folded = true
 position = Vector2( 2912, 128 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch8" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch18" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -334,24 +363,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch9" type="Sprite" parent="Torches" index="8"]
+[node name="Torch19" type="AnimatedSprite" parent="Torches" index="8"]
 
 editor/display_folded = true
 position = Vector2( 3424, 128 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 8
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch9" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch19" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -372,24 +403,26 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch10" type="Sprite" parent="Torches" index="9"]
+[node name="Torch20" type="AnimatedSprite" parent="Torches" index="9"]
 
 editor/display_folded = true
 position = Vector2( 3872, 224 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 8
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch10" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch20" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -410,24 +443,25 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="Torch11" type="Sprite" parent="Torches" index="10"]
+[node name="Torch21" type="AnimatedSprite" parent="Torches" index="10"]
 
-editor/display_folded = true
 position = Vector2( 4000, 224 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+frames = SubResource( 1 )
+animation = "fanning"
+frame = 7
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Torches/Torch11" index="0"]
+[node name="Light2D" type="Light2D" parent="Torches/Torch21" index="0"]
 
-position = Vector2( 0.735321, -0.945374 )
+position = Vector2( 0.735321, -13.9454 )
 scale = Vector2( 0.0964987, 0.0964987 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.753906, 0.621798, 0.170807, 1 )
@@ -456,70 +490,70 @@ editor/display_folded = true
 
 position = Vector2( 157.028, 336.313 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="crate3" type="Sprite" parent="Props" index="1"]
 
 position = Vector2( 692.421, 340.208 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="crate5" type="Sprite" parent="Props" index="2"]
 
 position = Vector2( 1744.97, 177.655 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="crate6" type="Sprite" parent="Props" index="3"]
 
 position = Vector2( 1851.72, 177.709 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="crate4" type="Sprite" parent="Props" index="4"]
 
 position = Vector2( 729.6, 339.608 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="crate2" type="Sprite" parent="Props" index="5"]
 
 position = Vector2( 57.5371, 333.442 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="weapon-rack" type="Sprite" parent="Props" index="6"]
 
 position = Vector2( 98.8806, 324.816 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="weapon-rack2" type="Sprite" parent="Props" index="7"]
 
 position = Vector2( 1800.97, 166.747 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="weapon-rack3" type="Sprite" parent="Props" index="8"]
 
 position = Vector2( 1991.08, 4.78521 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="weapon-rack4" type="Sprite" parent="Props" index="9"]
 
 position = Vector2( 2286.67, 2.46386 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 
