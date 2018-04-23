@@ -35,18 +35,18 @@ tile_data = PoolIntArray( -786407, 0, 65536, -786406, 0, 65537, -786405, 0, 6553
 
 [node name="Gate" parent="." index="2"]
 
+editor/display_folded = false
 position = Vector2( 3936, 224 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="BackgroundMusic" parent="MenuInstance" index="2"]
 
 stream = ExtResource( 3 )
+volume_db = -25.0
 
 [node name="CastleBackground" parent="." index="6" instance=ExtResource( 4 )]
 
 [node name="Torches" type="Node2D" parent="." index="7"]
-
-editor/display_folded = true
 
 [node name="Torch1" type="AnimatedSprite" parent="Torches" index="0"]
 
@@ -54,7 +54,7 @@ editor/display_folded = true
 position = Vector2( 256, 256 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 6
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -94,7 +94,7 @@ editor/display_folded = true
 position = Vector2( 576, 256 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 5
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -134,7 +134,7 @@ editor/display_folded = true
 position = Vector2( 928, 256 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 4
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -174,7 +174,7 @@ editor/display_folded = true
 position = Vector2( 1280, 256 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 4
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -214,7 +214,7 @@ editor/display_folded = true
 position = Vector2( 1632, 128 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 4
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -254,7 +254,7 @@ editor/display_folded = true
 position = Vector2( 2112, 64 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 3
+frame = 7
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -294,7 +294,7 @@ editor/display_folded = true
 position = Vector2( 2528, 128 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 2
+frame = 8
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -334,7 +334,7 @@ editor/display_folded = true
 position = Vector2( 2912, 128 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 2
+frame = 8
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -374,7 +374,7 @@ editor/display_folded = true
 position = Vector2( 3424, 128 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 1
+frame = 6
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -414,7 +414,7 @@ editor/display_folded = true
 position = Vector2( 3872, 224 )
 frames = SubResource( 1 )
 animation = "fanning"
-frame = 1
+frame = 6
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -453,6 +453,7 @@ _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 position = Vector2( 4000, 224 )
 frames = SubResource( 1 )
 animation = "fanning"
+frame = 5
 playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {

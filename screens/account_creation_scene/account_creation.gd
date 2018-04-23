@@ -21,6 +21,7 @@ func _init():
 func _ready():
 	username_field.grab_focus()
 	print ("loaded account creation!")
+	$MenuInstance/BackgroundMusic.play(global_menu.musicSeconds)
 	
 # This has been connected from Button
 func _on_Create_Account_pressed():
@@ -89,6 +90,7 @@ var isMenuActive = false
 
 func _process(delta):
 	camera.position.x += 2
+	global_menu.musicSeconds = OS.get_unix_time() - global_menu.timestart
 	if(Input.is_action_pressed("ui_enter") and isMenuActive == false):
 		_on_Create_Account_pressed()
 
