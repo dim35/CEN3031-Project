@@ -6,11 +6,15 @@ var STAMINA_JUMP_DEPLETION = 8
 var STAMINA_ATTACK_DEPLETION = 0.6
 var STAMINA_IDLE_REGEN = 0.4
 var SPELL_MANA_DEPLETION = 1
+var SPELL_MANA_IDLE_REGEN = 0.2
 var current_xp
 var classtype
 var username
 
+var clock
+
 func _ready():
+	clock = 0
 	who = "player"
 	set_max_attributes(200, 80, 150, 300, 150, 15)
 	$name.text = username
@@ -23,6 +27,9 @@ func _process(delta):
 	# multiple the size by the scale and divide by 2 to center
 	var pos = -$name.get_size().x*0.25*0.5
 	$name.rect_position = Vector2(pos, $Animations.position.y - 15)
+	clock += 1
+	if clock > 500:
+		clock = 0
 
 
 var is_attacking = false
@@ -59,6 +66,7 @@ func move():
 	
 	if state == "idle":
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
+		mana = min(mana + SPELL_MANA_IDLE_REGEN, MAX_MANA)
 	
 	flip_state(last_direction)
 	update_state(state)
@@ -97,3 +105,6 @@ remote func playDeath():
 
 remote func playWilhelm():
 	$Wilhelm.play()
+
+remote func reset_clock():
+	clock = 0
