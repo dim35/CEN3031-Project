@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/animation_sprites/potion/potion1.png" type="Texture" id=3]
 [ext_resource path="res://assets/animation_sprites/potion/potion2.png" type="Texture" id=4]
 
-[node name="Inventory" type="Container"]
+[node name="Inventory" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

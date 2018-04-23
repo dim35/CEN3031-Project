@@ -31,8 +31,8 @@ func _ready():
 	for i in range(2):
 		inventory[i] = 0
 		
-	$PlayerHUD/Inventory/HealthPotion.set_inventory_item_count(0, 0)
-	$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, 0)
+	$PlayerHUD/Inventory/HealthPotion.set_inventory_item_count(0, inventory[0])
+	$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, inventory[1])
 
 remote func spawn(who, id, it_id = 0, b = 0):
 	print("spawn! " + who + " " + str(id))
@@ -88,14 +88,15 @@ func _physics_process(delta):
 	if Input.is_action_just_released("use_item_0") && (inventory[0] > 0):
 		print("Drinking a health potion!")
 		update_inventory(0)
-		$PlayerHUD/Inventory/HealthPotion.set_inventory_item_count(0, inventory[0])
 		local_player_instance.use_item(0)
 		
 	elif Input.is_action_just_released("use_item_1") && (inventory[1] > 0):
 		print("Drinking a stamina potion!")
 		update_inventory(1)
-		$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, inventory[1])
-		local_player_instance.use_item(1)	
+		local_player_instance.use_item(1)
+	
+	$PlayerHUD/Inventory/HealthPotion.set_inventory_item_count(0, inventory[0])
+	$PlayerHUD/Inventory/StaminaPotion.set_inventory_item_count(1, inventory[1])
 
 # Triggered upon body entering the area. Used mainly for player entry. Triggers level end.
 func _on_GateArea_body_entered(body):
