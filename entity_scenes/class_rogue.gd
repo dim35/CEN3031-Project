@@ -6,4 +6,5 @@ func _ready():
 	set_max_attributes(150, 100, 200, 100, 150, 10)
 
 remote func playStabs():
-	$Stabs.play()
+	#$Stabs.play()
+	pass
