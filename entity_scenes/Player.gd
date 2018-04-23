@@ -28,8 +28,6 @@ func _process(delta):
 	var pos = -$name.get_size().x*0.25*0.5
 	$name.rect_position = Vector2(pos, $Animations.position.y - 15)
 	clock += 1
-	if clock > 500:
-		clock = 0
 
 
 var is_attacking = false
@@ -40,21 +38,27 @@ func move():
 	var moved_this_itr = false
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift") && stamina != 0:
+			clock = 0
 			velocity.x = -2*speed
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0) 
 		moved_this_itr = true
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift") && stamina != 0:
+			clock = 0
 			velocity.x = 2*speed
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		moved_this_itr = true
 	if Input.is_action_just_pressed("jump"):
-			velocity.y = -1.5*150
-			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
-			moved_this_itr = true
+		clock = 0
+		velocity.y = -1.5*150
+		stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
+		moved_this_itr = true
 	if Input.is_action_pressed("attack"):
+		clock = 0
+		if (classtype == "mage") && (mana == 0):
+			return
 		is_attacking = true
 		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
 		if classtype == "mage":
@@ -64,9 +68,10 @@ func move():
 	if moved_this_itr:
 		rpc_id(1, "move", velocity, is_attacking)
 	
-	if state == "idle":
+	if (state == "idle" || state == "walking") && clock >= 70:
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 		mana = min(mana + SPELL_MANA_IDLE_REGEN, MAX_MANA)
+
 	
 	flip_state(last_direction)
 	update_state(state)
