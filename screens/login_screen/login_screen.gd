@@ -17,9 +17,11 @@ var website_login_address = "https://ec2-54-175-123-188.compute-1.amazonaws.com"
 func _init():
 	pass
 
+
 func _ready():
 	username_field.grab_focus()
 	print ("loaded login!")
+	$MenuInstance/BackgroundMusic.play(global_menu.musicSeconds)
 	
 # This has been connected from Button
 func _on_Login_pressed():
@@ -99,6 +101,7 @@ func _on_Signup_pressed():
 
 func _process(delta):
 	camera.position.x += 2
+	global_menu.musicSeconds = OS.get_unix_time() - global_menu.timestart
 	if(Input.is_action_pressed("ui_enter") and isMenuActive == false):
 		_on_Login_pressed()
 

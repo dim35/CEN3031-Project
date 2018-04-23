@@ -2,15 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torch8.png-c9c350665053973960ae1adf70384f24.stex"
+valid=false
 
 [deps]
 
 source_file="res://assets/animation_sprites/environment/Castle/Torch/torch8.png"
-source_md5="d38381d8ce0032e52bd92a7db95321bf"
-
-dest_files=[ "res://.import/torch8.png-c9c350665053973960ae1adf70384f24.stex" ]
-dest_md5="ba6454967d08262515e099072d3e7613"
+source_md5="790b47ce33356b9493e981bf105da7ce"
 
 [params]
 
