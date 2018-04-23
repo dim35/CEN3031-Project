@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lonely Witch.ogg-727dd2a853bd3aaf77fb4d4a9fbccab5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Lonely Witch.ogg"
+source_md5="5450cd6a372060173ac94f240caf2cd8"
+
+dest_files=[ "res://.import/Lonely Witch.ogg-727dd2a853bd3aaf77fb4d4a9fbccab5.oggstr" ]
+dest_md5="61b01396be3cee0924fb7703537dafea"
+
+[params]
+
+loop=true
+loop_offset=0
