@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Forgoten_tombs.wav-60a8248b4c9271b5b5a8ab8f55d325b3.sample"
+
+[deps]
+
+source_file="res://assets/audio/Forgoten_tombs.wav"
+source_md5="132c5f8bbff169ed9e7afd6800637941"
+
+dest_files=[ "res://.import/Forgoten_tombs.wav-60a8248b4c9271b5b5a8ab8f55d325b3.sample" ]
+dest_md5="c59e25837d051f9cf6e72a28c868f709"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
