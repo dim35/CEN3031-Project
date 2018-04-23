@@ -35,6 +35,9 @@ func _on_Create_Account_pressed():
 	if c == -3:
 		text_result.bbcode_text = "Username is already in use"
 		return
+	if c == -4:
+		text_result.bbcode_text = "Password must be at least 3 characters long"
+		return
 	else:
 		text_result.bbcode_text = "Account created successfully"
 		return
@@ -77,8 +80,10 @@ func connect():
 		return 200
 	if code == 666:
 		return -2
-	else:
+	if code == 667:
 		return -3
+	else:
+		return -4
 
 var isMenuActive = false
 

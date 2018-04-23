@@ -36,19 +36,20 @@ Attacking: hold X
 ![In Game](assets/screenshots/ingame.png)
 
 ## Credits
-- Sky background: [Paulina Riva](https://opengameart.org/content/sky-background), CC-BY 3.0 license
+- Sky background: [Paulina Riva](https://opengameart.org/content/sky-background), CC-BY 3.0 
 - Knight sprites: [Disthron](https://opengameart.org/content/classic-knight-animated), Public Domain
 - Mage sprites (recolored from original): [Disthron](https://opengameart.org/content/mr-necromancer-man-animated), Public Domain
 - Rogue sprites: [Disthron](https://opengameart.org/content/mr-knife-guy-animated), Public Domain
 - Castle tiles: [OpenPixelProject](https://openpixelproject.itch.io/opp2017castle), Public Domain
 - Lobby slot frames: [yd](https://opengameart.org/content/gui-windows-constructor), Public Domain
-- Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 license
+- Lobby unchecked/checked boxes: [Lamoot](https://opengameart.org/content/rpg-gui-construction-kit-v10), CC-BY 3.0 
 - Fireball (recolored from original): [djantosh10](https://opengameart.org/content/fireballs), Public Domain
-- Desert background: [Game Building Tools](http://www.gamebuildingtools.com/product/desert-parallax-background/), CC-BY-4.0 license
+- Desert background: [Game Building Tools](http://www.gamebuildingtools.com/product/desert-parallax-background/), CC-BY-4.0 
 - Castle: [Alucard](https://opengameart.org/content/castle-2d), Public Domain
-- House in a Forest Loop: [HorrorPen](https://opengameart.org/users/horrorpen),CC-BY 3.0 license
-- Fireball Cast 1: [LiamG_SFX](https://freesound.org/people/LiamG_SFX/),CC-BY 3.0 license
-- BitGameSound: [dragonx62](https://freesound.org/people/dragonx62/),CC-BY 3.0 license
-- Small Explosion: [ryansnook](https://freesound.org/people/ryansnook/),CC-BY 3.0 license
-- RPG - The Secret Within the Woods: [Hitctrl](https://opengameart.org/users/hitctrl),CC-BY 3.0 license
+- House in a Forest Loop: [HorrorPen](https://opengameart.org/users/horrorpen),CC-BY 3.0 
+- Fireball Cast 1: [LiamG_SFX](https://freesound.org/people/LiamG_SFX/),CC-BY 3.0 
+- BitGameSound: [dragonx62](https://freesound.org/people/dragonx62/),CC-BY 3.0 
+- Small Explosion: [ryansnook](https://freesound.org/people/ryansnook/),CC-BY 3.0 
+- RPG - The Secret Within the Woods: [Hitctrl](https://opengameart.org/users/hitctrl),CC-BY 3.0 
 - Castle back wall: [Antti Tujula, Indium Games](https://blog.indiumgames.fi/2014/08/06/creating-level-2d-game/), with permission of author
+- Animated torches: [Hugh Spectrum and Sharm](https://opengameart.org/content/lpc-animated-torch), CC-BY-SA 3.0
