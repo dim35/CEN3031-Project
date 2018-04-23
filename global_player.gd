@@ -17,6 +17,11 @@ signal game_in_play()
 signal new_player_ready()
 signal finished_loading()
 
+onready var World1 = preload("res://environment_scenes/World1.tscn")
+onready var World2 = preload("res://environment_scenes/World2.tscn")
+#onready var World3 = preload("res://environment_scenes/World3.tscn")
+
+
 func start_client():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(server_ip, server_port)
@@ -84,10 +89,18 @@ remote func finished_loading():
 	
 
 remote func load_next_map(next_world):
+	print(next_world)
 	get_node("/root/World").set_name("OldWorldFreeing")
 	get_node("/root/OldWorldFreeing").queue_free()
-	var load_screen = load("res://screens/loading_screen/loading_screen.tscn").instance()
-	load_screen.next_scene = load("res://environment_scenes/"+next_world+".tscn")
+	var load_screen = preload("res://screens/loading_screen/loading_screen.tscn").instance()
+	match next_world:
+		"World1":
+			load_screen.next_scene = World1.instance()
+		"World2":
+			load_screen.next_scene = World2.instance()
+#		"World3":
+#			load_screen.next_scene = World3.instance()
+
 	get_tree().get_root().add_child(load_screen)
 	
 remote func we_done_bois():
