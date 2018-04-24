@@ -260,7 +260,7 @@ _sections_unfolded = [ "Motion" ]
 
 [node name="Sky" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer" index="0"]
 
-position = Vector2( -189.01, 0.259995 )
+position = Vector2( -189.01, 0.26001 )
 scale = Vector2( 4.25564, 4.25564 )
 texture = ExtResource( 4 )
 centered = false

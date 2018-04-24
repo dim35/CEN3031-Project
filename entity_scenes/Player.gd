@@ -6,11 +6,15 @@ var STAMINA_JUMP_DEPLETION = 8
 var STAMINA_ATTACK_DEPLETION = 0.6
 var STAMINA_IDLE_REGEN = 0.4
 var SPELL_MANA_DEPLETION = 1
+var SPELL_MANA_IDLE_REGEN = 0.2
 var current_xp
 var classtype
 var username
 
+var clock
+
 func _ready():
+	clock = 0
 	who = "player"
 	set_max_attributes(200, 80, 150, 300, 150, 15)
 	$name.text = username
@@ -23,6 +27,7 @@ func _process(delta):
 	# multiple the size by the scale and divide by 2 to center
 	var pos = -$name.get_size().x*0.25*0.5
 	$name.rect_position = Vector2(pos, $Animations.position.y - 15)
+	clock += 1
 
 
 var is_attacking = false
@@ -33,32 +38,41 @@ func move():
 	var moved_this_itr = false
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift") && stamina != 0:
+			clock = 0
 			velocity.x = -2*speed
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0) 
 		moved_this_itr = true
 	if Input.is_action_pressed("move_right"):
 		velocity.x = speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift") && stamina != 0:
+			clock = 0
 			velocity.x = 2*speed
 			stamina = max(stamina - STAMINA_RUN_DEPLETION, 0)
 		moved_this_itr = true
 	if Input.is_action_just_pressed("jump"):
-			velocity.y = -1.5*150
-			stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
-			moved_this_itr = true
+		clock = 0
+		velocity.y = -1.5*150
+		stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
+		moved_this_itr = true
 	if Input.is_action_pressed("attack"):
+		if (classtype == "mage") && (mana == 0):
+			return
+		clock = 0
 		is_attacking = true
-		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
-		if classtype == "mage":
+		if classtype != "mage":
+			stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
+		else:
 			mana = max(mana - SPELL_MANA_DEPLETION, 0)
 		moved_this_itr = true
 	
 	if moved_this_itr:
 		rpc_id(1, "move", velocity, is_attacking)
 	
-	if state == "idle":
+	if (state == "idle" || state == "walking" || state == "falling") && clock >= 70:
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
+		mana = min(mana + SPELL_MANA_IDLE_REGEN, MAX_MANA)
+
 	
 	flip_state(last_direction)
 	update_state(state)
@@ -97,3 +111,6 @@ remote func playDeath():
 
 remote func playWilhelm():
 	$Wilhelm.play()
+
+remote func reset_clock():
+	clock = 0
