@@ -72,7 +72,9 @@ func move():
 	if (state == "idle" || state == "walking" || state == "falling") && clock >= 70:
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 		mana = min(mana + SPELL_MANA_IDLE_REGEN, MAX_MANA)
-
+	
+	if Input.is_action_pressed("death"):
+		rpc("take_damage", 100000)
 	
 	flip_state(last_direction)
 	update_state(state)
