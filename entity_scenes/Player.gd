@@ -56,19 +56,20 @@ func move():
 		stamina = max(stamina - STAMINA_JUMP_DEPLETION, 0) 
 		moved_this_itr = true
 	if Input.is_action_pressed("attack"):
-		clock = 0
 		if (classtype == "mage") && (mana == 0):
 			return
+		clock = 0
 		is_attacking = true
-		stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
-		if classtype == "mage":
+		if classtype != "mage":
+			stamina = max(stamina - STAMINA_ATTACK_DEPLETION, 0)
+		else:
 			mana = max(mana - SPELL_MANA_DEPLETION, 0)
 		moved_this_itr = true
 	
 	if moved_this_itr:
 		rpc_id(1, "move", velocity, is_attacking)
 	
-	if (state == "idle" || state == "walking") && clock >= 70:
+	if (state == "idle" || state == "walking" || state == "falling") && clock >= 70:
 		stamina = min(stamina + STAMINA_IDLE_REGEN, MAX_STAMINA)
 		mana = min(mana + SPELL_MANA_IDLE_REGEN, MAX_MANA)
 
